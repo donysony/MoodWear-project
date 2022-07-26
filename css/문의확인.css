@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:ital@1&display=swap');
+body{margin:0 auto;}
+.inquiry_article{min-width: 1000px;}
+hr{width:1000px; border:1px solid black;}
+h1{font-size: 30px; font-family: 'Gowun Batang', serif;position:relative;}
+.inquirytable{border:solid 1px #bdbdbd; text-align: center;}
+#explain{height:300px;}
+.ex{font-family: 'GmarketSansMedium';}
+#password{font-family: 'GmarketSansMedium';}
+.buttondiv{display: flex; justify-content: center; margin-top: 50px;}
+.tablediv{display: grid; justify-content: center;} 
+#check{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; font-family: 'GmarketSansMedium';}
+#list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium';}
+.inquirytable{width:1000px; height:400px;}
+#pw{width:500px; height:30px;}

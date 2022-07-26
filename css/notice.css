@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:ital@1&display=swap');
+*{color:black; text-decoration:none;}
+
+.article_notice{min-width: 1000px;}
+.tablenotice {border-top:2px solid black; width:1000px;}
+h1{font-size: 30px;font-family: 'Gowun Batang', serif;}
+table, td{border-bottom:1px solid #757575; border-collapse: collapse; }
+tr{height:50px; font-family: 'GmarketSansMedium'; font-size: 18px;}
+.date{font-size: 15px; font-family: 'GmarketSansMedium';}
+.title{background-color: #bdbdbd; text-align: center; font-family: 'GmarketSansMedium';}
+hr{width:1000px;}
+#Tolist{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium';}
