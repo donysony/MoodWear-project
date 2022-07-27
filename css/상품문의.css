@@ -9,7 +9,8 @@
 body{margin:0 auto;}
 .inquiry_article{min-width: 1000px;}
 h1{font-size: 30px; font-family: 'Gowun Batang', serif;position:relative;}
-.inquirytable{width:1000px; border-top:3px solid black; text-align: center;}
+.inquirytable{width:1000px; border-top:2px solid black; text-align: center; border-bottom:1px solid black; border-collapse: collapse;}
+td{border-top: 1px solid #757575;}
 .headtitle{background-color: #bdbdbd; width:150px;font-family: 'GmarketSansMedium'; margin-left:20px ;}
 .info input{width:300px; height:30px;}
 .title input{width:800px; height:30px;}

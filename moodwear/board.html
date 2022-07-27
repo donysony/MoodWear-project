@@ -4,34 +4,154 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/board.css">
     <title>Document</title>
 </head>
 <body>
-    <header></header>
-    <section>
-        <article>
-            <table>
-                <tr>
-                    <th>번호</th>
-                    <th>상품정보</th>
-                    <th>카테고리</th>
-                    <th>제목</th>
-                    <th>작성자</th>
+    <div id="body-wrapper">
+    <header>
+        <div class="top">
+            <ul>
+                <li><a href="">고객센터</a></li>
+                <li><a href="">회원가입</a></li>
+                <li><a href="">로그인</a></li>
+            </ul>
+        </div>
+
+        <div class="nav">
+            <div>
+                <a href="">
+                    <img src="../img/로고 누끼.png" id="logo"></a>
+            </div>
+
+                
+            <div>
+                <ul class="ulul">
+                    <li><a href="" class="ct">브랜드 상품</a></li>
+                    <li><a href="" class="ct">베스트 상품</a></li>
+                    <li><a href="" class="ct">무드웨어 소개</a></li>
+                    <li><a href="" class="ct">웨어러 추천</a></li>
+                    <li><a href="" class="ct">문의</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <ul>
+                    <li>
+                        <div class="search">
+                            <span>&ensp;검색페이지로 이동&ensp;</span> 
+                            <img src="../img/화살표.png" id="sc">
+                        </div>
+                    </li>
+                    <li><a href=""><img src="../img/좋아요.png" ></a></li>
+                    <li><a href=""><img src="../img/장바구니.png"></a></li>
+                </ul>
+            </div>
+        </div>
+</header>
+
+    <section class="section_board">
+        <article class="article_board">
+            <div class="select_QA">
+            <select name="" id="selectbox">
+                <option value="">전체</option>
+                <option value="">상품문의</option>
+                <option value="">이벤트공지/공지사항</option>
+            </select>
+            <h1>Q & A</h1>
+        </div>
+        <div class="table_btn">
+            <table class="table_QA">
+                <tr class="tablehead">
+                    <th width="5%">번호</th>
+                    <th width="15%">상품정보</th>
+                    <th width="15%">카테고리</th>
+                    <th width="40%">제목</th>
+                    <th >작성자</th>
                     <th>작성일</th>
                     <th>조회수</th>
                 </tr>
-                <tr>
+                <tr class="tabletr">
+                    <td><img src="../img/clarity_notification-line.png" alt="공지"></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>공지사항</td>
+                    <td class="inquiry_ans">[필독] 교환 및 환불 신청 전 확인해주세요!!!</td>
+                    <td>관리자</td>
+                    <td>2021.07.26</td>
+                    <td>1988</td>
+                </tr>
+                <tr class="tabletr">
+                    <td>2</td>
+                    <td>조말론 라임 바질</td>
+                    <td>상품문의</td>
+                    <td class="inquiry_ans">문의합니다<img src="../img/ei_lock.png" alt="잠금" ></td>
+                    <td>박*선</td>
+                    <td>2022.07.27</td>
+                    <td>1</td>
+                </tr>
+                <tr class="tabletr">
+                    <td>1</td>
+                    <td>조말론 라임 바질</td>
+                    <td>상품문의</td>
+                    <td class="inquiry_ans">문의합니다<img src="../img/ei_lock.png" alt="잠금"><span id="answercount">[1]</span></td>
+                    <td>박*선</td>
+                    <td>2022.07.27</td>
+                    <td>1</td>
                 </tr>
             </table>
+            <div class="buttondiv">
+            <button type="button" onclick="location.href='board.html'" id="listbtn">목록</button> &emsp;
+            <button type="button" onclick="location.href='상품문의.html'" id="writebtn">글쓰기</button>
+        </div>
+        </div>
+
+        <div class="paging">
+            <ul>
+                <li><a href="">&lt;</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">&gt;</a></li>
+            </ul>
+
+        </div>
+
+
+
+        <div class="search_box">
+        <select name="" id="search_category">
+            <option value="">&ensp;제목</option>
+            <option value="">&ensp;이름</option>
+        </select>&ensp;
+        <form action="" id="search_form">
+            <input type="text" id="btn_text">
+            <button type="submit" id="btn_search"><img src="../img/fe_search.png" alt=""></button>
+        </form>
+        </div>
+
         </article>
     </section>
-    <footer></footer>
+</div>
+    <footer>
+        <span id="introduce">
+            mood wearㅣ인천시 남동구 인주대로 518, 엔타스 12층 (01234)ㅣ대표자 : 장지윤 박경선 정이랑<br>
+            사업자 등록번호 : 214-22-07141ㅣ통신판매업신고 : 2022-인천남동, 10392ㅣ개인정보관리책임자 : <br>
+            장지윤ㅣ호스팅서비스사업자 : moodwearㅣ고객센터 : 1234-1234ㅣ이메일 : mwmw@mw.co.kr
+        </span>
+
+        <div id="ft">
+            <ul>
+                <li><a href="">개인정보 처리방침 |</a></li>
+                <li><a href="">이용약관 |</a></li>
+                <li><a href="">사이트맵 |</a></li>
+                <li><a href="">환불 정책 | </a></li>
+                <li><a href="">회사 세부정보</a></li>
+            </ul>
+            <span id="copy">Copyright 2022 MOODWEAR Inc. all rights reserved.</span>
+        </div>
+</footer>
+
 </body>
 </html>

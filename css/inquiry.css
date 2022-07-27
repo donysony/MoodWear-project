@@ -17,5 +17,11 @@ tr{height:50px; font-family: 'GmarketSansMedium'; font-size: 18px;}
 .title{background-color: #bdbdbd; text-align: center; font-family: 'GmarketSansMedium'; width:20%}
 #bottomtr{height: 500px;}
 #Tolist{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium'; margin-top: 20px;}
-.nextcontent{background-color: #bdbdbd; text-align: center; font-family: 'GmarketSansMedium'; width:20%; }
-.next{border-bottom: 1px solid #757575; border-top: 1px solid #757575; border-collapse: collapse; margin-top: 50px;}
+.nextcontent{background-color: #bdbdbd; text-align: center; font-family: 'GmarketSansMedium'; width:20%; border-bottom: #757575 1px solid; }
+.next{border-bottom: 1px solid #757575; border-top: 1px solid #757575; border-collapse: collapse; margin-top: 50px; }
+
+/*inquiry 추가사항*/
+#nextinquriy{border-bottom: #757575 1px solid;}
+.answer{height:150px;}
+
+
