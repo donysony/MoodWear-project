@@ -7,7 +7,7 @@
 */
 
 *{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard;}
-h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
 
 .aside_section{display: flex; justify-content: center; }
 
@@ -16,24 +16,14 @@ h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
 .aside li{padding:5px;}
 .aside{width:300px;}
 article{width:1000px; margin-bottom: 50px;}
-h2, h4{display: inline-block;}
-
-/*주문조회&좋아요&문의내역 공통*/
-.title{display: flex; justify-content: space-between;}
-
-/*주문조회*/
-.ordertable{background-color: #dbdbdb;}
-.ordertable td{ width:1000px;padding:15px;}
-.ordertable td:nth-child(1){width:200px;}
-.ordertable td:nth-child(2){width:400px;}
-.ordertable td:nth-child(3){width:200px;}
-.ordertable td:nth-child(4){width:200px;}
+h2{font-size: 30px;}
 
 /*좋아요*/
+.title{text-align: left;}
 .article_like{text-align: center;}
 .like_cart p{font-family: 'Gowun Batang', serif; font-size: 20px; text-align: left;}
-.likeimg{width:300px; height:400px;}
-.like_cart{position:relative;  display: inline-block; margin-left: 10px;}
+.likeimg{width:250px; height:300px;}
+.like_cart{position:relative;  display: inline-block; margin-left: 20px; margin-right: 20px; }
 .wrapper{position:relative; display: inline-block;}
 .wrapper img:nth-child(1){position:absolute; right:55px; bottom:13px; }
 .wrapper img:nth-child(2){position:absolute; right:50px; bottom:10px; }
@@ -41,5 +31,13 @@ h2, h4{display: inline-block;}
 .wrapper img:nth-child(4){position:absolute; right:10px; bottom:10px; }
 .background{width:40px; height:40px;}
 
-/*1:1문의내역*/
-.inquirynotice{text-align: center; margin-top: 100px;}
+.container{border: 1px solid #e0e0e0; height:60vh; border-radius: 5%; overflow-y: auto; }
+.containerdiv{padding:70px 20px 20px 20px; display: flex; flex-wrap: wrap; justify-content: flex-start; }
+/*스크롤바 전체영역에 대한 설정*/
+.container::-webkit-scrollbar{width:20px; }
+/*스크롤바 막대에 대한 설정*/
+.container::-webkit-scrollbar-thumb{background-color: #bdbdbd; border-radius: 10px; background-clip: padding-box; border:5px solid transparent;}
+
+/*스크롤바 뒷 배경에 대한 설정*/
+.container::-webkit-scrollbar-track{}
+
