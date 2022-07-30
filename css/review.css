@@ -1,55 +1,44 @@
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-  * {box-sizing: border-box; font-family: 'GmarketSansMedium'; margin: 0; padding: 0;}
-  body {font-size: 14px; width: 519px; height: 820px;}
-  div {margin-bottom: 18px;}
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-  /*헤더 & 닫는아이콘*/
-  .head{display: flex; justify-content: center; align-items: center; position: relative;}
-  .head>img{width: 20px; height: 20px; position: absolute; right: 3%;}
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
 
-  /* 공간 정보 */
-  .info{height: 20%; display: flex; margin: 1% 1% 2%;}
-  .rayout{width: 200px; height: 150px; border: 1px solid #D5D5D5; display: grid;}
-  .info>div:nth-child(2){display: flex; width: 20%; height: 5%; flex-direction: column; padding: 0; margin-left: 1%;}
-  .info{margin-bottom: 0;}
-  .category{width: 5.5rem; height: 1.5rem; border: #A7AEFF 2px solid; border-radius: 5px; 
-            padding-top: 2px; padding-right: 1px !important; margin-bottom: 5px; text-align: center; color: #BDBDBD;}
-  .info>div:nth-child(2)>div{padding: 0;}
+* {box-sizing: border-box; font-family: Pretendard; margin: 0; padding: 0;}
+.review_article div{margin-bottom: 20px;}
+.review_article{ font-size: 18px; width:520px; margin-top: 50px;} 
+section{display: flex; justify-content: center; align-items: center;}
 
-  /* 위아래 배경색 */
-  .head, .submit{width: 100%; height: 55px; background-color: #A7AEFF; text-align: center;}
-  
-  /* 어떤점이 좋았나요 */
-  .text {width: 100%; height: 50px; line-height: 50px; border: 1px solid #e0e0e0; text-align: center;}
-  .how{font-size: 24px; text-align: center; margin: -10px 0px 10px; padding: 5px;}
+/*리뷰쓰기*/
+.head{display: flex; justify-content: center; align-items: center; position: relative; width: 100%; height: 50px;background-color: #e0e0e0; font-size: 22px;}
+.head>img{width: 30px; height: 20px; position: absolute; right: 3%;}
 
-  /* 리뷰 입력칸 */
-  .textbox{width: 100%; height: 250px; border: 1px solid #e0e0e0; background-color: #f2f2f2; position: relative;}
-  .textbox p:nth-child(2){position: absolute; bottom: 3%; right: 3%;}
-  #ten{margin-left: 15px; margin-top: 10px;}
-  .min{color: #BDBDBD;}
-  
-  /* 사진첨부하기 */
-  .photo{border: 2px dashed #D5D5D5; margin-bottom: 10px; width: 100%; height: 70px; text-align: center;}
-  .photo>img{width: 2rem; height: 2rem; position: relative; top: 0.6rem;}
+/*상품정보*/
+.orderitem{width:100px; height:100px; margin-left: 10px;}
+.iteminfo{text-align: left; display: flex; align-items: center;}
+.orderiteminfo{display: inline-block;}
+
+/*리뷰작성내용*/
+.contents p:nth-child(1){width: 100%; height: 50px;line-height: 50px; border: 1px solid #e0e0e0; text-align: center;}
+.contents p:nth-child(2){font-size: 24px; text-align: center;width: 100%; height: 50px;line-height: 50px; }
+textarea{resize: none; background-color: #f5f5f5;outline: 0; border:0; font-size: 20px;}
 
   /* 업로드한 사진 */
-  .wrap {display:flex; justify-content: space-between;}
-  .image{width: 165px; height: 90px; border: 1px solid #D5D5D5; display: grid; margin-bottom: 0;}
+  .boxwrapper {display:flex; justify-content: space-between;}
+  .box{width: 165px; height: 90px; border: 1px solid #D5D5D5; display: grid; margin-bottom: 0; display: flex; justify-content: center; align-items: center;}
+  .box img{width:30px; height:30px;}
 
-  /* 문구 */
-  .worning{color: #CE3636; text-align: center;}
-  .white, .submit{color: white;}
-  .submit, .white{text-align: center; margin-top: 10px; font-size: 18px;}
-  .purple {text-align: center;}
-  .review{padding: 15px 0px;}
-  .worning{margin: 5px 0px; padding: 10px 0px;}
-  .t2, .worning, .imgplus{font-size: 16px;}
-  .imgplus{line-height: 70px;}
-  .name{font-size: 20px;}
-  span{text-align: center;}
+  /* 사진첨부하기 */
+  .attach_photo{border: 2px dashed #D5D5D5; margin-bottom: 10px; width: 100%; height: 70px; display: flex; justify-content: center; align-items: center;}
+  .attach_photo>img{width: 2rem; height: 2rem; }
+  #upload_file{display: none;}
+
+  /*주의사항*/
+  .worning{color:red; width: 100%; height: 50px;line-height: 50px; text-align: center;}
+
+  /*리뷰등록하기버튼*/
+  #reviewbtn{width: 100%; height: 50px;line-height: 50px; text-align: center;outline: 0; border:0; background-color: #e0e0e0;  font-size: 22px; font-weight: bold;}
+  /*닫기버튼*/
+  #closebtn{width: 100%; height: 50px;line-height: 50px; text-align: center; outline: 0; border:0; background-color: #a4a4a4;  font-size: 22px; font-weight: bold; margin-top: 10px;}

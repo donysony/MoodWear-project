@@ -13,10 +13,11 @@ section article{width:1200px;}
 
 /*장바구니 테이블*/
 .ordertable{width:1200px; border-collapse: collapse; text-align: center;}
-.ordertable tr:nth-child(1){height:50px; border-top:1px black solid; background-color: #dbdbdb; }
+.ordertable tr:nth-child(1){height:50px; border-top:1px black solid; background-color: #dbdbdb; text-align: right; }
+.ordertable tr:nth-child(1) p{margin-right:20px; }
 .ordertable p{display: inline-block; }
 .ordertable tr:nth-child(2){height:50px;background-color: #efefef;}
-.ordertable tr:nth-child(4){height:50px;background-color: #efefef;}
+.ordertable tr:nth-last-child(2){height:50px;background-color: #efefef;}
 .ordertable tr:nth-child(5){height:50px;}
 
 
