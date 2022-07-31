@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>updatejoin</title>
-    <link rel="stylesheet" href="../css/updatejoin.css">
+    <link rel="stylesheet" href="../css/shippingupdate.css">
 </head>
 <body>
     <header></header>
@@ -27,28 +27,54 @@
     </aside>
     <section>
         <article>
-            <h2>회원정보 수정</h2>
+            <h2>배송지 주소록관리</h2>
             <hr>
+            <table class="shipping_address">
+                <form action="" method="post" >
+                    <tr>
+                        <th><input type="checkbox" name="" id=""></th>
+                        <th>배송지 선택</th>
+                        <th>배송지명</th>
+                        <th>수신자명</th>
+                        <th>주소</th>
+                        <th>연락처</th>
+                        <th>수정</th>
+                    </tr>
+                    <tr>
+                        <td colspan="6"></td>
+                    </tr>
+                    <tr >
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td>집</td>
+                        <td>박경선</td>
+                        <td>인천광역시 구월동 엔타스빌딩 11층</td>
+                        <td>010-1234-5678</td>
+                        <td><button class="ship_update">수정</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <input type="button" value="선택주소록 삭제">
+                            <input type="button" value="배송지 등록">
+                        </td>
+                    </tr>
+        </table>
+
+        </article>
+        <article>
+            <h2>배송지 수정</h2>
+
             <form action="">
             <table class="userinfo_updatetbl">
                     <tr>
-                        <th>이름</th>
-                        <td>박경선</td>
+                        <th>배송지명</th>
+                        <td><input type="text"></td>
                     </tr>
                     <tr>
-                        <th>아이디</th>
-                        <td>perfume</td>
+                        <th>받는사람</th>
+                        <td><input type="text" name="" id=""></td>
                     </tr>
                     <tr>
-                        <th>비밀번호</th>
-                        <td><input type="password"></td>
-                    </tr>
-                    <tr>
-                        <th>비밀번호 확인</th>
-                        <td><input type="password" name="" id=""></td>
-                    </tr>
-                    <tr>
-                        <th>전화번호</th>
+                        <th>연락처</th>
                         <td>
                             <select name="mPhone1" id="">
                                 <option value="010">010</option>
@@ -62,19 +88,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>생년월일</th>
-                        <td>1998.12.03</td>
-                    </tr>
+                        <th>주소</th>
+                        <td><input type="address"><br>
+                            <input type="text"><br>
+                            <input type="text"><br>
+                            <input type="checkbox" name="" id="">기본배송지로 선택
+                        
+                        
+                        
+                        </td>
+
                     <tr>
-                        <th>이메일</th>
-                        <td><input type="text" name="" id="" size="20" maxlength="15" autocomplete="off"> @ 
-                        <select name="" id="">
-                            <option value="">naver.com</option>
-                            <option value="">gmail.com</option>
-                            <option value="">daum.com</option>
-                            <option value="">nate.com</option>
-                            <option value="">hanmail.net</option>
-                        </select></td>
+                        <td>
+                        </td>
                     </tr>
                 </table>
                 <div class="buttondiv">
