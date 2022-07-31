@@ -22,6 +22,17 @@ section{margin-top: 50px;}
 /*article*/
 article{width:1000px;}
 
+/*배송지 주소록관리*/
+.shipping_address{width:1000px; text-align: center;}
+.shipping_address tr:nth-child(2){height:2px;}
+.shipping_address tr{height:50px;}
+.shipping_address, td{border-collapse: collapse;}
+.shipping_address td{border-top:1px #dbdbdb solid; border-bottom:1px #dbdbdb solid;}
+
+/*배송지 등록, 삭제 버튼*/
+.address_btn{display: flex; justify-content: space-between;}
+
+
 /*회원정보 수정테이블*/
 .userinfo_updatetbl{text-align: center; width:1000px; border:1px #dbdbdb solid;}
 .userinfo_updatetbl tr{height:50px;}
