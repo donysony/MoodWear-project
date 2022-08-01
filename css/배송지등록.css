@@ -12,7 +12,6 @@ h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
 /*aside & article정렬*/
 .aside_article{display: flex; justify-content: center; }
 
-
 /*사이드바*/
 .aside li{padding:5px;}
 .aside{width:300px;}
@@ -23,28 +22,11 @@ section{margin-top: 50px;}
 /*article*/
 article{width:1000px;}
 
-/*배송지 주소록관리*/
-.shipping_address{width:1000px; text-align: center; margin-top: 20px;}
-.shipping_address tr:nth-child(1){background-color: #e0e0e0; }
-.shipping_address tr:nth-child(2){height:2px;}
-.shipping_address tr{height:50px;}
-.shipping_address, td{border-collapse: collapse;}
-.shipping_address td{border-top:1px #dbdbdb solid; border-bottom:1px #dbdbdb solid;}
-/*수정*/
-.ship_update{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
-
-
-/*배송지 등록, 삭제 버튼*/
-.address_btn{display: flex; justify-content: space-between; margin-top: 10px; }
-#directory_delete{ padding:5px;border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
-#registration{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
-
-
-/*배송지 수정테이블*/
-.addressinfo_updatetbl{text-align: center; width:1000px; border:1px #dbdbdb solid;padding:10px;}
+/*배송지 등록테이블*/
+.addressinfo_updatetbl{text-align: center; width:1000px; border:1px #dbdbdb solid; height:300px; margin-top: 30px; padding:10px;}
 .addressinfo_updatetbl td{text-align: left;}
-.addressinfo_updatetbl tr{height:40px;}
-.addressinfo_updatetbl tr:nth-child(4){height:150px;}
+.addressinfo_updatetbl tr{height:30px;}
+
 .addressinfo_updatetbl th{width:300px;}
 
 /*주소*/
@@ -58,4 +40,3 @@ article{width:1000px;}
 .buttondiv{display: flex; justify-content: center; margin-top: 50px;}
 #update{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
 #cancellation{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; }
-
