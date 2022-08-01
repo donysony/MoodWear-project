@@ -37,5 +37,5 @@ article{width:1000px;}
 
 /*등록하기&취소버튼*/
 .buttondiv{display: flex; justify-content: center; margin-top: 50px;}
-#registration{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
+#check{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
 #cencellation{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; }
