@@ -1,26 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+
 body{margin:0 auto;}
-.inquiry_article{min-width: 1000px;}
-h1{font-size: 30px; font-family: 'Gowun Batang', serif;position:relative;}
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
+
+/*section*/
+section{display: flex; justify-content: center; }
+
+
+/*상품문의 폼*/
 .inquirytable{width:1000px; border-top:2px solid black; text-align: center; border-bottom:1px solid black; border-collapse: collapse;}
 td{border-top: 1px solid #757575;}
-.headtitle{background-color: #bdbdbd; width:150px;font-family: 'GmarketSansMedium'; margin-left:20px ;}
+tr{height:45px;}
+.headtitle{background-color: #bdbdbd; width:150px; margin-left:20px ;}
 .info input{width:300px; height:30px;}
 .title input{width:800px; height:30px;}
-textarea{width: 95%; height: 15.25em;resize: none;}
-tr{height:45px;}
-button{margin-top: 50px;}
-.buttondiv{display: flex; justify-content: center;}
-.tablediv{display: grid; justify-content: center;} 
-#registration{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; font-family: 'GmarketSansMedium';}
-#list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd;border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium';}
+textarea{width: 95%; height: 15.25em; resize: none;}
+
+/*첨부파일*/
 #file_route{width:550px; float:left; margin-left: 20px; height:20px;}
 #upload_file{display: none;}
 #fileupload{border: #eeeeee; background-color: #eeeeee; padding: 3px 10px;border-radius: 2px;}
+
+
+/*등록 & 목록 버튼*/
+.buttondiv{margin-top: 50px; display: flex; justify-content: center; }
+#registration{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
+#list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd;border: #bdbdbd;  color:black; }

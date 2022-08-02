@@ -6,8 +6,10 @@
     basic font : font-family: Pretendard;
 */
 
-*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard;}
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+body{margin:0 auto; }
 h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
 /*aside & article정렬*/
 .aside_article{display: flex; justify-content: center; }
 

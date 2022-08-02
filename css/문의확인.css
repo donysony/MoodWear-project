@@ -1,22 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+
 body{margin:0 auto;}
-.inquiry_article{min-width: 1000px;}
-hr{width:1000px; border:1px solid black;}
-h1{font-size: 30px; font-family: 'Gowun Batang', serif;position:relative;}
-.inquirytable{border:solid 1px #bdbdbd; text-align: center;}
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
+
+/*article*/
+article{width:1000px;}
+
+/*section*/
+section{display: flex; justify-content: center;}
+
+hr{border:1px solid black;}
+
+/*비밀번호입력테이블*/
+.inquirytable{border:solid 1px #bdbdbd; text-align: center; height:400px; width:1000px;}
 #explain{height:300px;}
-.ex{font-family: 'GmarketSansMedium';}
-#password{font-family: 'GmarketSansMedium';}
+#pw{width:500px; height:30px;}
+
+/*확인 & 목록보기 버튼*/
 .buttondiv{display: flex; justify-content: center; margin-top: 50px;}
-.tablediv{display: grid; justify-content: center;} 
 #check{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; font-family: 'GmarketSansMedium';}
 #list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium';}
-.inquirytable{width:1000px; height:400px;}
-#pw{width:500px; height:30px;}

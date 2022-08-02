@@ -5,9 +5,10 @@
     point font : font-family: 'Gowun Batang', serif;
     basic font : font-family: Pretendard;
 */
-
-*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard;}
+body{margin:0 auto; }
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
 h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
 
 .aside_section{display: flex; justify-content: center; }
 
@@ -16,14 +17,19 @@ h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
 .aside li{padding:5px;}
 .aside{width:300px;}
 article{width:1000px; margin-bottom: 50px;}
-h2{font-size: 30px;}
+
 
 /*좋아요*/
 .title{text-align: left;}
-.article_like{text-align: center;}
-.like_cart p{font-family: 'Gowun Batang', serif; font-size: 20px; text-align: left;}
-.likeimg{width:250px; height:300px;}
-.like_cart{position:relative;  display: inline-block; margin-left: 20px; margin-right: 20px; }
+.article_like{text-align: center; margin-top: 50px;}
+
+
+.likeimg{width:200px; height:200px;}
+.like_cart{position:relative;  display: inline-block; margin-right: 20px; }
+.like_cart a{font-family: 'Gowun Batang', serif; }
+.like_cart p{margin-top:10px; }
+.like_cart a:hover{color:blue}
+
 .wrapper{position:relative; display: inline-block;}
 .wrapper img:nth-child(1){position:absolute; right:55px; bottom:13px; }
 .wrapper img:nth-child(2){position:absolute; right:50px; bottom:10px; }
@@ -31,13 +37,7 @@ h2{font-size: 30px;}
 .wrapper img:nth-child(4){position:absolute; right:10px; bottom:10px; }
 .background{width:40px; height:40px;}
 
-.container{border: 1px solid #e0e0e0; height:60vh; border-radius: 5%; overflow-y: auto; }
-.containerdiv{padding:70px 20px 20px 20px; display: flex; flex-wrap: wrap; justify-content: flex-start; }
-/*스크롤바 전체영역에 대한 설정*/
-.container::-webkit-scrollbar{width:20px; }
-/*스크롤바 막대에 대한 설정*/
-.container::-webkit-scrollbar-thumb{background-color: #bdbdbd; border-radius: 10px; background-clip: padding-box; border:5px solid transparent;}
+.container{margin-top: 100px; width:1000px; }
+.containerdiv{display: flex; flex-wrap: wrap;}
 
-/*스크롤바 뒷 배경에 대한 설정*/
-.container::-webkit-scrollbar-track{}
 

@@ -1,21 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:ital@1&display=swap');
-*{color:black; text-decoration:none;}
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+        basic font : font-family: Pretendard;
+*/
+
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+body{margin:0 auto; }
+
+h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
 
 .article_notice{min-width: 1000px; display: grid; justify-content: center;}
+
+/*공지테이블*/
 .tablenotice {border-top:2px solid black; width:1000px; border-bottom:1px solid #757575; border-collapse: collapse;}
-h1{font-size: 30px; font-family: 'Gowun Batang', serif;}
+
 .bordertd, .title{border-bottom:1px solid #757575;}
-tr{height:50px; font-family: 'GmarketSansMedium'; font-size: 18px;}
-.date{font-size: 15px; font-family: 'GmarketSansMedium';}
-.title{background-color: #bdbdbd; text-align: center; font-family: 'GmarketSansMedium'; width:20%}
+tr{height:50px; font-size: 18px;}
+.date{font-size: 15px;}
+.title{background-color: #bdbdbd; text-align: center; width:20%}
 #bottomtr{height: 500px;}
-#Tolist{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium'; margin-top: 20px;}
-.nextcontent{background-color: #bdbdbd; text-align: center; font-family: 'GmarketSansMedium'; width:20%; }
+
+/*목록보기 버튼*/
+#Tolist{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; margin-top: 20px;}
+
+/*다음글*/
+.nextcontent{background-color: #bdbdbd; text-align: center; width:20%; }
 .next{border-bottom: 1px solid #757575; border-top: 1px solid #757575; border-collapse: collapse; margin-top: 50px;}

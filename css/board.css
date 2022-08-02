@@ -3,9 +3,11 @@
 
 /*
     point font : font-family: 'Gowun Batang', serif;
+        basic font : font-family: Pretendard;
 */
-*{list-style-type: none;}
-body{margin:0 auto;position: relative;}
+body{margin:0 auto; }
+
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
 
 #body-wrapper{min-height: 969px; height: auto;}
 .article_board{min-width: 1200px; }
@@ -15,13 +17,12 @@ body{margin:0 auto;position: relative;}
 section{margin-top: 50px;}
 
 /* 문의 카테고리 */
-#selectbox{height:40px; font-family: Pretendard;}
-
-h1{font-size: 30px; font-family: 'Gowun Batang', serif; margin-left: 400px;}
+#selectbox{height:40px; }
+h1{font-family: 'Gowun Batang', serif; font-size: 40px; margin-left: 400px;}
 
 /*게시판*/
 .tablehead{background-color: #dbdbdb; }
-table{border-collapse: collapse; text-align: center; width:1200px; font-family: Pretendard; margin-top: 20px;}
+table{border-collapse: collapse; text-align: center; width:1200px;  margin-top: 20px;}
 tr{height:50px;}
 .tabletr{border-bottom: 1px #757575 solid;}
 #answercount{color:#01579b}
@@ -30,11 +31,11 @@ tr{height:50px;}
 
 
 /*목록 & 글쓰기*/
-#listbtn, #writebtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; font-family: Pretendard;}
+#listbtn, #writebtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; }
 .buttondiv{display: flex; justify-content: end; margin-top: 30px;}
 
 /*페이징*/
-.paging{display: flex; justify-content: center; font-family: Pretendard;}
+.paging{display: flex; justify-content: center; }
 .paging ul{text-align:center; }
 .paging ul li{display: inline-block;background-color: #e0e0e0; width:25px; height:25px; border-radius: 5px; padding-top: 2px;}
 
@@ -49,9 +50,9 @@ tr{height:50px;}
 .search_box{display: flex; justify-content: center; margin-top: 30px;}
 #search_form{display:inline; }
 form{position:relative;}
-#search_category{width:100px; font-family: Pretendard;}
+#search_category{width:100px; }
 #btn_text{width:300px; height: 30px;}
-#btn_search{font-weight: 900; font-family: Pretendard; background-color: transparent; border:none; cursor: pointer; position:absolute; right:5px; top:5px;}
+#btn_search{font-weight: 900;  background-color: transparent; border:none; cursor: pointer; position:absolute; right:5px; top:5px;}
 
 
 
@@ -67,7 +68,7 @@ form{position:relative;}
 
 
 *{margin: 0; padding: 0;}
-li{font-family: Pretendard;}
+
 /* 로고 */
 #logo{width: 120px; height: 70px;}
 

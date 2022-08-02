@@ -12,7 +12,8 @@
 section{display: flex; justify-content: center; align-items: center;}
 
 /*리뷰쓰기*/
-.head{display: flex; justify-content: center; align-items: center; position: relative; width: 100%; height: 50px;background-color: #e0e0e0; font-size: 22px;}
+.head{display: flex; justify-content: center; align-items: center; position: relative; width: 100%; height: 50px;background-color: #e0e0e0; font-size: 22px; }
+
 .head>img{width: 30px; height: 20px; position: absolute; right: 3%;}
 
 /*상품정보*/

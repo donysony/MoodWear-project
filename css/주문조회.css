@@ -5,9 +5,11 @@
     point font : font-family: 'Gowun Batang', serif;
     basic font : font-family: Pretendard;
 */
-*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard;}
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard;font-size: 20px;}
+body{margin:0 auto;}
 h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
-
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
+h3{font-size: 25px;}
 .aside_section{display: flex; justify-content: center; }
 
 /*사이드바*/
