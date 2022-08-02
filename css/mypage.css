@@ -5,10 +5,10 @@
     point font : font-family: 'Gowun Batang', serif;
     basic font : font-family: Pretendard;
 */
-
-*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard;}
-h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
-
+body{margin:0 auto; }
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
 .aside_section{display: flex; justify-content: center; }
 
 
@@ -40,6 +40,9 @@ h2, h4{display: inline-block;}
 .wrapper img:nth-child(3){position:absolute; right:10px; bottom:10px; }
 .wrapper img:nth-child(4){position:absolute; right:10px; bottom:10px; }
 .background{width:40px; height:40px;}
+.like_cart a{font-family: 'Gowun Batang', serif; }
+.like_cart a:hover{color:blue}
+.like_cart p{text-align: center;}
 
 /*1:1문의내역*/
 .inquirynotice{text-align: center; margin-top: 100px;}
