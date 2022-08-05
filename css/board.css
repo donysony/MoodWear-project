@@ -8,8 +8,6 @@
 body{margin:0 auto; }
 
 *{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
-
-#body-wrapper{min-height: 969px; height: auto;}
 .article_board{min-width: 1200px; }
 .section_board{display: flex; justify-content: center;}
 .select_QA{display: flex; align-items: baseline; }
@@ -27,6 +25,7 @@ tr{height:50px;}
 .tabletr{border-bottom: 1px #757575 solid;}
 #answercount{color:#01579b}
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
+.inquiry_ans a{text-align: left; display: flex; align-items: center;}
 .tabletr td:nth-child(4){padding-top: 13px;}
 
 
@@ -38,10 +37,6 @@ tr{height:50px;}
 .paging{display: flex; justify-content: center; }
 .paging ul{text-align:center; }
 .paging ul li{display: inline-block;background-color: #e0e0e0; width:25px; height:25px; border-radius: 5px; padding-top: 2px;}
-
-
-
-
 
 
 
@@ -58,48 +53,6 @@ form{position:relative;}
 
 
 
-
-
-
-
-
-
-
-
-
-*{margin: 0; padding: 0;}
-
-/* 로고 */
-#logo{width: 120px; height: 70px;}
-
-/* 상단 박스 */
-.top{background-color: #EAEAEA;}
-.top ul{padding: 0; text-align: center; display: flex; justify-content: right;}
-.top ul li{display: inline-block; width: 60px; height: 33px; list-style:none; font-size: 14px;display: flex; align-items: center;padding:0 5px;}
-a{text-decoration: none; color: black; font-size: 15px;}
-
-/* 네비 */
-.ulul{width:800px; justify-content: center;}
-.nav{display: flex; justify-content: space-between; align-items: center;}
-.nav>div:nth-child(2)>ul>li{display: flex; align-items: center;}
-.nav ul{list-style-type: none; text-align: right; flex-direction: row; flex-wrap: nowrap; display: flex;}
-.nav img{width: 35px; height: 35px;}
-#sc{width: 25px; height: 25px;}
-.search{background-color: #eceaea77; height:35px; width: 180px; display: flex; align-items: center; color: #999999;}
-.search>input{outline: unset; border: unset; background-color: unset;}
-.ct{margin:10px; font-weight:500; font-size: 18px;}
-.nav>div:nth-child(3)>ul>li{align-items: center; margin: 5px;}
-.nav>div:nth-child(3)>ul>li>a>img{width: 25px; height: 25px;}
-.nav>div:nth-child(3)>ul{display: flex; align-items: center;}
-
-
-/* 푸터 */
-#introduce{left: 35vw; font-size: 14px; top: 1.5vw; position: relative; color: #616060; font-family: 'Gowun Batang', serif;}
-footer>div>ul>li{display: inline-block; left: 38.5vw; position: relative; top: 12px; color: #6d6d6d; font-family: 'Gowun Batang', serif;}
-footer li>a{color: #6d6d6d;}
-#ft{background-color: #EAEAEA; height: 80px; position: relative; top: 2.5vw;}
-#copy{left: 35vw; position: relative; top: 20px; color: #3b3b3b; font-family: 'Gowun Batang', serif;}
-footer{width: 100%; position: absolute; bottom: -7%; left: 0;}
 
 
 

@@ -20,8 +20,7 @@ section{display: flex; justify-content: center; }
 td{border-top: 1px solid #757575;}
 tr{height:45px;}
 .headtitle{background-color: #bdbdbd; width:150px; margin-left:20px ;}
-.info input{width:300px; height:30px;}
-.title input{width:800px; height:30px;}
+.title input,.info input{width:800px; height:30px;}
 textarea{width: 95%; height: 15.25em; resize: none;}
 
 /*첨부파일*/

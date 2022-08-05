@@ -25,7 +25,7 @@ article{width:1000px; margin-bottom: 50px;}
 
 
 .likeimg{width:200px; height:200px;}
-.like_cart{position:relative;  display: inline-block; margin-right: 20px; }
+.like_cart{position:relative;  display: inline-block; margin:30px 20px; }
 .like_cart a{font-family: 'Gowun Batang', serif; }
 .like_cart p{margin-top:10px; }
 .like_cart a:hover{color:blue}

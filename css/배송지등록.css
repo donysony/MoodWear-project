@@ -23,17 +23,19 @@ section{margin-top: 50px;}
 article{width:1000px;}
 
 /*배송지 등록테이블*/
-.addressinfo_updatetbl{text-align: center; width:1000px; border:1px #dbdbdb solid; height:300px; margin-top: 30px; padding:10px;}
-.addressinfo_updatetbl td{text-align: left;}
-.addressinfo_updatetbl tr{height:30px;}
+.addressinfo_updatetbl{text-align: left; width:1000px; border:1px #dbdbdb solid; height:400px; margin-top: 30px; padding:10px;}
+.addressinfo_updatetbl th{width:200px; padding-left: 50px;}
 
-.addressinfo_updatetbl th{width:300px;}
+/*연락처*/
+#select_phone{height:40px;}
+input{height:30px;}
 
 /*주소*/
 .address_box{margin-top: 5px; width:450px; }
-#default_address{margin-top: 10px;}
-.zip_code{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
 
+.zip_code{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
+#box{ display: flex; align-items: center;}
+#box span{justify-content: center;}
 
 
 /*수정하기/취소 버튼*/

@@ -19,11 +19,11 @@ section{display: flex; justify-content: center;}
 hr{border:1px solid black;}
 
 /*비밀번호입력테이블*/
-.inquirytable{border:solid 1px #bdbdbd; text-align: center; height:400px; width:1000px;}
+.inquirytable{border:solid 1px #bdbdbd; text-align: center; height:300px; width:1000px; padding:50px;}
 #explain{height:300px;}
-#pw{width:500px; height:30px;}
+#pw{width:400px; height:30px;}
 
 /*확인 & 목록보기 버튼*/
 .buttondiv{display: flex; justify-content: center; margin-top: 50px;}
-#check{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; font-family: 'GmarketSansMedium';}
+#check{width:50px; height:35px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; font-family: 'GmarketSansMedium';}
 #list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium';}
