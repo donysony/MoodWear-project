@@ -46,3 +46,16 @@ h2, h4{display: inline-block;}
 
 /*1:1문의내역*/
 .inquirynotice{text-align: center; margin-top: 100px;}
+
+/*문의기록*/
+
+.tablehead{background-color: #dbdbdb; }
+.table_inquiry{border-collapse: collapse; text-align: center; width:1000px;  margin-top: 20px;}
+
+tr{height:50px;}
+.tabletr{border-bottom: 1px #757575 solid;}
+#answercount{color:#01579b}
+.inquiry_ans{text-align: left; display: flex; align-items: center;}
+.inquiry_ans a{text-align: left; display: flex; align-items: center;}
+.tabletr td:nth-child(4){padding-top: 13px;}
+

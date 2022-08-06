@@ -41,16 +41,23 @@ article{width:1000px;}
 
 
 /*배송지 수정테이블*/
-.addressinfo_updatetbl{text-align: center; width:1000px; border:1px #dbdbdb solid;padding:10px;}
-.addressinfo_updatetbl td{text-align: left;}
-.addressinfo_updatetbl tr{height:40px;}
+.addressinfo_updatetbl{text-align: left; width:1000px; border:1px #dbdbdb solid; padding:15px;height: 400px;}
+.addressinfo_updatetbl tr{height:50px;}
 .addressinfo_updatetbl tr:nth-child(4){height:150px;}
-.addressinfo_updatetbl th{width:300px;}
+.addressinfo_updatetbl th{width:200px; padding-left: 50px;}
+
+/*연락처*/
+#select_phone{height:40px;}
+.addressinfo_updatetbl input{height:30px;}
 
 /*주소*/
 .address_box{margin-top: 5px; width:450px; }
-#default_address{margin-top: 10px;}
+/*우편번호btn*/
 .zip_code{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
+
+/*기본배송지로 선택*/
+#box{ display: flex; align-items: center;}
+#box span{justify-content: center;}
 
 
 

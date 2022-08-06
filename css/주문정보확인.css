@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+body{margin:0 auto; }
+h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
+/*aside & article정렬*/
+.aside_article{display: flex; justify-content: center; }
+
+
+/*사이드바*/
+.aside li{padding:5px;}
+.aside{width:300px;}
+article{width:1000px; margin-bottom: 50px;}
+
+/*section*/
+section{margin-top: 50px;}
+/*article*/
+article{width:800px;}
+
+/*주문확인 및 결제정보 입력*/
+.shipping_address{width:800px; text-align: left; margin-top: 20px;}
+.shipping_address tr:nth-child(1){background-color: #e0e0e0; }
+.shipping_address tr{height:40px;}
+.shipping_address, td{border-collapse: collapse;}
+.shipping_address td{border-top:1px #dbdbdb solid; border-bottom:1px #dbdbdb solid; padding-left:5px;}
+.shipping_address th{padding-left: 5px;}
+.shipping_address tr:nth-last-child(1){background-color: #e0e0e0; height:20px;}
+
+/*결제수단*/
+input[type=radio]{accent-color: gray;}
+.easypay_method{display: none;}
+
+/*주문요약정보*/
+.order_summary{border:1px solid #757575; width:800px; padding:20px 50px;}
+.order_summary td{border-bottom: #bdbdbd 1px solid; border-collapse: collapse;}
+.order_summary tr{height:40px;}
+
+
+
+/*취소하기/결제 버튼*/
+.buttondiv{display: flex; justify-content: center; margin-top: 50px;}
+#cancellation{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
+#payment{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; }
+

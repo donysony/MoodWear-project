@@ -10,21 +10,20 @@
 <body>
     <header></header>
     <div class="aside_article">
-    <aside>
-        <h1>마이페이지</h1>
-        <ul class="aside">
-            <li><a href="주문조회.html">주문 조회</a></li>
-            <li><a href="장바구니.html">장바구니</a></li>
-            <li><a href="review.html">리뷰</a></li>
-            <li><a href="좋아요.html">좋아요</a></li>
-            <li><a href="inquiry.html">1:1문의내역</a></li>
-            <li><a href="">취소반품내역(준비중)</a></li>
-            <li><a href="회원정보 확인.html">회원정보 수정</a></li>
-            <li><a href="shippingupdate.html">배송지 관리</a></li>
-            <li><a href="회원탈퇴.html">회원 탈퇴</a></li>
-        </ul>
-
-    </aside>
+        <aside>
+            <a href="mypage.html"><h1>마이페이지</h1></a>
+            <ul class="aside">
+                <li><a href="주문조회.html">주문 조회</a></li>
+                <li><a href="장바구니.html">장바구니</a></li>
+                <li><a href="review.html">리뷰</a></li>
+                <li><a href="좋아요.html">좋아요</a></li>
+                <li><a href="일대일문의내역.html">1:1문의내역</a></li>
+                <li><a href="회원정보 확인.html">회원정보 수정</a></li>
+                <li><a href="배송주소록관리.html">배송지 관리</a></li>
+                <li><a href="회원탈퇴.html">회원 탈퇴</a></li>
+            </ul>
+    
+        </aside>
     <section>
         <article>
             <h2>배송지 주소록관리</h2>
@@ -48,7 +47,7 @@
                         <td>박경선</td>
                         <td>인천광역시 구월동 엔타스빌딩 11층</td>
                         <td>010-1234-5678</td>
-                        <td><button class="ship_update">수정</button></td>
+                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.html'">수정</button></td>
                     </tr>
                     <tr >
                         <td><input type="checkbox" name="" id=""></td>
@@ -56,13 +55,13 @@
                         <td>박경선</td>
                         <td>인천광역시 구월동 엔타스빌딩 11층</td>
                         <td>010-1234-5678</td>
-                        <td><button class="ship_update">수정</button></td>
+                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.html'">수정</button></td>
                     </tr>
                 </table> 
                     
                         <div class="address_btn">
                             <input type="button" value="선택주소록 삭제" id="directory_delete">
-                            <input type="button" value="배송지 등록" id="registration">
+                            <input type="button" value="배송지 등록" id="registration" onclick="location.href='배송지등록.html'">
                         </div>
                     
 

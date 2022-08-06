@@ -12,23 +12,22 @@
     <section>
         <div class="aside_article">
             <aside>
-                <h1>마이페이지</h1>
+                <a href="mypage.html"><h1>마이페이지</h1></a>
                 <ul class="aside">
                     <li><a href="주문조회.html">주문 조회</a></li>
                     <li><a href="장바구니.html">장바구니</a></li>
                     <li><a href="review.html">리뷰</a></li>
                     <li><a href="좋아요.html">좋아요</a></li>
-                    <li><a href="inquiry.html">1:1문의내역</a></li>
-                    <li><a href="">취소반품내역(준비중)</a></li>
+                    <li><a href="일대일문의내역.html">1:1문의내역</a></li>
                     <li><a href="회원정보 확인.html">회원정보 수정</a></li>
-                    <li><a href="shippingupdate.html">배송지 관리</a></li>
+                    <li><a href="배송주소록관리.html">배송지 관리</a></li>
                     <li><a href="회원탈퇴.html">회원 탈퇴</a></li>
                 </ul>
         
             </aside>
         <article>
             <h2>배송지 수정</h2>
-
+            <hr>
             <form action="">
             <table class="addressinfo_updatetbl">
                     <tr>
@@ -42,7 +41,7 @@
                     <tr>
                         <th>연락처</th>
                         <td>
-                            <select name="mPhone1" id="">
+                            <select name="mPhone1" id="select_phone">
                                 <option value="010">010</option>
                                 <option value="011">011</option>
                                 <option value="016">016</option>
@@ -60,7 +59,8 @@
                             <input type="button" value="우편번호" class="zip_code"><br>
                             <input type="text" class="address_box"><br>
                             <input type="text" class="address_box"><br>
-                            <input type="checkbox" name="" id="default_address">기본배송지로 선택
+                            <span id="box">
+                            <input type="checkbox" name="" id=""><span>&ensp;기본배송지로 선택</span></span>
                         </td>
 
                 </table>

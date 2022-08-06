@@ -26,14 +26,14 @@ section{margin-top: 50px;}
 article{width:1000px;}
 
 /*회원정보 테이블*/
-.userinfotbl{border:solid 1px #bdbdbd; text-align: center; width:1000px; height:400px; padding:25px 0; margin-top: 20px;}
-.userinfotbl th{width:300px;}
+.userinfotbl{border:solid 1px #bdbdbd; text-align: left; width:1000px; height:200px; padding:25px 0; margin-top: 20px;}
+.userinfotbl th{width:180px; padding-left:120px;}
 .userinfotbl tr{height:50px;}
-.userinfotbl td{text-align: left;}
-.userinfotbl td:last-child{text-align: center;}
+
+
 
 /*회원탈퇴비밀번호 입력 테이블*/
-.dropouttbl{border:solid 1px #bdbdbd; text-align: center; width:1000px;padding:25px 0; margin-top: 20px; height: 200px; text-align: center;}
+.dropouttbl{border:solid 1px #bdbdbd; text-align: center; width:1000px; padding:25px 0; margin-top: 20px; height: 150px;}
 .dropouttbl th{width:300px;}
 .dropouttbl td:nth-child(2){text-align: left;}
 #dropout_input{width:400px;}
