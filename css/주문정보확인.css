@@ -45,6 +45,7 @@ input[type=radio]{accent-color: gray;}
 
 /*취소하기/결제 버튼*/
 .buttondiv{display: flex; justify-content: center; margin-top: 50px;}
-#cancellation{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
-#payment{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; }
+#cancellation{width:200px; height:45px; font-size: 17px;  border-radius:5px;  background-color: #bdbdbd; border: #bdbdbd;  color:black; }
+#payment{width:200px; height:45px; font-size: 17px;  border-radius:5px;
+    background-color: #757575;border: #757575;  color:white; }
 
