@@ -31,18 +31,49 @@ h2, h4{display: inline-block;}
 
 /*좋아요*/
 .article_like{text-align: center;}
-.like_cart p{font-family: 'Gowun Batang', serif; font-size: 20px; text-align: left;}
+.like_cart p{font-family: 'Gowun Batang', serif; font-size: 20px; text-align: center; display: inline-block; margin:5px 0 0 0;}
 .likeimg{width:300px; height:400px;}
-.like_cart{position:relative;  display: inline-block; margin-left: 10px;}
-.wrapper{position:relative; display: inline-block;}
-.wrapper img:nth-child(1){position:absolute; right:55px; bottom:13px; }
-.wrapper img:nth-child(2){position:absolute; right:50px; bottom:10px; }
-.wrapper img:nth-child(3){position:absolute; right:10px; bottom:10px; }
-.wrapper img:nth-child(4){position:absolute; right:10px; bottom:10px; }
-.background{width:40px; height:40px;}
+.like_cart{ margin-right:20px;  width: 300px; height: 450px; border:solid 1px #EAEAEA;  position: relative; display: inline-block;}
+.wrapper{position: absolute; left: 200px; bottom: 50px; display:flex}
+
 .like_cart a{font-family: 'Gowun Batang', serif; }
 .like_cart a:hover{color:blue}
-.like_cart p{text-align: center;}
+
+
+/*장바구니icon*/
+.like_cart .cart{
+    background: url(../img/장바구니.png) no-repeat center #f1eeee;
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding:3px;
+}
+/*하트icon*/
+.like_cart .like {
+    background: url(../img/좋아요.png) no-repeat center #f1eeee;
+    border-radius: 20px; 
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-clip: content-box;
+    padding: 5px;
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 /*1:1문의내역*/
 .inquirynotice{text-align: center; margin-top: 100px;}

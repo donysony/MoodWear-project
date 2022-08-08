@@ -22,20 +22,46 @@ article{width:1000px; margin-bottom: 50px;}
 /*좋아요*/
 .title{text-align: left;}
 .article_like{text-align: center; margin-top: 50px;}
-
-
 .likeimg{width:200px; height:200px;}
-.like_cart{position:relative;  display: inline-block; margin:30px 20px; }
+.like_cart{margin:30px 20px; width: 200px; height: 250px; border:solid 1px #EAEAEA; position: relative; display: inline-block;}
+
+/*장바구니icon*/
+.like_cart .cart{
+    background: url(../img/장바구니20.png) no-repeat center #f1eeee;
+    border-radius: 20px; 
+    width: 20px; 
+    height: 20px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding:5px;
+}
+/*하트icon*/
+.like_cart .like {
+    background: url(../img/좋아요20.png) no-repeat center #f1eeee;
+    border-radius: 20px; 
+    width: 30px; 
+    height: 30px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-clip: content-box;
+    
+}
+.like:hover{background: url(../img/좋아요20red.png) no-repeat center #f1eeee;}
+
+
+.wrapper{position: absolute; left: 130px; bottom: 50px; display:flex}
 .like_cart a{font-family: 'Gowun Batang', serif; }
 .like_cart p{margin-top:10px; }
 .like_cart a:hover{color:blue}
 
-.wrapper{position:relative; display: inline-block;}
-.wrapper img:nth-child(1){position:absolute; right:55px; bottom:13px; }
-.wrapper img:nth-child(2){position:absolute; right:50px; bottom:10px; }
-.wrapper img:nth-child(3){position:absolute; right:10px; bottom:10px; }
-.wrapper img:nth-child(4){position:absolute; right:10px; bottom:10px; }
-.background{width:40px; height:40px;}
+
+
+
+
+
+
 
 .container{margin-top: 100px; width:1000px; }
 .containerdiv{display: flex; flex-wrap: wrap;}
