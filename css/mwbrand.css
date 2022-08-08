@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+*{margin: 0; padding: 0; font-family: Pretendard;}
+button{width: 50px; height: 30px; font-size: 15px; background-color: #EAEAEA; border-color: #EAEAEA;}
+
+
+header{display: flex;}
+header>p{font-size: 28px; margin: 30px; margin-top: 60px;}
+.btn{margin: 0 650px;}
+.product{display: flex;}
+#img{width: 250px; height: 150px;}
+.left{border:1px solid; border-color:#EAEAEA;}
+.right{margin: 0 20px;}
+.right>p{font-size: 20px; margin: 7px;}
+#correct{margin-top: 70px;}
+article{margin: 30px;}
+.set{display: flex;}
+#trash{width: 30px; height: 30px;}
+
+/* 휴지통 */
+#sbtn{height: 35px; margin-left: 280px;}
+.tbtn{height: 35px; margin-left: 70px;}
+
+/* 입력칸 넓이 */
+input{width: 130px;}
+#pname{width: 275px;}

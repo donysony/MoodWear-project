@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/mwbrand.css" type="text/css">
+</head>
+<body>
+    <header>
+        <p>브랜드 상품</p>
+    </header>
+
+    <section>
+        <div class="btn">
+            <button onclick="location.href='관리자-브랜드상품(추가후).html';">추가</button>
+            <button onclick="location.href='관리자-브랜드상품(삭제후).html';">삭제</button>
+        </div>
+    </section>
+
+    <section>
+        <article class="product">
+            <div class="left">
+                <img src="img/미리보기.png" id="img">
+            </div>
+
+            <div class="right">
+                <p><input type="text" placeholder="상품명" id="pname"></p>
+                <p><input type="text" placeholder="태그">&ensp;<input type="text" placeholder="태그">&ensp;<input type="text" placeholder="태그"></p>
+                <p><input type="text" placeholder="용량">&ensp;<input type="text" placeholder="가격"></p>
+                <p><input type="file" id="pname"></p>
+                <button id="correct" onclick="location.href='관리자-브랜드상품.html';">등록</button>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="left">
+                <img src="img/가브리엘.png" id="img">
+            </div>
+
+            <div class="right">
+                <p>가브리엘 샤넬</p>
+                <p>#날렵한 #지적인 #커리어우먼 #30대</p>
+                <p>100ml / 239,000</p>
+                <button id="correct">수정</button>
+            </div>
+        </article>
+        
+        <article class="product">
+            <div class="left">
+                <img src="img/가브리엘.png" id="img">
+            </div>
+
+            <div class="right">
+                <p>가브리엘 샤넬</p>
+                <p>#날렵한 #지적인 #커리어우먼 #30대</p>
+                <p>100ml / 239,000</p>
+                <button id="correct">수정</button>
+            </div>
+        </article>
+    </section>
+</body>
+</html>

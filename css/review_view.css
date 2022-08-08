@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{margin: 0; padding: 0; font-family: 'GmarketSansMedium';}
+a{text-decoration: none; color: black;}
+p {margin-bottom: 25px; font-size: 23px;}
+span{color: #5f5f5f; position: relative; margin-bottom: 15%;}
+
+/* 로고, 검색 */
+header div{display: flex; justify-content: space-evenly; align-items: center; margin: 10px;}
+#logo img{width:200px; height: 64px;}
+#search{height: 55px; width: 40vw; border: #97d7fe 1px solid; border-radius: 20px; display: flex; align-items: center; justify-content: space-around;}
+#search input{width: 80%; border: none; font-size: 18px;}
+#search input:focus{outline: unset;}
+#search button{border: none; background-color:unset; display: flex; align-items: center;}
+#search button img{width: 40px; height: 41px;}
+
+/* 네비게이션바 */
+nav{display: flex; justify-content:center; align-items: center; height: 60px;}
+ul{list-style: none; display: flex; width: 25vw; justify-content: space-evenly;}
+li{width: 90px; text-align: center;}
+li a{font-family: 'GmarketSansMedium'; font-size: 20px;}
+#login{font-size: 20px;}
+#pimg{width: 45px; height: 45px;}
+
+/* 감싸는 외곽 테두리 */
+.form{width:920px; height:970px; border-color: #EAEAEA; border: 2px solid; 
+      border-radius: 2rem; color: #EAEAEA; position: relative; left: 28%; margin-top: 2.9%;}
+
+.profile{width: 920px; height: 110px; text-align: center; color: #3f3f3f; margin-top: 3.5%;}
+#head{font-size: 50px;}
+
+/* 리뷰 작성 유저 프로필 이미지 */
+.pro1{width: 35px; height: 35px;}
+.rfirst{width: 870px;}
+.rfirst td:nth-child(1){display: flex; align-items: center;}
+.rfirst td:nth-child(1) span{margin-bottom: 0px; left: 8px;}
+.date{position: relative; left: 165%; color: #D5D5D5;}
+
+/* 리뷰 큰 한칸 */
+.writer {font-family: 'GmarketSansLight'; margin-left: 4.5%; }
+
+/* 리뷰사진 사이즈 */
+.rimg {width: 120px; height: 120px;}
+
+/* 문구 */
+.title{color: black; font-family: 'GmarketSansMedium';}
+.content{color: black; font-family: 'GmarketSansLight';}
+#head{font-family: 'GmarketSansBold';}
+
+/* table{width: 860px;} */
+#second{margin-top: 3.5%; margin-left: 4.5%;}
+
+/* 페이징 */
+#pageIndex{width: 768px; margin: 0 auto; margin-top: 3.5%;}
+#pageIndex>div:nth-child(1){width: 70%; display: flex; justify-content: space-between; margin: 0 auto;}
+#pageIndex>div:nth-child(1)>img{width: 1vw; height: 25px;}
+#pageIndex>div:nth-child(1)>p{width: 80%; display: flex; justify-content: space-between; align-items: center;}
+#pageIndex>div:nth-child(1)>p>a{font-size: 20px; font-family: 'GmarketSansLight'; margin: 0 auto;}
+#pageIndex>div:nth-child(1)>p>a>strong{color:#8A94FF}

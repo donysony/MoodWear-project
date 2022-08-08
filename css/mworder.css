@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+*{margin: 0; padding: 0; font-family: Pretendard;}
+#head{font-size: 30px; margin: 30px; margin-top: 60px;}
+header{margin-bottom: 80px;}
+td{font-size: 18px; border: 1px solid; border-color: black;}
+
+table{text-align: center; width: 650px; margin: 30px;}
+#one>td{font-size: 18px; font-weight: bold;}
