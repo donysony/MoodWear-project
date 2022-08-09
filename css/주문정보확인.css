@@ -34,7 +34,7 @@ article{width:800px;}
 
 /*결제수단*/
 input[type=radio]{accent-color: gray;}
-.easypay_method{display: none;}
+
 
 /*주문요약정보*/
 .order_summary{border:1px solid #757575; width:800px; padding:20px 50px;}

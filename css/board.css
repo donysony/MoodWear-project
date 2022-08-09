@@ -27,10 +27,11 @@ tr{height:50px;}
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
 .inquiry_ans a{text-align: left; display: flex; align-items: center;}
 .tabletr td:nth-child(4){padding-top: 13px;}
-
+#reply{color:#01579b}
+#replytd{text-align: left;}
 
 /*목록 & 글쓰기*/
-#listbtn, #writebtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; }
+#writebtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; }
 .buttondiv{display: flex; justify-content: end; margin-top: 30px;}
 
 /*페이징*/
