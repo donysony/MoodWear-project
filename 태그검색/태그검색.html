@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="태그검색.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+/*         $(function() {
+            var color1 = {"color":"#000000"}
+                $(".1-1").click(function(){
+                $(".1-1").css(color1)
+                })
+                $(".1-2").click(function(){
+                $(".1-2").css(color1)
+                })
+            }) */
+    </script>
+</head>
+<body>
+    <div id="body-wrapper">
+        <header>
+            <div class="top">
+                <ul>
+                    <li><a href="">고객센터</a></li>
+                    <li><a href="">회원가입</a></li>
+                    <li><a href="">로그인</a></li>
+                </ul>
+            </div>
+    
+            <div class="nav">
+                <div>
+                    <a href="">
+                        <img src="../img/로고 누끼.png" id="logo"></a>
+                </div>
+    
+                    
+                <div>
+                    <ul>
+                        <li><a href="" class="ct">브랜드 상품</a></li>
+                        <li><a href="" class="ct">베스트 상품</a></li>
+                        <li><a href="" class="ct">무드웨어 소개</a></li>
+                        <li><a href="" class="ct">웨어러 추천</a></li>
+                        <li><a href="" class="ct">문의</a></li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <ul>
+                        <li>
+                            <div class="search">
+                                <span>&ensp;검색페이지로 이동&emsp;&ensp;</span> 
+                                <img src="../img/화살표.png" id="sc">
+                            </div>
+                        </li>
+                        <li><a href=""><img src="../img/좋아요.png" ></a></li>
+                        <li><a href=""><img src="../img/장바구니.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    <!------------ 태그 검색창 시작 ------------>
+    <h2>태그검색</h2>
+    <hr>
+    <div class="tag_box">
+        <div class="tag_boxes">
+            <a href="#" id="tag"># 차분한</a><br><br>
+            <a href="#" id="tag"># 깔끔한</a><br><br>
+            <a href="#" id="tag"># 부드러운</a><br><br>
+            <a href="#" id="tag"># 사랑스러운</a><br><br>
+            <a href="#" id="tag"># 가벼운</a><br><br>
+            <a href="#" id="tag"># 상큼한</a><br><br>
+            <a href="#" id="tag"># 비누향</a><br><br>
+        </div>
+        <div class="tag_boxes">
+            <a href="#" id="tag"># 포근한</a><br><br>
+            <a href="#" id="tag"># 풀숲</a><br><br>
+            <a href="#" id="tag"># 날렵한</a><br><br>
+            <a href="#" id="tag"># 청량한</a><br><br>
+            <a href="#" id="tag"># 투명한</a><br><br>
+            <a href="#" id="tag"># 커리어우먼</a><br><br>
+            <a href="#" id="tag"># 청순한</a><br><br>
+        </div>
+        <div class="tag_boxes">
+            <a href="#" id="tag"># 시원한</a><br><br>
+            <a href="#" id="tag"># 달달한</a><br><br>
+            <a href="#" id="tag"># 과일향</a><br><br>
+            <a href="#" id="tag"># 지적인</a><br><br>
+            <a href="#" id="tag"># 우아한</a><br><br>
+            <a href="#" id="tag"># 섹시한</a><br><br>
+            <a href="#" id="tag"># 우디향</a><br><br>
+        </div>
+        <div class="tag_boxes">
+            <a href="#" id="tag"># 따뜻한</a><br><br>
+            <a href="#" id="tag"># 섬세한</a><br><br>
+            <a href="#" id="tag"># 바닐라</a><br><br>
+            <a href="#" id="tag"># 서점향</a><br><br>
+            <a href="#" id="tag"># 스파이시</a><br><br>
+            <a href="#" id="tag"># 머스크</a><br><br>
+            <a href="#" id="tag"># 시트러스</a><br><br>
+        </div>
+        <div class="tag_boxes">
+            <a href="#" id="tag"># 10대</a><br><br>
+            <a href="#" id="tag"># 20대</a><br><br>
+            <a href="#" id="tag"># 30대</a><br><br>
+            <a href="#" id="tag"># 살구</a><br><br>
+            <a href="#" id="tag"># 레몬</a><br><br>
+            <a href="#" id="tag"># 오렌지</a><br><br>
+            <a href="#" id="tag"># 복숭아</a><br><br>
+        </div>
+        <div class="tag_boxes">
+            <a href="#" id="tag"># 민트</a><br><br>
+            <a href="#" id="tag"># 봄</a><br><br>
+            <a href="#" id="tag"># 여름</a><br><br>
+            <a href="#" id="tag"># 가을</a><br><br>
+            <a href="#" id="tag"># 겨울</a><br><br>
+        </div>
+    </div>
+        <!------------ 태그 검색창 끝 ------------>
+
+        <!------------ 검색 결과 시작 ------------>
+        <section>
+        <div class="serchNum">총 n개의 상품이 검색되었습니다.</div>
+        <!------------ 1-1 상품 ------------>
+        <div class="total">
+            <section id="first">
+        
+                <article class="first_prod">
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/가브리엘.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">샤넬 가브리엘</div>
+                            <div class="prodTag">
+                                <div>#깔끔한</div>
+                                <div>#날렵한</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">100mlㅣ242,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/톰포드.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">톰포드 LOST CHERRY</div>
+                            <div class="prodTag">
+                                <div>#과일향</div>
+                                <div>#관능적</div>
+                                <div>#30대</div>
+                            </div>
+                            <div class="volume">100mlㅣ909,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/세르주 루텐.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">세르주 루텐 다튜라느와</div>
+                            <div class="prodTag">
+                                <div>#상큼한</div>
+                                <div>#사탕향</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">50mlㅣ143,500</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/테싯.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">이솝 테싯</div>
+                            <div class="prodTag">
+                                <div>#유자</div>
+                                <div>#바질</div>
+                                <div>#흙내음</div>
+                            </div>
+                            <div class="volume">50mlㅣ140,000</div>
+                        </div>
+                    </div>
+            </section>
+            <section id="first">
+        
+                <article class="first_prod">
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/가브리엘.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">샤넬 가브리엘</div>
+                            <div class="prodTag">
+                                <div>#깔끔한</div>
+                                <div>#날렵한</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">100mlㅣ242,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/톰포드.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">톰포드 LOST CHERRY</div>
+                            <div class="prodTag">
+                                <div>#과일향</div>
+                                <div>#관능적</div>
+                                <div>#30대</div>
+                            </div>
+                            <div class="volume">100mlㅣ909,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/세르주 루텐.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">세르주 루텐 다튜라느와</div>
+                            <div class="prodTag">
+                                <div>#상큼한</div>
+                                <div>#사탕향</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">50mlㅣ143,500</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/테싯.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">이솝 테싯</div>
+                            <div class="prodTag">
+                                <div>#유자</div>
+                                <div>#바질</div>
+                                <div>#흙내음</div>
+                            </div>
+                            <div class="volume">50mlㅣ140,000</div>
+                        </div>
+                    </div>
+            </section>
+            <section id="first">
+        
+                <article class="first_prod">
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/가브리엘.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">샤넬 가브리엘</div>
+                            <div class="prodTag">
+                                <div>#깔끔한</div>
+                                <div>#날렵한</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">100mlㅣ242,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/톰포드.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">톰포드 LOST CHERRY</div>
+                            <div class="prodTag">
+                                <div>#과일향</div>
+                                <div>#관능적</div>
+                                <div>#30대</div>
+                            </div>
+                            <div class="volume">100mlㅣ909,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/세르주 루텐.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">세르주 루텐 다튜라느와</div>
+                            <div class="prodTag">
+                                <div>#상큼한</div>
+                                <div>#사탕향</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">50mlㅣ143,500</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/테싯.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">이솝 테싯</div>
+                            <div class="prodTag">
+                                <div>#유자</div>
+                                <div>#바질</div>
+                                <div>#흙내음</div>
+                            </div>
+                            <div class="volume">50mlㅣ140,000</div>
+                        </div>
+                    </div>
+            </section>
+            <section id="first">
+        
+                <article class="first_prod">
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/가브리엘.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">샤넬 가브리엘</div>
+                            <div class="prodTag">
+                                <div>#깔끔한</div>
+                                <div>#날렵한</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">100mlㅣ242,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/톰포드.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">톰포드 LOST CHERRY</div>
+                            <div class="prodTag">
+                                <div>#과일향</div>
+                                <div>#관능적</div>
+                                <div>#30대</div>
+                            </div>
+                            <div class="volume">100mlㅣ909,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/세르주 루텐.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">세르주 루텐 다튜라느와</div>
+                            <div class="prodTag">
+                                <div>#상큼한</div>
+                                <div>#사탕향</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">50mlㅣ143,500</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/테싯.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">이솝 테싯</div>
+                            <div class="prodTag">
+                                <div>#유자</div>
+                                <div>#바질</div>
+                                <div>#흙내음</div>
+                            </div>
+                            <div class="volume">50mlㅣ140,000</div>
+                        </div>
+                    </div>
+            </section>
+            <section id="first">
+        
+                <article class="first_prod">
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/가브리엘.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">샤넬 가브리엘</div>
+                            <div class="prodTag">
+                                <div>#깔끔한</div>
+                                <div>#날렵한</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">100mlㅣ242,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/톰포드.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">톰포드 LOST CHERRY</div>
+                            <div class="prodTag">
+                                <div>#과일향</div>
+                                <div>#관능적</div>
+                                <div>#30대</div>
+                            </div>
+                            <div class="volume">100mlㅣ909,000</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/세르주 루텐.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">세르주 루텐 다튜라느와</div>
+                            <div class="prodTag">
+                                <div>#상큼한</div>
+                                <div>#사탕향</div>
+                                <div>#20대</div>
+                            </div>
+                            <div class="volume">50mlㅣ143,500</div>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div class="ibox">
+                            <img src="../img/테싯.png" class="product">
+                            <div class="two">
+                                <div class="tbox">
+                                    <img src="../img/좋아요.png" class="thum">
+                                    <img src="../img/fullheart.png" class="full">
+                                </div> &ensp;
+            
+                                <div class="tbox">
+                                    <img src="../img/장바구니.png" class="cart">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tag">
+                            <div class="prodName">이솝 테싯</div>
+                            <div class="prodTag">
+                                <div>#유자</div>
+                                <div>#바질</div>
+                                <div>#흙내음</div>
+                            </div>
+                            <div class="volume">50mlㅣ140,000</div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    <footer>
+        <span id="introduce">
+            mood wearㅣ인천시 남동구 인주대로 518, 엔타스 12층 (01234)ㅣ대표자 : 장지윤 박경선 정이랑<br>
+            사업자 등록번호 : 214-22-07141ㅣ통신판매업신고 : 2022-인천남동, 10392ㅣ개인정보관리책임자 : <br>
+            장지윤ㅣ호스팅서비스사업자 : moodwearㅣ고객센터 : 1234-1234ㅣ이메일 : mwmw@mw.co.kr
+        </span>
+
+        <div id="ft">
+            <ul>
+                <li><a href="">개인정보 처리방침 |</a></li>
+                <li><a href="">이용약관 |</a></li>
+                <li><a href="">사이트맵 |</a></li>
+                <li><a href="">환불 정책 | </a></li>
+                <li><a href="">회사 세부정보</a></li>
+            </ul>
+            <span id="copy">Copyright 2022 MOODWEAR Inc. all rights reserved.</span>
+        </div>
+    </footer>
+</body>
+</html>
