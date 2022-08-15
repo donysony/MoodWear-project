@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+        basic font : font-family: Pretendard;
+*/
+body{margin:0 auto; }
+
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+.article_board{min-width: 1200px; }
+.section_board{display: flex; justify-content: center;}
+.select_QA{display: flex; align-items: baseline; }
+.table_btn{ width:1200px; }
+section{margin-top: 50px;}
+
+/* 문의 카테고리 */
+#selectbox{height:40px; }
+h1{font-family: 'Gowun Batang', serif; font-size: 40px; margin-left: 400px;}
+
+/*게시판*/
+.tablehead{background-color: #dbdbdb; }
+table{border-collapse: collapse; text-align: center; width:1200px;  margin-top: 20px;}
+tr{height:50px;}
+.tabletr{border-bottom: 1px #757575 solid;}
+#answercount{color:#01579b}
+.inquiry_ans{text-align: left; display: flex; align-items: center;}
+.inquiry_ans a{text-align: left; display: flex; align-items: center;}
+.tabletr td:nth-child(4){padding-top: 13px;}
+#reply{color:#01579b}
+#replytd{text-align: left;}
+
+/*목록 & 글쓰기*/
+#writebtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; }
+.buttondiv{display: flex; justify-content: end; margin-top: 30px;}
+
+/*페이징*/
+.paging{display: flex; justify-content: center; }
+.paging ul{text-align:center; }
+.paging ul li{display: inline-block;background-color: #e0e0e0; width:25px; height:25px; border-radius: 5px; padding-top: 2px;}
+
+
+
+/*검색*/
+.search_box{display: flex; justify-content: center; margin-top: 30px;}
+#search_form{display:inline; }
+form{position:relative;}
+#search_category{width:100px; height: 35px;}
+#btn_text{width:300px; height: 30px;}
+#btn_search{font-weight: 900;  background-color: transparent; border:none; cursor: pointer; position:absolute; right:5px; top:5px;}
+
+
+
+
+
+
+
+
