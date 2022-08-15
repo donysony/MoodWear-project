@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+
+body{margin:0 auto;}
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
+
+/*article*/
+article{width:1000px;}
+
+/*section*/
+section{display: flex; justify-content: center;}
+
+hr{border:1px solid black;}
+
+/*비밀번호입력테이블*/
+.inquirytable{border:solid 1px #bdbdbd; text-align: center; height:300px; width:1000px; padding:50px;}
+#explain{height:300px;}
+#pw{width:400px; height:30px;}
+
+/*확인 & 목록보기 버튼*/
+.buttondiv{display: flex; justify-content: center; margin-top: 50px;}
+#check{width:50px; height:35px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; font-family: 'GmarketSansMedium';}
+#list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; font-family: 'GmarketSansMedium';}
