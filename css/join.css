@@ -1,6 +1,6 @@
 * {margin: 0; padding: 0;}
 body{width: 100vw; margin: 0 auto; text-align: center;
-     background : linear-gradient(#c1d8f7,#fff); background-repeat: no-repeat;}
+     background : linear-gradient(#777777,#fff); background-repeat: no-repeat;}
 div{margin: 0; padding: 10px;}
 @font-face {
     font-family: 'GmarketSansMedium';
@@ -17,7 +17,7 @@ div{margin: 0; padding: 10px;}
     /* 비번&본인확인 제외 입력칸 너비 */
     .can{width: 320px; height: 35px;}
     /* 생년월일 너비 */
-    #bir1{width: 175px; height: 35px;}
+    #bir1{width: 320px; height: 35px;}
     /* 성별 너비 */
     .bir2{width: 125px; height: 40px;}
     /* 비번&본인확인 이메일 너비 */
@@ -31,7 +31,7 @@ div{margin: 0; padding: 10px;}
     /* 텍스트 그룹 */
     .box{max-width: 339px; margin: 2px auto 0 auto;}
     /* 가입하기 button */
-    #bt{width:318px; height:50px; border-radius: 3px; background-color: #6CC0FF; font-size:large; color: #fff; border-style: none;}
+    #bt{width:318px; height:50px; border-radius: 3px; background-color: #636363; font-size:large; color: #fff; border-style: none;}
     /* 텍스트 테두리 */
     input{border: solid 1px #EAEAEA; background-color: rgba(255, 255, 255, 0.1);}
     .bir2{border: solid 1px #EAEAEA; background-color: rgba(255, 255, 255, 0.1);}
