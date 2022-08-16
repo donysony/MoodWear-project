@@ -53,7 +53,7 @@
  <section>
         <article class="inquiry_article">
                 <form action="updateAction.jsp" method="post">
-                    <h2>1:1문의</h2>
+                    <h2>1:1문의(수정)</h2>
             <table class="inquirytable">
                     <tr class="info">
                         <td class="headtitle">비밀번호</td>
@@ -65,14 +65,14 @@
                     </tr>
                     <tr class="contents">
                         <td class="headtitle">내용</td>
-                        <td ><textarea maxlength="2048" name="board_content" ><%=board.getBoard_content()%></textarea></td>
-                        
+                        <td ><textarea maxlength="2048" name="board_content" ><%=board.getBoard_content()%></textarea></td>             
                     </tr>
 
                 </table>
             <div class="buttondiv">
                 <input type="submit" id="registration" value="수정하기"> &emsp;
                 <button type="button" id="list" onclick="location.href='boardlist.jsp'">목록보기</button>
+                <input type="hidden" name="board_num" value="<%=board_num%>">
             </div>
             </form>
         </article>

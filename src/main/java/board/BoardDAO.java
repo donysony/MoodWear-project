@@ -207,4 +207,36 @@ public class BoardDAO {
 			}
 			return -1;//DB오류
 		}
+		
+		//게시글 삭제
+		public int delete(int board_num) {
+			String SQL = "delete from board where board_num =?";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, board_num);
+				return pstmt.executeUpdate();				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1;//DB오류
+		}
+		
+		//게시글 번호에 해당하는 비밀번호 가져오기
+		public String getPw(int board_num) {
+			String pw ="";
+			String SQL ="select board_pw from board where board_num =?";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, board_num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					pw=rs.getString(1);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return pw;
+		}
+		
+		
 }

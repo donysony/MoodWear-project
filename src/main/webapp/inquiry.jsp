@@ -79,7 +79,7 @@
             	if(userID != null && userID.equals(board.getBoard_member_id())){
             %>
             <a href="update.jsp?board_num=<%=board_num%>">수정</a>
-            <a href="deleteAction.jsp?board_num=<%=board_num%>">삭제</a>
+            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?board_num=<%=board_num%>">삭제</a>
             <%
             }
             %>

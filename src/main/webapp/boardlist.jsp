@@ -40,10 +40,7 @@
 		document.readFrm.nowPage.value=<%=pagePerBlock%> * (value-1)+1;
 		document.readFrm.submit();
 	}
-	function pageing(page){
-		document.readFrm.nowPage.value = page;
-		document.readFrm.submit();
-	}
+
 </script>
 </head>
 <body>
@@ -92,7 +89,7 @@
     <section class="section_board">
         <article class="article_board">
             <div class="select_QA">
-            <form name="categoryFrm" method="get" action="boardlist.jsp">
+            <form name="categoryFrm" method="post" action="boardlist.jsp">
             <select name="inquiryProduct" id="selectbox">
                 <option value="all">전체</option>
                 <option value="inquriy">상품문의</option>
@@ -125,9 +122,10 @@
                 %>                
                 <tr class="tabletr">
                     <td><%=list.get(i).getBoard_num() %></td>
+                    
                     <td>상품문의</td>
                     <!-- 해당 게시글 번호를 보냄으로 써 문의글이 보여지도록 -->
-                    <td class="inquiry_ans"><a href="inquiry.jsp?board_num=<%=list.get(i).getBoard_num()%>"><%=list.get(i).getBoard_title() %><img src="img/ei_lock.png" alt="잠금" ></a></td>
+                    <td class="inquiry_ans"><a href="pwcheck.jsp?board_num=<%=list.get(i).getBoard_num()%>"><%=list.get(i).getBoard_title() %><img src="img/ei_lock.png" alt="잠금" ></a></td>
                     <td><%=list.get(i).getBoard_member_id() %></td>
                     <td><%=list.get(i).getBoard_regdate() %></td>
                     <td><%=list.get(i).getBoard_views() %></td>
@@ -135,6 +133,7 @@
                 	<%
                 	}
                 	%>	  
+               
             </table>
         	
 				

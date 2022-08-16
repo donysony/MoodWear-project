@@ -40,4 +40,5 @@ public class MemberDAO {
 		}
 		return -2; //DB오류
 	}
+
 }
