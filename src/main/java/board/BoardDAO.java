@@ -55,8 +55,7 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 			return -1; //DB오류
-		}
-		
+		}		
 		//글쓰기 메소드
 		public int write(String bbsTitle, String userID, String bbsContent, String bbsPw) {
 			String SQL = "insert into board values(?,?,?,0,?,0,?,1,?)";
@@ -73,21 +72,70 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 			return -1; //DB오류
-			
 		}
 		
-		//게시판 목록 가져오기 - 특정페이지에서 10개만큼 게시글을 뽑아 출력 
-		public ArrayList<Board> getlist(int pageNumber){ //board_num<?이 특정숫자보다 작을 때, 삭제가 되지 않아 available가 1인 글만 가져올 수 있도록
-			String SQL = "select * from board where board_num < ? and exists(select board_num from board) order by board_num desc limit 10 ";
+//		//게시판 목록 가져오기 - 특정페이지에서 10개만큼 게시글을 뽑아 출력 
+//		public ArrayList<Board> getlist(int pageNumber){ //board_num<?이 특정숫자보다 작을 때, 삭제가 되지 않아 available가 1인 글만 가져올 수 있도록
+//			String SQL = "select * from board where board_num < ? and exists(select board_num from board) order by board_num desc limit 10 ";
+//			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
+//			try {
+//				
+//				PreparedStatement pstmt = conn.prepareStatement(SQL);
+//				pstmt.setInt(1, getNext() - (pageNumber -1) *10);
+//				rs=pstmt.executeQuery();
+//				//getNext()는 글 다음으로 작성된 번호의미, 
+//				//ex) 게시글이 5개 있을 때 getNext()는 6이고, pageNumber = 1(게시글이 5개밖에 없으므로) 결과: 6
+//				//6(board_num<6)보다 작은값을 가져오기 때문에 게시글은 5개만 보여줌
+//				while(rs.next()) {
+//					Board board = new Board();
+//					board.setBoard_num(rs.getInt(1));
+//					board.setBoard_title(rs.getString(2));
+//					board.setBoard_content(rs.getString(3));
+//					board.setBoard_reply(rs.getString(4));
+//					board.setBoard_regdate(rs.getString(5));
+//					board.setBoard_views(rs.getInt(6)); 
+//					board.setBoard_pw(rs.getString(7));
+//					String str = rs.getString(8);
+//					char reply_yn = str.charAt(0);
+//					board.setBoard_reply_yn(reply_yn); //답변여부 메소드 필
+//					board.setBoard_member_id(rs.getString(9));
+//					list.add(board);
+//				}
+//			}catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//			return list;
+//		}
+		
+		//검색기능 추가한 리스트 보여주기
+		public ArrayList<Board> getlist(int pageNumber, String keyField, String keyWord, String member_id){ 
 			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
+			PreparedStatement pstmt =null;
+			String SQL = null; 
 			try {
-				
-				PreparedStatement pstmt = conn.prepareStatement(SQL);
-				pstmt.setInt(1, getNext() - (pageNumber -1) *10);
+				if(keyWord.equals("null") || keyWord.equals("")) {
+					SQL = "select * from board where board_num < ? and exists(select board_num from board) order by board_num desc limit 10 ";
+					pstmt = conn.prepareStatement(SQL);
+					pstmt.setInt(1, getNext() - (pageNumber -1) *10);
+				}else {
+					if(keyField.equals("제목")) {
+						SQL = "select * from board where board_title like ? and exists(select board_num from board) order by board_num desc limit 10" ;
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, '%'+keyWord+'%');
+					}else if(keyField.equals("작성자")) {
+						SQL = "select distinct * from board where board_member_id in (select member_id from member where member_name like ?	) order by board_num desc limit 10";
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, '%'+keyWord+'%');
+					}else {
+						SQL = "select distinct * from board where board_title like ? or board_member_id in (select member_id from member where member_name like ?) order by board_num desc limit 10";
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, '%'+keyWord+'%');
+						pstmt.setString(2, '%'+keyWord+'%');
+						
+					}
+					
+				}
 				rs=pstmt.executeQuery();
-				//getNext()는 글 다음으로 작성된 번호의미, 
-				//ex) 게시글이 5개 있을 때 getNext()는 6이고, pageNumber = 1(게시글이 5개밖에 없으므로) 결과: 6
-				//6(board_num<6)보다 작은값을 가져오기 때문에 게시글은 5개만 보여줌
 				while(rs.next()) {
 					Board board = new Board();
 					board.setBoard_num(rs.getInt(1));
@@ -108,6 +156,7 @@ public class BoardDAO {
 			}
 			return list;
 		}
+		
 		
 		//페이징 처리 메소드 10단위로 끝날 경우 다음페이지가 없어야함 - 다른방식으로 해야함
 		public boolean nextPage(int pageNumber) {
@@ -134,14 +183,27 @@ public class BoardDAO {
 				if(keyWord.equals("null") || keyWord.equals("")) {
 					SQL = "select count(board_num) from board";
 					pstmt = conn.prepareStatement(SQL);
-				}else {
-					SQL = "select count(borad_num) from board where "+keyField + " like ?";
-					pstmt = conn.prepareStatement(SQL);
-					pstmt.setString(1, "%"+keyWord+"%");
-				}
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
+				}else{
+					if(keyField.equals("제목")) {
+						SQL = "select * from board where board_title like ? and exists(select board_num from board) order by board_num desc limit 10" ;
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, '%'+keyWord+'%');
+					}else if(keyField.equals("작성자")) {
+						SQL = "select distinct * from board where board_member_id in (select member_id from member where member_name like ?	) order by board_num desc limit 10";
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, '%'+keyWord+'%');
+					}else {
+						SQL = "select * from board where board_title like ? and";
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, '%'+keyWord+'%');
+						pstmt.setString(2, '%'+keyWord+'%');
+						
+					}
+					
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
 					totalCount = rs.getInt(1);
+					}
 				}
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -237,6 +299,7 @@ public class BoardDAO {
 			}
 			return pw;
 		}
+		
 		
 		
 }
