@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
 <body>
  <header>
@@ -44,7 +44,7 @@
                 <div class="nav">
                     <div>
                         <a href="">
-                            <img src="img/로고 누끼.png" id="logo"></a>
+                            <img src="../img/로고 누끼.png" id="logo"></a>
                     </div>
 
                         
@@ -52,8 +52,8 @@
                         <ul>
                             <li><a href="" class="ct">브랜드 상품</a></li>
                             <li><a href="" class="ct">베스트 상품</a></li>
-                            <li><a href="무드웨어소개.html" class="ct">무드웨어 소개</a></li>
-                            <li><a href="웨어러추천.html" class="ct">웨어러 추천</a></li>
+                            <li><a href="무드웨어소개.jsp" class="ct">무드웨어 소개</a></li>
+                            <li><a href="웨어러추천.jsp" class="ct">웨어러 추천</a></li>
                             <li><a href="boardlist.jsp" class="ct">문의</a></li>
                         </ul>
                     </div>
@@ -63,11 +63,11 @@
                             <li>
                                 <div class="search">
                                     <span>&ensp;검색페이지로 이동&emsp;&ensp;</span> 
-                                    <img src="img/화살표.png" id="sc">
+                                    <img src="../img/화살표.png" id="sc">
                                 </div>
                             </li>
-                            <li><a href=""><img src="img/좋아요.png" ></a></li>
-                            <li><a href=""><img src="img/장바구니.png"></a></li>
+                            <li><a href=""><img src="../img/좋아요.png" ></a></li>
+                            <li><a href=""><img src="../img/장바구니.png"></a></li>
                         </ul>
                     </div>
                 </div>

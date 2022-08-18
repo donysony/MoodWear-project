@@ -24,8 +24,8 @@ a{text-decoration: none; color: black; font-size: 15px;}
 .nav ul{list-style-type: none; text-align: right; flex-direction: row; flex-wrap: nowrap; display: flex;}
 .nav img{width: 35px; height: 35px;}
 #sc{width: 25px; height: 25px;}
-.search{background-color: #eceaea77; height:35px; width: 180px; display: flex; align-items: center; color: #999999;}
-.search>input{outline: unset; border: unset; background-color: unset;}
+.search{background-color: #eceaea77; height:35px; width: 200px; display: flex; align-items: center; color: #999999;}
+.search>input{outline: unset; border: unset; background-color: unset;}  /*input이 네비에 없는거같은뎅?*/
 .ct{margin:10px; font-weight:500; font-size: 18px;}
 .nav>div:nth-child(3)>ul>li{align-items: center; margin: 5px;}
 .nav>div:nth-child(3)>ul>li>a>img{width: 25px; height: 25px;}

@@ -45,7 +45,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/boardlist.css">
+    <link rel="stylesheet" href="../css/boardlist.css">
 <title>boardlist</title>
 <script type="text/javascript">
 	function check(){

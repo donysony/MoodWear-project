@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>inquiry</title>
-    <link rel="stylesheet" href="css/inquiry.css">
+    <link rel="stylesheet" href="../css/inquiry.css">
 </head>
 <body>
 	<%

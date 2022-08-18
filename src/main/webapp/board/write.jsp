@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
     <title>상품문의</title>
 
-    <link rel="stylesheet" href="css/상품문의.css">
+    <link rel="stylesheet" href="../css/상품문의.css">
 </head>
 <body>
     <header>
-		<jsp:include page="header.jsp"/>    
+		<jsp:include page="../header.jsp"/>    
     </header>
  <section>
         <article class="inquiry_article">
