@@ -57,7 +57,7 @@
                 </table>
                 <div class="buttondiv">
                     <button type="button" id="update">수정하기</button> &emsp;
-                    <button type="button" id="cancellation">취소</button>
+                    <button type="button" id="cancellation" onclick="history.back()">취소</button>
                 </div>
                 </form>
             </article>

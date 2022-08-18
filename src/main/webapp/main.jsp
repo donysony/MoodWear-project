@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
         <style>
         .first_prod{display: flex; justify-content: space-between; margin-left: 0px;}
     </style>

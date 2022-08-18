@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <header></header>
@@ -45,7 +45,7 @@
             </table>
                 <div align="center" class="snslogo">
                     <span class="ex">카카오톡 로그인</span> &emsp;
-                    <img src="img/kakaotalk_logo.png" alt="kakaologo" id="kakaologo">
+                    <img src="../img/kakaotalk_logo.png" alt="kakaologo" id="kakaologo">
                 </div>
                     <hr>
                     <p align="center" class="ex">아직 <span id="logofont">moodwear</span>의 회원이 아니신가요?</p>

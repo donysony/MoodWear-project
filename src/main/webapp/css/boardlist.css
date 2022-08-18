@@ -26,7 +26,8 @@ tr{height:50px;}
 #answercount{color:#01579b}
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
 .inquiry_ans a{text-align: left; display: flex; align-items: center;}
-.tabletr td:nth-child(3){padding-top: 13px;}  /*3번째 자식요소로 먹혀야되는데 왜안되냐?*/
+.tabletr td:nth-child(3){padding-top: 13px;}
+#reply_yse{color:#01579b} 
 #reply{color:#01579b}
 #replytd{text-align: left;}
 
@@ -39,7 +40,7 @@ tr{height:50px;}
 .paging{display: flex; justify-content: center; }
 .paging ul{text-align:center; }
 .paging ul li{display: inline-block;background-color: #e0e0e0; width:25px; height:25px; border-radius: 5px; padding-top: 2px;}
-
+.paging ul li:hover{background-color: #757575;}
 
 
 /*검색*/

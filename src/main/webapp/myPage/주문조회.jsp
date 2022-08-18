@@ -110,7 +110,7 @@
                     </td>
                     <td>1</td>
                     <td>250,000원</td>
-                    <td><a href="review.html" class="toreview">리뷰작성</a></td>
+                    <td><a href="review.jsp" class="toreview">리뷰작성</a></td>
                 </tr>
                 <tr>
             </table>

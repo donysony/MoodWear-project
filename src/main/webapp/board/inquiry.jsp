@@ -34,7 +34,14 @@
 		//유효한 글이라면 구체적인 정보를 'board'라는 인스턴스에 담는다
 		Board board = new BoardDAO().getBoard(board_num);
 		BoardDAO boardDAO = new BoardDAO();
+		Board board_next = boardDAO.getBoardNext(board_num);
+		Board board_prev = boardDAO.getBoardPrev(board_num);
 		boardDAO.upCount(board_num);
+		
+		
+
+		
+		
 	%>
 
 
@@ -46,7 +53,7 @@
             <table class="tablenotice">
                 <tr>
                     <th class="title">제목</th>
-                    <td class="bordertd">&emsp; <%=board.getBoard_title() %> <img src="img/ei_lock.png" alt="잠금"></td>
+                    <td class="bordertd">&emsp; <%=board.getBoard_title() %> <img src="../img/ei_lock.png" alt="잠금"></td>
                 </tr>
                 <tr>
                     <th class="title">작성자</th>
@@ -64,13 +71,15 @@
                     <td id="bottomtr" class="bordertd" colspan="2"></td>
                 </tr>
                 <tr class="bordertd"></tr>
+                <%if(board.getBoard_reply() !=null) {
+                
+                %>
                 <tr class="answer">
                     <th class="title" >답변글</th>
-                    <td >&emsp;안녕하세요 고객님 mood wear입니다<br>
-                        &emsp;저희가 보유한 재고는 없습니다 <br>
-                        &emsp;죄송합니다<br>
+                    <td >&emsp;<%=board.getBoard_reply() %>
                         </td>
                 </tr>
+                <%} %>
             </table>
             
             
@@ -78,22 +87,59 @@
             <%
             	if(userID != null && userID.equals(board.getBoard_member_id())){
             %>
-            <a href="update.jsp?board_num=<%=board_num%>">수정</a>
-            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?board_num=<%=board_num%>">삭제</a>
+            <a href="update.jsp?board_num=<%=board_num%>" id="update_board">수정</a>
+            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?board_num=<%=board_num%>" id="delete_board">삭제</a>
             <%
             }
             %>
         </div>
+            <%
+            //다음글이 없는경우
+            	if(board_next == null){
+            		%>
             <table class="next">
                 <tr>
                     <th class="nextcontent">&emsp;다음글</th>
-                    <td id="nextinquriy"> &emsp;문의합니다 </td>
+                    <td id="nextinquriy"></td>
                 </tr>
                 <tr>
                     <th class="nextcontent">&emsp;이전글</th>
-                    <td id="preinquriy"> &emsp;문의합니다 </td>
+                    <td id="preinquriy"><a href="inquiry.jsp?board_num=<%=board_prev.getBoard_num() %>"><%=board_prev.getBoard_title()  %></a></td>
                 </tr>
             </table>
+            		
+            <%
+            //이전글이 없는 경우
+            	}else if(board_prev == null){
+            		%>
+            <table class="next">
+                <tr>
+                    <th class="nextcontent">&emsp;다음글</th>
+                    <td id="nextinquriy"><a href="inquiry.jsp?board_num=<%=board_next.getBoard_num()%>"><%=board_next.getBoard_title() %> </a></td>
+                </tr>
+                <tr>
+                    <th class="nextcontent">&emsp;이전글</th>
+                    <td id="preinquriy"></td>
+                </tr>
+            </table>
+            		<%
+            //다음글, 이전글 둘다 있는 경우
+            	}else{
+            		
+            		%>
+            <table class="next">
+                <tr>
+                    <th class="nextcontent">&emsp;다음글</th>
+                    <td id="nextinquriy"><a href="inquiry.jsp?board_num=<%=board_next.getBoard_num()%>"><%=board_next.getBoard_title() %> </a></td>
+                </tr>
+                <tr>
+                    <th class="nextcontent">&emsp;이전글</th>
+                    <td id="preinquriy"><a href="inquiry.jsp?board_num=<%=board_prev.getBoard_num() %>"><%=board_prev.getBoard_title()  %></a></td>
+                </tr>
+            </table>
+            <%
+            	}
+            %>
 
 
 

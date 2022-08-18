@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>join</title>
-    <link rel="stylesheet" href="css/join.css" type="text/css">
+    <link rel="stylesheet" href="../css/join.css" type="text/css">
 </head>
 <body>
     <div class="form">
-    <div class="head"><img src="img/로고 누끼(full).png" id="logo"></div>
+    <div class="head"><img src="../img/로고 누끼(full).png" id="logo"></div>
         <div class="box">
         <div>
             <p><label for="id">아이디</label></p>

@@ -21,7 +21,7 @@ td{border-top: 1px solid #757575;}
 tr{height:45px;}
 .headtitle{background-color: #bdbdbd; width:150px; margin-left:20px ;}
 .title input,.info input{width:800px; height:30px;}
-textarea{width: 95%; height: 15.25em; resize: none;}
+textarea{width: 790px; height: 300px; resize: none; padding:5px;margin:5px;}
 
 
 /*등록 & 목록 버튼*/

@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="../css/상품문의.css">
 </head>
 <body>
-    <header>
-		<jsp:include page="../header.jsp"/>    
-    </header>
     <%
 	//현재 세션상태 체크
 	String userID = null;
@@ -50,6 +47,9 @@
 		
 	}
     %>
+    <header>
+		<jsp:include page="../header.jsp"/>    
+    </header>
  <section>
         <article class="inquiry_article">
                 <form action="updateAction.jsp" method="post">
@@ -78,7 +78,7 @@
         </article>
     </section>
     <footer>
-
+    <jsp:include page="../footer.jsp"/>
     </footer>
 </body>
 </html>

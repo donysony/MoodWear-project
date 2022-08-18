@@ -24,9 +24,12 @@ table{border-collapse: collapse; text-align: center; width:1200px;  margin-top: 
 tr{height:50px;}
 .tabletr{border-bottom: 1px #757575 solid;}
 #answercount{color:#01579b}
+/*공지사항*/
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
 .inquiry_ans a{text-align: left; display: flex; align-items: center;}
 .tabletr td:nth-child(3){padding-top: 13px;}
+/*답글*/
+.tabletr td:nth-child(3)>span{color:#01579b;}
 #reply{color:#01579b}
 #replytd{text-align: left;}
 

@@ -183,32 +183,35 @@ public class BoardDAO {
 				if(keyWord.equals("null") || keyWord.equals("")) {
 					SQL = "select count(board_num) from board";
 					pstmt = conn.prepareStatement(SQL);
+					rs = pstmt.executeQuery();
 				}else{
 					if(keyField.equals("제목")) {
-						SQL = "select * from board where board_title like ? and exists(select board_num from board) order by board_num desc limit 10" ;
+						SQL = "select  count(board_num) from board where board_title like ? and exists(select board_num from board) order by board_num desc limit 10" ;
 						pstmt = conn.prepareStatement(SQL);
 						pstmt.setString(1, '%'+keyWord+'%');
+						rs = pstmt.executeQuery();
 					}else if(keyField.equals("작성자")) {
-						SQL = "select distinct * from board where board_member_id in (select member_id from member where member_name like ?	) order by board_num desc limit 10";
+						SQL = "select distinct count(board_num) from board where board_member_id in (select member_id from member where member_name like ?	) order by board_num desc limit 10";
 						pstmt = conn.prepareStatement(SQL);
 						pstmt.setString(1, '%'+keyWord+'%');
+						rs = pstmt.executeQuery();
 					}else {
-						SQL = "select * from board where board_title like ? and";
+						SQL = "select distinct count(board_num) from board where board_title like ? or board_member_id in (select member_id from member where member_name like ?) order by board_num desc limit 10";
 						pstmt = conn.prepareStatement(SQL);
 						pstmt.setString(1, '%'+keyWord+'%');
 						pstmt.setString(2, '%'+keyWord+'%');
-						
+						rs = pstmt.executeQuery();
 					}
 					
-					rs = pstmt.executeQuery();
+				}
 					if(rs.next()) {
 					totalCount = rs.getInt(1);
+					return totalCount;
 					}
-				}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			return totalCount;
+			return -1;
 		}
 		
 		//하나의 게시글의 요소들을 보여주는 메소드
@@ -300,6 +303,62 @@ public class BoardDAO {
 			return pw;
 		}
 		
+		//다음 게시글 가져오기
+		public Board getBoardNext(int board_num){
+			String SQL = "select * from board where board_num > ? order by board_num limit 1";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, board_num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					Board board = new Board();
+					board.setBoard_num(rs.getInt(1));
+					board.setBoard_title(rs.getString(2));
+					board.setBoard_content(rs.getString(3));
+					board.setBoard_reply(rs.getString(4));
+					board.setBoard_regdate(rs.getString(5));
+					board.setBoard_views(rs.getInt(6)); 
+					board.setBoard_pw(rs.getString(7));
+					String str = rs.getString(8);
+					char reply_yn = str.charAt(0);
+					board.setBoard_reply_yn(reply_yn);
+					board.setBoard_member_id(rs.getString(9));
+					return board;
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+			
+		}
+		//이전 게시글 가져오기
+		public Board getBoardPrev(int board_num){
+			String SQL = "select * from board where board_num < ? order by board_num desc limit 1";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, board_num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					Board board = new Board();
+					board.setBoard_num(rs.getInt(1));
+					board.setBoard_title(rs.getString(2));
+					board.setBoard_content(rs.getString(3));
+					board.setBoard_reply(rs.getString(4));
+					board.setBoard_regdate(rs.getString(5));
+					board.setBoard_views(rs.getInt(6)); 
+					board.setBoard_pw(rs.getString(7));
+					String str = rs.getString(8);
+					char reply_yn = str.charAt(0);
+					board.setBoard_reply_yn(reply_yn);
+					board.setBoard_member_id(rs.getString(9));
+					return board;
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+			
+		}
 		
 		
 }
