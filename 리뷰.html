@@ -1,9 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>리뷰 작성</title>
-    <link rel="stylesheet" href="css/rv.css" type="text/css">
+    <link rel="stylesheet" href="../css/rv.css" type="text/css">
+    <script>
+      let a1 = 0;
+      let a2 = 0;
+      let a3 = 0;
+
+      function abd(obj){
+        // 이미지 형식이 아닌 다른 파일 업로드시 얼랏 표시
+        let file_kind = obj.value.lastIndexOf('.');
+        let file_name = obj.value.substring(file_kind+1,obj.length);
+        let file_type = file_name.toLowerCase();
+        let check_file_type=new Array();
+        check_file_type=['jpg','gif','png','jpeg'];
+        if(check_file_type.indexOf(file_type)==-1) {
+        alert('이미지 파일(jpg, gif, png, jpeg)만 업로드 가능합니다.');
+        let parent_Obj=obj.parentNode;
+        let node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+        document.getElementById("cbfile").select();
+        document.getElementById("cbfile").value = "";
+        return false;
+        }
+        // 이미지 칸 순서대로 업로드 파일 미리보기 표시
+        let reader = new FileReader();
+        let img
+        reader.onload = function(obj){
+          if(a1==1 && a2==0) {
+            img = document.getElementById("bimg");
+            document.getElementById("dbfile").select();
+            console.log(obj.value);
+            document.getElementById("dbfile").value=obj;
+            a2 = 1; 
+        } else if(a2==1 && a3==0) {
+            img = document.getElementById("cimg");
+            document.getElementById("fbfile").select();
+            document.getElementById("fbfile").value=obj;
+            a3 = 1;
+        } else {
+            img = document.getElementById("aimg");
+            a1 = 1;
+        }
+          img.src = obj.target.result
+        }
+        reader.readAsDataURL(obj.files[0]);
+      }
+    </script>
 </head>
 <body>
 <section>
@@ -11,10 +55,10 @@
       <form action="">
         <div class="head">
           <b>리뷰쓰기</b>
-            <img src="img/로고 누끼.png" alt="logo">
+            <img src="../img/로고 누끼.png" alt="logo">
         </div>
         <div class="iteminfo">
-          <img src="img/조말론 런던 우드세이지.png" alt="product" class="orderitem"> &emsp;
+          <img src="../img/조말론 런던 우드세이지.png" alt="product" class="orderitem"> &emsp;
           <div class="orderiteminfo">
           <h3>조말론</h3>
           <p>
@@ -29,12 +73,23 @@
           <textarea name="" id="" cols="45" rows="8" placeholder="최소 10자 이상 입력해주세요"></textarea>
         </div>
 	        <form action = "upload.jsp" method = "post" enctype = "multipart/form-data">
-	         <input type = "file" name = "file"/>
+	         <input type = "file" name = "file" id="cbfile" onchange="abd(this)"/>
+           <input type="file" id="dbfile">
+           <input type="file" id="fbfile">
 	     	 </form>
-        <div class="attach_photo">
-          <img src="img/camera.png">&emsp;
-          <label for="upload_file" id="fileupload">사진 첨부하기</label>
-        </div>
+
+          <div class="wrap">
+            <img class="image" src="../img/가브리엘.png" id="aimg"></img>
+            <img class="image" src="../img/구딸3.jpg" id="bimg"></img>
+            <img class="image" src="../img/르라보.jpg" id="cimg"></img>
+
+            <a href=""><img src="../img/" alt=""></a>
+           </div>
+
+        <label class="attach_photo" for="cbfile">
+          <img src="../img/camera.png">&emsp;
+           <p id="img_cs">사진 첨부하기</p>
+        </label>
           <div class="worning">
             <b>상품과 무관한 사진을 첨부한 리뷰는 통보없이 삭제됩니다.</b>
           </div>
