@@ -39,7 +39,7 @@ tr{height:50px;}
 /*페이징*/
 .paging{display: flex; justify-content: center; }
 .paging ul{text-align:center; }
-.paging ul li{display: inline-block;background-color: #e0e0e0; width:25px; height:25px; border-radius: 5px; padding-top: 2px;}
+.paging ul li{display: inline-block;background-color: #e0e0e0; width:40px; height:40px; border-radius: 5px; padding-top: 2px;}
 .paging ul li:hover{background-color: #757575;}
 
 

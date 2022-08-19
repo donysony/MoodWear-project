@@ -21,6 +21,7 @@ String pw = request.getParameter("board_pw");
 <body>
 <%
 	//현재 세션상태 체크
+	
 	String userID = null;
 	if(session.getAttribute("userID") != null){
 		userID = (String)session.getAttribute("userID");

@@ -55,7 +55,8 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 			return -1; //DB오류
-		}		
+		}	
+		
 		//글쓰기 메소드
 		public int write(String bbsTitle, String userID, String bbsContent, String bbsPw) {
 			String SQL = "insert into board values(?,?,?,0,?,0,?,1,?)";
