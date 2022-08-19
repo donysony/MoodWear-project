@@ -29,7 +29,7 @@
 		//로그인이 되어 있는 상태에서 보여주는 화면
  		}else{
  			%>
- 			 <div class="top">
+ 			 <div class="top_login">
                     <ul>
                         <li><a href="myPage/mypage.jsp">마이페이지</a></li>
                         <li><a href="login/logoutAction.jsp">로그아웃</a></li>
@@ -43,8 +43,8 @@
 %>
                 <div class="nav">
                     <div>
-                        <a href="">
-                            <img src="../img/로고 누끼.png" id="logo"></a>
+                        <a href="main.jsp">
+                            <img src="img/로고 누끼.png" id="logo"></a>
                     </div>
 
                         
@@ -58,19 +58,17 @@
                         </ul>
                     </div>
 
-                    <div>
-                        <ul>
-                            <li>
-                                <div class="search">
-                                    <span>&ensp;검색페이지로 이동&emsp;&ensp;</span> 
-                                    <img src="../img/화살표.png" id="sc">
-                                </div>
-                            </li>
-                            <li><a href=""><img src="../img/좋아요.png" ></a></li>
-                            <li><a href=""><img src="../img/장바구니.png"></a></li>
-                        </ul>
-                    </div>
-                </div>
+               <div>
+                    <div class="search">
+                        <form action="" name="search_form">
+                            <input type="text" id="btn_text" placeholder="검색페이지로 이동">
+                            <button type="submit" id="btn_search"><img src="img/fe_search.png" alt=""></button>
+                        </form>
+                            <a href="myPage/좋아요.jsp" id="search_like"><img src="img/좋아요.png" ></a>
+                            <a href="myPage/장바구니.jsp"><img src="img/장바구니.png"></a>
+                   </div>
+              </div>
+            </div>
             </header>
 </body>
 </html>

@@ -10,13 +10,13 @@ body{margin:0 auto; }
 *{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
 .article_board{min-width: 1200px; }
 .section_board{display: flex; justify-content: center;}
-.select_QA{display: flex; align-items: baseline; }
+.select_QA{display: flex; justify-content:center; align-items:center;}
 .table_btn{ width:1200px; }
 section{margin-top: 50px;}
 
 /* 문의 카테고리 */
 #selectbox{height:40px; }
-h1{font-family: 'Gowun Batang', serif; font-size: 40px; margin-left: 400px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px; }
 
 /*게시판*/
 .tablehead{background-color: #dbdbdb; }
@@ -37,11 +37,11 @@ tr{height:50px;}
 .buttondiv{display: flex; justify-content: end; margin-top: 30px;}
 
 /*페이징*/
-.paging{display: flex; justify-content: center; }
+.paging{display: flex; justify-content: center; align-items:center;}
 .paging ul{text-align:center; }
 .paging ul li{display: inline-block;background-color: #e0e0e0; width:40px; height:40px; border-radius: 5px; padding-top: 2px;}
 .paging ul li:hover{background-color: #757575;}
-
+.paging a{display: block; margin-top: 7px; }
 
 /*검색*/
 .search_box{display: flex; justify-content: center; margin-top: 30px;}

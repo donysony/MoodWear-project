@@ -1,35 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-*{margin: 0; padding: 0;}
-li{font-family: Pretendard;}
-input{background-color: #eceaea77;}
-span{vertical-align:middle}
+*{margin: 0; padding: 0; text-decoration: none; list-style-type: none; font-family: Pretendard;}
 
 body{position: relative;}
 #body-wrapper{min-height: 969px; height: auto;}
-
 /* 로고 */
 #logo{width: 120px; height: 70px;}
 
 /* 상단 박스 */
 .top{background-color: #EAEAEA;}
 .top ul{padding: 0; text-align: center; display: flex; justify-content: right;}
-.top ul li{display: inline-block; width: 60px; height: 33px; list-style:none; font-size: 14px; display: flex; align-items: center;}
-a{text-decoration: none; color: black; font-size: 15px;}
+.top ul li{display: inline-block; width: 60px; height: 33px; font-size: 14px; display: flex; align-items: center;}
+
+/*로그인이 된경우*/
+.top_login{background-color: #EAEAEA;}
+.top_login ul{padding: 0; text-align: center; display: flex; justify-content: right;}
+.top_login ul li{display: inline-block; width:80px; height: 33px; font-size: 14px; display: flex; align-items: center;}
 
 /* 네비 */
 .nav{display: flex; justify-content: space-between; align-items: center;}
 .nav>div:nth-child(2)>ul>li{display: flex; align-items: center;}
 .nav ul{list-style-type: none; text-align: right; flex-direction: row; flex-wrap: nowrap; display: flex;}
-.nav img{width: 35px; height: 35px;}
 #sc{width: 25px; height: 25px;}
-.search{background-color: #eceaea77; height:35px; width: 200px; display: flex; align-items: center; color: #999999;}
-.search>input{outline: unset; border: unset; background-color: unset;}  /*input이 네비에 없는거같은뎅?*/
 .ct{margin:10px; font-weight:500; font-size: 18px;}
-.nav>div:nth-child(3)>ul>li{align-items: center; margin: 5px;}
-.nav>div:nth-child(3)>ul>li>a>img{width: 25px; height: 25px;}
-.nav>div:nth-child(3)>ul{display: flex; align-items: center;}
+a{text-decoration: none; color: black; font-size: 15px;}
+
+
+
+/*검색창*/
+.search{display: flex; justify-content: center; align-items: center; }
+#search_form{display:inline; }
+form{position:relative;}
+#btn_text{width:170px; height: 30px; font-size: 16px; padding-left: 10px; border:none; outline: 0; background-color: #eceaea77;}
+#btn_search{background-color: transparent; border:none; cursor: pointer; position:absolute; right:10px; top:3px;}
+.search a{ margin-right:10px;}
+.search a >img{width: 25px; height: 25px; margin-top:3px;}
+#search_like{margin-left:10px;}
+
+
 
 /* 배너 이미지 */
 #main{width: 1900px; height: 600px;}

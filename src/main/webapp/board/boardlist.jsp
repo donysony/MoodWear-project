@@ -93,18 +93,13 @@
 </head>
 <body>
 
+<jsp:include page="../header.jsp"/>
 
 
     <section class="section_board">
         <article class="article_board">
             <div class="select_QA">
-            <form name="categoryFrm" method="post" action="boardlist.jsp">
-            <select name="inquiryProduct" id="selectbox">
-                <option value="all">전체</option>
-                <option value="inquriy">상품문의</option>
-                <option value="notice">이벤트공지/공지사항</option>
-            </select>
-            </form>
+
             <h1>문의게시판</h1>
         </div>
         <div class="table_btn">

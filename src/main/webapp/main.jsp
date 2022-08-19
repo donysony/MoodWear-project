@@ -34,7 +34,9 @@
     </script>
 </head>
 <body>
+<header>
 <jsp:include page="header.jsp"/>
+</header>
     <div id="body-wrapper">
             <section>
                 <div>
@@ -665,6 +667,9 @@
                 <a href=""><img src="img/가입배너.png" id="banner"></a>
             </section>
         </div>
+
+<footer>
 <jsp:include page="footer.jsp"/>
-        </body>
+</footer>
+</body>
 </html>

@@ -34,13 +34,9 @@
 		//유효한 글이라면 구체적인 정보를 'board'라는 인스턴스에 담는다
 		Board board = new BoardDAO().getBoard(board_num);
 		BoardDAO boardDAO = new BoardDAO();
-		Board board_next = boardDAO.getBoardNext(board_num);
-		Board board_prev = boardDAO.getBoardPrev(board_num);
 		boardDAO.upCount(board_num);
 		
-		
 
-		
 		
 	%>
 
@@ -93,53 +89,6 @@
             }
             %>
         </div>
-            <%
-            //다음글이 없는경우
-            	if(board_next == null){
-            		%>
-            <table class="next">
-                <tr>
-                    <th class="nextcontent">&emsp;다음글</th>
-                    <td id="nextinquriy"></td>
-                </tr>
-                <tr>
-                    <th class="nextcontent">&emsp;이전글</th>
-                    <td id="preinquriy"><a href="inquiry.jsp?board_num=<%=board_prev.getBoard_num() %>"><%=board_prev.getBoard_title()  %></a></td>
-                </tr>
-            </table>
-            		
-            <%
-            //이전글이 없는 경우
-            	}else if(board_prev == null){
-            		%>
-            <table class="next">
-                <tr>
-                    <th class="nextcontent">&emsp;다음글</th>
-                    <td id="nextinquriy"><a href="inquiry.jsp?board_num=<%=board_next.getBoard_num()%>"><%=board_next.getBoard_title() %> </a></td>
-                </tr>
-                <tr>
-                    <th class="nextcontent">&emsp;이전글</th>
-                    <td id="preinquriy"></td>
-                </tr>
-            </table>
-            		<%
-            //다음글, 이전글 둘다 있는 경우
-            	}else{
-            		
-            		%>
-            <table class="next">
-                <tr>
-                    <th class="nextcontent">&emsp;다음글</th>
-                    <td id="nextinquriy"><a href="inquiry.jsp?board_num=<%=board_next.getBoard_num()%>"><%=board_next.getBoard_title() %> </a></td>
-                </tr>
-                <tr>
-                    <th class="nextcontent">&emsp;이전글</th>
-                    <td id="preinquriy"><a href="inquiry.jsp?board_num=<%=board_prev.getBoard_num() %>"><%=board_prev.getBoard_title()  %></a></td>
-                </tr>
-            </table>
-            <%
-            	}
-            %>
 
 
 
