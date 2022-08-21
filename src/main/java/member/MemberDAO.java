@@ -65,5 +65,81 @@ public class MemberDAO {
 		}
 		return "";
 	}
+	
+	
+	//회원 아이디 찾기
+	public String getMemberId(String name, String phone) {
+		String sql = "select member_id from member where member_name =? and member_phone=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,name);
+			pstmt.setString(2,phone);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+				
+	}
+	
+	//회원 비밀번호 찾기
+	public String getMemberPw(String member_id, String phone) {
+		String sql = "select member_pw from member where member_id =? and member_phone=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,member_id);
+			pstmt.setString(2,phone);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+		
+	}
+	
+	
+	//로그인된 아이디로 회원정보 가져오기 메소드
+	public Member getMember(String userID){
+		String sql ="select * from member where member_id=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userID);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Member member = new Member();
+				member.setMember_id(rs.getString(1));
+				member.setMember_pw(rs.getString(2));
+				member.setMember_name(rs.getString(3));
+				member.setMember_email(rs.getString(4));
+				member.setMember_birth(rs.getString(5));
+				member.setMember_phone(rs.getString(6));
+				String str = rs.getString(7);
+				char withdrawal= str.charAt(0);
+				member.setMember_withdrawal(withdrawal);
+				member.setMember_reverse(rs.getInt(8));
+				return member;
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null)
+					conn.close();
+				if(rs != null)
+					rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+				
+			}return null;
+	}
+	
 
 }

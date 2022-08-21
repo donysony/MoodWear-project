@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-	System.out.println("/inquiry/");
+
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID = (String)session.getAttribute("userID");

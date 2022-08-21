@@ -8,8 +8,14 @@ public class Member {
 	private String member_birth;
 	private String member_phone;
 	private char member_withdrawal;
-	private String member_regdate;
+	private int member_reverse;
 	
+	public int getMember_reverse() {
+		return member_reverse;
+	}
+	public void setMember_reverse(int member_reverse) {
+		this.member_reverse = member_reverse;
+	}
 	public String getMember_id() {
 		return member_id;
 	}
@@ -52,10 +58,6 @@ public class Member {
 	public void setMember_withdrawal(char member_withdrawal) {
 		this.member_withdrawal = member_withdrawal;
 	}
-	public String getMember_regdate() {
-		return member_regdate;
-	}
-	public void setMember_regdate(String member_regdate) {
-		this.member_regdate = member_regdate;
-	}
+
+
 }

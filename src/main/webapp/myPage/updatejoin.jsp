@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="../css/updatejoin.css">
 </head>
 <body>
+
+<%
+	request.setCharacterEncoding("utf-8");//갑자기 든 의문 얘는 한글이 깨지지 않도록 해준다는데 의미가 뭘까?
+%>
     <header>
    		<jsp:include page="../header.jsp"/>
     </header>

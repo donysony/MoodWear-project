@@ -6,12 +6,28 @@
 <meta charset="utf-8">
 <title>Login</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+    function check(){
+    	if(document.loginFrm.member_id.value==""){
+			alert("아이디를 입력하세요");
+			document.loginFrm.member_id.focus();
+			return;
+    	}
+    	if(document.loginFrm.member_pw.value == ""){
+			alert("비밀번호를 입력하세요");
+			document.loginFrm.member_pw.focus();
+			return;
+		}
+		document.loginFrm.submit();
+    	
+    }
+    </script>
 </head>
 <body>
 <header></header>
 <section>
     <article class="article1">
-        <form action="loginAction.jsp" method="post">
+        <form action="loginAction.jsp" method="post" name="loginFrm">
             <table class="logintable">
                 <tr align="center">
                     <td colspan="2">
@@ -23,7 +39,7 @@
                         <input type="text" placeholder="아이디" class="idpw" name="member_id">
                     </td>
                     <td rowspan="2">
-                        <button id="loginbtn">로그인</button>
+                        <button id="loginbtn" onclick="javascript:check()" type="button">로그인</button>
                     </td>
                 </tr>
                 <tr>
