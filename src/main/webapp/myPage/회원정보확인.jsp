@@ -1,24 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="member.*" %>
-<%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("utf-8");
 	String userID = null;
 	if(session.getAttribute("userID") != null){
 		userID = (String)session.getAttribute("userID");
 	}
-	if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인이 필요합니다')");
-		script.println("location.href='../login/login.jsp");
-		script.println("</script>");
-		
-	}
 	//Member객체에 userID값과 동일한 회원의 정보를 담아 memberinfo인스턴스 생성
 	Member memberinfo = new MemberDAO().getMember(userID);
-	
+	System.out.println(memberinfo);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +59,7 @@
                     </tr>
                     <tr>
                         <th>아이디</th>
-                        <td class="idpw"><input type="text" value="<%=userID %>" name="id" readonly ></td>
+                        <td class="idpw"><input type="text" value="<%=userID %>" name="id" readonly id="inputid" class="inputbox"  ></td>
                     </tr>
                     <tr>
                         <th>비밀번호 </th>
@@ -85,5 +77,7 @@
     <footer>
     <jsp:include page="../footer.jsp"/>
     </footer>
+
+
 </body>
 </html>

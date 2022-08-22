@@ -140,6 +140,30 @@ public class MemberDAO {
 				
 			}return null;
 	}
+	//회원 정보 수정하기
+	public int getMemberUpdate(String userID, String pw, String email, String phone) {
+		String sql = "update member set member_pw=?, member_email=?, member_phone=? where member_id=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pw);
+			pstmt.setString(2, email);
+			pstmt.setString(3, phone);
+			pstmt.setString(4, userID);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}return -1;
+	}
 	
 
 }

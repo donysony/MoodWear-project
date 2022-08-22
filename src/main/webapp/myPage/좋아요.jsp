@@ -20,7 +20,7 @@
         <article class="article_like">
             <div class="title">
             <h2>좋아요</h2>
-            <h5>전체_개 | 좋아요한 상품이 최대 90일간 보관됩니다</h5>
+            <h5>전체_개 </h5>
             </div>
             <div class="container">
                 <div class="containerdiv">
