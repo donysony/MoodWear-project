@@ -1,46 +1,129 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¸®ºä ÀÛ¼º</title>
-    <link rel="stylesheet" href="css/review.css" type="text/css">
+<meta charset="UTF-8">
+<title>ë¦¬ë·° ì‘ì„±</title>
+    <link rel="stylesheet" href="../css/rv.css" type="text/css">
+    <script>
+      let a1 = 0;
+      let a2 = 0;
+      let a3 = 0;
+
+      function goImg(){
+        // ì´ë¯¸ì§€ ê°¯ìˆ˜ 3ì¥ ì œí•œ
+        if(a1== 1 && a2==1 && a3==1){
+          alert("ì´ë¯¸ì§€ëŠ” 3ì¥ë§Œ ì²¨ë¶€ ê°€ëŠ¥í•©ë‹ˆë‹¤.")
+          return false;
+        }
+
+        if(a1==0) {
+          document.getElementById("cbfile").click(); 
+        } else if(a2==0) {
+          document.getElementById("dbfile").click();          
+        } else if(a3==0) {
+          document.getElementById("fbfile").click();
+        }
+      }
+      function checkImg(obj){
+        let file_kind = obj.value.lastIndexOf('.');
+        let file_name = obj.value.substring(file_kind+1,obj.length);
+        let file_type = file_name.toLowerCase();
+        let check_file_type=new Array();
+        check_file_type=['jpg','gif','png','jpeg'];
+        if(check_file_type.indexOf(file_type)==-1) {
+        alert('ì´ë¯¸ì§€ íŒŒì¼(jpg, gif, png, jpeg)ë§Œ ì—…ë¡œë“œ ê°€ëŠ¥í•©ë‹ˆë‹¤.');
+        let parent_Obj=obj.parentNode;
+        let node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+        document.getElementById("cbfile").select();
+        document.getElementById("cbfile").value = "";
+        return false;
+        }
+        // ì´ë¯¸ì§€ ì¹¸ ìˆœì„œëŒ€ë¡œ ì—…ë¡œë“œ íŒŒì¼ ë¯¸ë¦¬ë³´ê¸° í‘œì‹œ
+        let reader = new FileReader();
+        let img
+        reader.onload = function(obj){
+          if(a1==0) {
+            img = document.getElementById("aimg");
+              a1 = 1;  
+          } else if(a2==0) {
+            img = document.getElementById("bimg");
+              a2 = 1;
+              
+          } else if(a3==0){
+            img = document.getElementById("cimg");
+              a3 = 1;
+          }
+            img.src = obj.target.result
+          }
+          reader.readAsDataURL(obj.files[0]);
+        }
+        function deleteimg(){
+              document.getElementById("aimg").src="../img/ë¦¬ë·°ì´ë¯¸ì§€.png";
+              a1 = 0;
+        }
+        function deleteimg2(){
+              document.getElementById("bimg").src="../img/ë¦¬ë·°ì´ë¯¸ì§€.png";
+              a2 = 0;
+        }
+        function deleteimg3(){
+              document.getElementById("cimg").src="../img/ë¦¬ë·°ì´ë¯¸ì§€.png";
+              a3 = 0;
+        }
+    </script>
 </head>
 <body>
 <section>
     <article class="review_article">
       <form action="">
         <div class="head">
-          <b>¸®ºä¾²±â</b>
-            <img src="img/·Î°í ´©³¢.png" alt="logo">
+          <b>ë¦¬ë·°ì“°ê¸°</b>
+            <img src="../img/ë¡œê³  ëˆ„ë¼.png" alt="logo">
         </div>
         <div class="iteminfo">
-          <img src="img/Á¶¸»·Ğ ·±´ø ¿ìµå¼¼ÀÌÁö.png" alt="product" class="orderitem"> &emsp;
+          <img src="../img/ì¡°ë§ë¡  ëŸ°ë˜ ìš°ë“œì„¸ì´ì§€.png" alt="product" class="orderitem"> &emsp;
           <div class="orderiteminfo">
-          <h3>Á¶¸»·Ğ</h3>
+          <h3>ì¡°ë§ë¡ </h3>
           <p>
-            ·±´ø ¿ìµå¼¼ÀÌÁö<br>
-            ¿À µå ¶Ñ¿Ğ·¿<br>
+            ëŸ°ë˜ ìš°ë“œì„¸ì´ì§€<br>
+            ì˜¤ ë“œ ëšœì™ˆë ›<br>
             100ml</p>
           </div>
         </div>
         <div class="contents">
-          <p>´ÙÀ½ »ç¶÷¿¡°Ô µµ¿òÀÌ µÇ´Â »ı»ıÇÑ ¸®ºä¸¦ ³²°ÜÁÖ¼¼¿ä.</p>
-          <p><b>¾î¶²Á¡ÀÌ ÁÁ¾Ò³ª¿ä?</b></p>
-          <textarea name="" id="" cols="45" rows="8" placeholder="ÃÖ¼Ò 10ÀÚ ÀÌ»ó ÀÔ·ÂÇØÁÖ¼¼¿ä"></textarea>
+          <p>ë‹¤ìŒ ì‚¬ëŒì—ê²Œ ë„ì›€ì´ ë˜ëŠ” ìƒìƒí•œ ë¦¬ë·°ë¥¼ ë‚¨ê²¨ì£¼ì„¸ìš”.</p>
+          <p><b>ì–´ë–¤ì ì´ ì¢‹ì•˜ë‚˜ìš”?</b></p>
+          <textarea name="" id="" cols="45" rows="8" placeholder="ìµœì†Œ 10ì ì´ìƒ ì…ë ¥í•´ì£¼ì„¸ìš”"></textarea>
         </div>
 	        <form action = "upload.jsp" method = "post" enctype = "multipart/form-data">
-	         <input type = "file" name = "file" id="file"/>
+	         <input type = "file" name = "file" id="cbfile" onchange="checkImg(this)"/>
+           <input type="file" name = "file2" id="dbfile" onchange="checkImg(this)">
+           <input type="file" name = "file3" id="fbfile" onchange="checkImg(this)">
 	     	 </form>
-        <div class="attach_photo">
-          <img src="img/camera.png">&emsp;
-          <label for="upload_file" id="fileupload">»çÁø Ã·ºÎÇÏ±â</label>
+
+         <section id="mom">
+            <article>
+              <div class="wrap">
+                <img class="image" src="../img/ë¦¬ë·°ì´ë¯¸ì§€.png" id="aimg">
+                <img class="image" src="../img/ë¦¬ë·°ì´ë¯¸ì§€.png" id="bimg">
+                <img class="image" src="../img/ë¦¬ë·°ì´ë¯¸ì§€.png" id="cimg">
+              </div>
+            </article>
+
+             <article>
+              <img src="../img/ë‹«ê¸°.png" alt="ì‚­ì œ" id="oc" onclick="deleteimg()">
+              <img src="../img/ë‹«ê¸°.png" alt="ì‚­ì œ" id="tc" onclick="deleteimg2()">
+              <img src="../img/ë‹«ê¸°.png" alt="ì‚­ì œ" id="thc" onclick="deleteimg3()">
+            </article>
+          </section>
+
+        <div class="attach_photo" for="cbfile" onclick="goImg()">
+          <img src="../img/camera.png">&emsp;
+           <p id="imgcs">ì‚¬ì§„ ì²¨ë¶€í•˜ê¸°</p>
         </div>
           <div class="worning">
-            <b>»óÇ°°ú ¹«°üÇÑ »çÁøÀ» Ã·ºÎÇÑ ¸®ºä´Â Åëº¸¾øÀÌ »èÁ¦µË´Ï´Ù.</b>
+            <b>ìƒí’ˆê³¼ ë¬´ê´€í•œ ì‚¬ì§„ì„ ì²¨ë¶€í•œ ë¦¬ë·°ëŠ” í†µë³´ì—†ì´ ì‚­ì œë©ë‹ˆë‹¤.</b>
           </div>
-          <input type="submit" value="¸®ºä µî·ÏÇÏ±â" id="reviewbtn">       
+          <input type="submit" value="ë¦¬ë·° ë“±ë¡í•˜ê¸°" id="reviewbtn">       
       </form>
     </article>
   </section>
