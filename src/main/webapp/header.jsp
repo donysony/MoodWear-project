@@ -21,8 +21,8 @@
  %>
                 <div class="top">
                     <ul>
-                        <li><a href="login/join.jsp">회원가입</a></li>
-                        <li><a href="login/login.jsp">로그인</a></li>
+                        <li><a href="join.jsp">회원가입</a></li>
+                        <li><a href="login.jsp">로그인</a></li>
                     </ul>
                 </div>
 <%
@@ -31,8 +31,8 @@
  			%>
  			 <div class="top_login">
                     <ul>
-                        <li><a href="myPage/mypage.jsp">마이페이지</a></li>
-                        <li><a href="login/logoutAction.jsp">로그아웃</a></li>
+                        <li><a href="mypage.jsp">마이페이지</a></li>
+                        <li><a href="logoutAction.jsp">로그아웃</a></li>
                     </ul>
                 </div>
  			
@@ -54,7 +54,7 @@
                             <li><a href="" class="ct">베스트 상품</a></li>
                             <li><a href="무드웨어소개.jsp" class="ct">무드웨어 소개</a></li>
                             <li><a href="웨어러추천.jsp" class="ct">웨어러 추천</a></li>
-                            <li><a href="board/boardlist.jsp" class="ct">문의</a></li>
+                            <li><a href="boardlist.jsp" class="ct">문의</a></li>
                         </ul>
                     </div>
 
@@ -64,8 +64,8 @@
                             <input type="text" id="btn_text" placeholder="검색페이지로 이동">
                             <button type="submit" id="btn_search"><img src="img/fe_search.png" alt=""></button>
                         </form>
-                            <a href="myPage/좋아요.jsp" id="search_like"><img src="img/좋아요.png" ></a>
-                            <a href="myPage/장바구니.jsp"><img src="img/장바구니.png"></a>
+                            <a href="좋아요.jsp" id="search_like"><img src="img/좋아요.png" ></a>
+                            <a href="장바구니.jsp"><img src="img/장바구니.png"></a>
                    </div>
               </div>
             </div>
