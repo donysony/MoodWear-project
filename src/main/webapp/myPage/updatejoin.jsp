@@ -75,11 +75,11 @@
                         <th>이메일</th>
                         <td><input type="text" name="email1" id="" size="20" maxlength="15" autocomplete="off" value="<%=email.substring(0,email.indexOf("@"))%>"> @ 
                         <select name="email2" id="select_email">
-                            <option value="naver.com" <%if(email.substring(email.indexOf("@")).equals("naver.com")) out.println("selected");%>>naver.com</option>
-                            <option value="gmail.com" <%if(email.substring(email.indexOf("@")).equals("gmail.com")) out.println("selected");%>>gmail.com</option>
-                            <option value="daum.com" <%if(email.substring(email.indexOf("@")).equals("daum.com")) out.println("selected");%>>daum.com</option>
-                            <option value="nate.com" <%if(email.substring(email.indexOf("@")).equals("nate.com")) out.println("selected");%>>nate.com</option>
-                            <option value="hanmail.net" <%if(email.substring(email.indexOf("@")).equals("hanmail.net")) out.println("selected");%>>hanmail.net</option>
+                            <option value="naver.com" <%if(email.substring(email.indexOf("@")).equals("@naver.com")) out.println("selected");%>>naver.com</option>
+                            <option value="gmail.com" <%if(email.substring(email.indexOf("@")).equals("@gmail.com")) out.println("selected");%>>gmail.com</option>
+                            <option value="daum.com" <%if(email.substring(email.indexOf("@")).equals("@daum.com")) out.println("selected");%>>daum.com</option>
+                            <option value="nate.com" <%if(email.substring(email.indexOf("@")).equals("@nate.com")) out.println("selected");%>>nate.com</option>
+                            <option value="hanmail.net" <%if(email.substring(email.indexOf("@")).equals("@hanmail.net")) out.println("selected");%>>hanmail.net</option>
                         </select></td>
                     </tr>
                 </table>

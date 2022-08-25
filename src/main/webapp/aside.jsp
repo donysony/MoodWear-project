@@ -24,7 +24,7 @@
                 <li><a href="좋아요.jsp">좋아요</a></li>
                 <li><a href="마이페이지_문의.jsp">1:1문의내역</a></li>
                 <li><a href="회원정보확인.jsp">회원정보 수정</a></li>
-                <li><a href="배송주소록관리.jsp">배송지 관리</a></li>
+                <li><a href="배송주소록관리.jsp">주소록 관리</a></li>
                 <li><a href="회원탈퇴.jsp">회원 탈퇴</a></li>
             </ul>
     

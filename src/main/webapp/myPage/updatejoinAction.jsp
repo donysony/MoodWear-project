@@ -28,7 +28,6 @@
 	email = request.getParameter("email1")+"@"+request.getParameter("email2");
 		}
 	}
-	System.out.println(email);
 	MemberDAO memberDAO = new MemberDAO();
 	memberDAO.getMemberUpdate(userID, pw, email, phone);
 	

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
     <title>장바구니</title>
     <link rel="stylesheet" href="../css/장바구니.css">
+    <script src="../javascript/장바구니.js"></script>
 </head>
 <body>
     <header>
@@ -13,8 +14,6 @@
     </header>
 
     <section>
-
-
         <form action="" method="post" >
             <article>
                 <h1>장바구니</h1>
@@ -23,7 +22,7 @@
                             <td colspan="7"><p>장바구니에 담긴 상품은 30일간 보관됩니다</p></td>
                         </tr>
                         <tr>
-                            <th><input type="checkbox" name="" id=""></th>
+                            <th><input type="checkbox" name="select" onclick="checkBox(this)"></th>
                             <th>상품정보</th>
                             <th>판매가</th>
                             <th>수량</th>
@@ -32,22 +31,22 @@
                             <th>선택</th>
                         </tr>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="product1" class="select_checkbox"></td>
                             <td class="itemimg"> 
                                 <img src="../img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
                                 <p>Dior<br>
                                     미스 디올 블루밍 부케<br>
                                     오드 퍼퓸<br>
                                     100ml</p></td>
-                                    <td>250,000원</td>
+                                    <td><input type="text" value="250000" id="price" readonly>원</td>
                                     <td class="count_change">
-                                        <span>1</span>
-                                        <input type="button" value="" class="upbtn">
-                                        <input type="button" value="" class="downbtn">
-                                        <button>변경</button>
+									<input type="text" value="1" id="quantity" readonly name="quantity">
+									<input type="button" value="" id="upbtn" onclick="up()">
+									<input type="button" value="" id="downbtn"onclick="down()">
+										<button type="button" onclick="totalPrice()">변경</button>
                                     </td>
                                     <td></td>
-                                    <td>250,000원</td>
+                                    <td><span id="total">250000원</span></td>
                                     <td>
                                         <button class="order">주문하기</button>
                                         <button class="delete">삭제</button>
@@ -55,7 +54,7 @@
                                     </td>
                                 </tr>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="product2" class="select_checkbox"></td>
                             <td class="itemimg"> 
                                 <img src="../img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
                                 <p>Dior<br>
@@ -97,7 +96,7 @@
                 <span class="empty"></span>
                 <span>250,000원</span>
                 <span class="empty"></span>
-                <img src="../img/plus.png" alt="">
+                <img src="plus.png" alt="">
                 <span>0원</span>
                 <img src="../img/equals.png" alt="">
                 <span class="empty"></span>
