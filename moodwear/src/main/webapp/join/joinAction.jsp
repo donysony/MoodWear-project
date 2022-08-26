@@ -40,6 +40,7 @@
                 session.setAttribute("member_id", user.getMember_id());
                 PrintWriter script = response.getWriter();
                 script.println("<script>");
+                script.println("alert('회원가입을 축하합니다')");
                 script.println("location.href= 'main.jsp'");
                 script.println("</script>");
                 }

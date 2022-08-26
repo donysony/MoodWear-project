@@ -7,7 +7,7 @@
 <!-- 반응형 웹을 위한 설정 -->
 <meta name="viewport" content="width=divice-width", initial-scale="1">
     <link rel="stylesheet" href="../css/mwlogin.css" type="text/css">
-<title>관리자 로그인</title>
+<title>관리자로그인</title>
 </head>
 <body>
 <body>

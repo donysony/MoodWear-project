@@ -7,7 +7,7 @@
 <!-- 반응형 웹을 위한 설정 -->
 <meta name="viewport" content="width=divice-width", initial-scale="1">
     <link rel="stylesheet" href="../css/join.css" type="text/css">
-<title>회원가입 </title>
+<title>회원가입</title>
 </head>
 <body>
     <div class="form">
