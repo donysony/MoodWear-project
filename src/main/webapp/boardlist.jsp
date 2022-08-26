@@ -122,7 +122,7 @@
                 </tr>
                 <%
                 	ArrayList<Board> list = boardDAO.getlist(pageNumber, keyField, keyWord, userID );
-                	MemberDAO memberDAO = new MemberDAO();
+               		MemberDAO memberDAO = new MemberDAO();
                 	for(int i =0; i<list.size();i++){
                 		String member_id = list.get(i).getBoard_member_id();
                 		String memberName = memberDAO.getMemberName(member_id);

@@ -16,12 +16,12 @@ h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
 /*사이드바*/
 .aside li{padding:5px;}
 .aside{width:300px;}
-article{width:1000px; margin-bottom: 50px;}
+
 
 /*section*/
 section{margin-top: 50px;}
 /*article*/
-article{width:1000px;}
+article{width:1200px;margin-bottom: 50px;}
 
 /*배송지 주소록관리*/
 .shipping_address{width:1000px; text-align: center; margin-top: 20px;}

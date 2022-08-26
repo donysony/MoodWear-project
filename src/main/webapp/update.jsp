@@ -71,14 +71,14 @@
                 </table>
             <div class="buttondiv">
                 <input type="submit" id="registration" value="수정하기"> &emsp;
-                <button type="button" id="list" onclick="location.href='boardlist.jsp'">목록보기</button>
+                <button type="button" id="list" onclick="history.back()">뒤로가기</button>
                 <input type="hidden" name="board_num" value="<%=board_num%>">
             </div>
             </form>
         </article>
     </section>
     <footer>
-    <jsp:include page="footer.jsp"/>
+    <!--<jsp:include page="footer.jsp"/>-->
     </footer>
 </body>
 </html>

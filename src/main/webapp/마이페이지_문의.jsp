@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="board.*" %>
+<%@page import="member.*" %>
+<%@page import="java.util.*" %>
+
+<%
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String)session.getAttribute("userID");
+	}
+	int pageNumber =50;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +30,7 @@
         <article>
             <h2>1:1 문의내역</h2>
             <hr>
-                <form action="" method="post" >
+                <form action="update.jsp" method="get" >
             <table class="shipping_address">
                     <tr>
                         <th>글번호</th>
@@ -31,20 +42,29 @@
                     <tr>
                         <td colspan="6"></td>
                     </tr>
+                    <%
+						ArrayList<Board> list = new BoardDAO().getMyInquiry(userID, pageNumber);
+                    	for(int i=0; i<list.size();i++){
+                    		%>
                     <tr >
-                        <td>1</td>
-                        <td>문의드립니다</td>
-                        <td>2022.08.10</td>
-                        <td>Y</td>
-                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.jsp'">수정</button></td>
+                        <td><%=list.get(i).getBoard_num() %></td>
+                        <td><%=list.get(i).getBoard_title() %></td>
+                        <td><%=list.get(i).getBoard_regdate() %></td>
+                        <td><%if(list.get(i).getBoard_reply_yn() == '0'){%>
+                        	Y
+                        	<%
+                        }else{
+                        	%>
+                        	N
+                        	<%
+                        }
+                        	%></td>
+                        <td><button class="ship_update" type="button"onClick="location.href='update.jsp?board_num=<%=list.get(i).getBoard_num()%>'">수정</button></td>
                     </tr>
-                    <tr >
-                        <td>1</td>
-                        <td>문의드립니다</td>
-                        <td>2022.08.10</td>
-                        <td>Y</td>
-                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.jsps'">수정</button></td>
-                    </tr>
+                    <%
+                    	}
+                    %>
+
                 </table> 
                     </form>
         </article>

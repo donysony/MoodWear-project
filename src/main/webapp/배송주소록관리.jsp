@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="member.MemberDAO"%>
+<%@ page import="member.Address"%>
+<%@ page import="java.util.*" %>
+<jsp:useBean id="memberDAO" class="member.MemberDAO"/>
+    <%
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String)session.getAttribute("userID");		
+	}
+    %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +43,24 @@
                     <tr>
                         <td colspan="6"></td>
                     </tr>
+                    <%
+					ArrayList<Address> list = memberDAO.getMyAddress(userID);
+                    for(int i=0; i<list.size(); i++){
+                    	String phone = list.get(i).getAddress_phone();
+                    	int num = list.get(i).getAddress_num();
+                    	%>
                     <tr >
                         <td><input type="checkbox" name="" id=""></td>
-                        <td>집</td>
-                        <td>박경선</td>
-                        <td>인천광역시 구월동 엔타스빌딩 11층</td>
-                        <td>010-1234-5678</td>
-                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.jsp'">수정</button></td>
+                        <td><%=list.get(i).getAddress_name() %></td>
+                        <td><%=list.get(i).getAddress_reciever() %></td>
+                        <td><%=list.get(i).getAddress1()+list.get(i).getAddress2() %></td>
+                        <td><%=phone.substring(0,3)+"-"+phone.substring(3,7)+"-"+phone.substring(7)%></td>
+                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.jsp?address_num=<%=num%>'">수정</button></td>
                     </tr>
-                    <tr >
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>집</td>
-                        <td>박경선</td>
-                        <td>인천광역시 구월동 엔타스빌딩 11층</td>
-                        <td>010-1234-5678</td>
-                        <td><button class="ship_update" type="button"onClick="location.href='배송지수정.jsp'">수정</button></td>
-                    </tr>
+                    
+                    <%
+                    }
+                    %>
                 </table> 
                    
                         <div class="address_btn">

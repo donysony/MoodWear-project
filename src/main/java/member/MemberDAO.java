@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	private Connection conn;
@@ -163,6 +164,167 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}return -1;
+	}
+	
+	
+	//주소 번호 부여 메소드
+	public int getNext() {
+		//현재 게시글을 내림차순으로 조회하여 가장 마지막 글의 번호를 구함
+		String SQL ="select address_num from address order by address_num desc";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1)+1;
+			}
+			return 1; //첫번째 게시물인 경우
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //DB오류
+	}	
+	
+	
+	
+	//배송지 등록하기
+	public boolean insertAddress(Address address, String member_id, String phone) {
+		String sql = "insert into address values(?,?,?,?,?,?,?,?)";
+		boolean flag = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, getNext());
+			pstmt.setString(2, address.getAddress_name());
+			pstmt.setString(3, address.getAddress_reciever());
+			pstmt.setString(4, address.getAddress1());
+			pstmt.setString(5, address.getAddress2());
+			pstmt.setInt(6, address.getAddress_zipcode());
+			pstmt.setString(7, member_id);
+			pstmt.setString(8, phone);
+
+			if(pstmt.executeUpdate() == 1) {
+				flag = true;
+				
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}return flag;
+		}
+	
+	//배송지 가져오기 list
+	public ArrayList<Address> getMyAddress(String member_id) {
+		String sql = "select address_name, address_reciever, address1, address2, address_phone, address_num from address where address_member_id=? order by address_num";
+		ArrayList<Address> list = new ArrayList<Address>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member_id);
+			rs = pstmt.executeQuery();
+				while(rs.next()) {
+				Address address = new Address();
+				address.setAddress_name(rs.getString(1));
+				address.setAddress_reciever(rs.getString("address_reciever"));
+				address.setAddress1(rs.getString("address1"));
+				address.setAddress2(rs.getString("address2"));
+				address.setAddress_phone(rs.getString("address_phone"));
+				address.setAddress_num(rs.getInt("address_num"));
+				list.add(address);
+				}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}return list;
+		
+	}
+	//배송지 가져오기 address_num과 member_id가 일치하는 항목만
+	public Address getAddress(String member_id, int address_num) {
+		String sql = "select * from address where address_member_id=? and address_num=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member_id);
+			pstmt.setInt(2, address_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {			
+				Address address = new Address();
+				address.setAddress_num(rs.getInt("address_num"));
+				address.setAddress_name(rs.getString("address_name"));
+				address.setAddress_reciever(rs.getString("address_reciever"));
+				address.setAddress1(rs.getString("address1"));
+				address.setAddress2(rs.getString("address2"));
+				address.setAddress_zipcode(rs.getInt("address_zipcode"));
+				address.setAddress_member_id(rs.getString("address_member_id"));
+				address.setAddress_phone(rs.getString("address_phone"));
+				return address;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	//배송지 수정
+	public boolean updateAddress(Address address, String member_id, String phone) {
+		String sql = "update address set address_name=?, address_reciever=?, address1=?, address2=?, address_zipcode=?, address_phone=? where address_member_id=? and address_num=?";
+		boolean flag = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, address.getAddress_name());
+			pstmt.setString(2, address.getAddress_reciever());
+			pstmt.setString(3, address.getAddress1());
+			pstmt.setString(4, address.getAddress2());
+			pstmt.setInt(5, address.getAddress_zipcode());
+			pstmt.setString(6, phone);
+			pstmt.setString(7, member_id);
+			pstmt.setInt(8, address.getAddress_num());
+			
+			if(pstmt.executeUpdate() == 1) {
+				flag = true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}return flag;
 	}
 	
 

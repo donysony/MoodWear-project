@@ -19,7 +19,7 @@
                 <h1>장바구니</h1>
                 <table class="ordertable">
                         <tr>
-                            <td colspan="7"><p>장바구니에 담긴 상품은 30일간 보관됩니다</p></td>
+                            <td colspan="7"></td>
                         </tr>
                         <tr>
                             <th><input type="checkbox" name="select" onclick="checkBox(this)"></th>
@@ -31,14 +31,14 @@
                             <th>선택</th>
                         </tr>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="product1" class="select_checkbox"></td>
+                            <td><input type="checkbox" name="product1" class="select_checkbox" checked></td>
                             <td class="itemimg"> 
                                 <img src="img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
                                 <p>Dior<br>
                                     미스 디올 블루밍 부케<br>
                                     오드 퍼퓸<br>
                                     100ml</p></td>
-                                    <td><input type="text" value="250000" id="price" readonly>원</td>
+                                    <td><input type="text" value="250000" id="price" readonly checked>원</td>
                                     <td class="count_change">
 									<input type="text" value="1" id="quantity" readonly name="quantity">
 									<input type="button" value="" id="upbtn" onclick="up()">
@@ -54,7 +54,7 @@
                                     </td>
                                 </tr>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="product2" class="select_checkbox"></td>
+                            <td><input type="checkbox" name="product2" class="select_checkbox" checked></td>
                             <td class="itemimg"> 
                                 <img src="img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
                                 <p>Dior<br>
@@ -88,20 +88,10 @@
         
         <article class="payment_due">
             <div id="payment">
-                <span>총 상품금액</span>
-                <span>총 배송비</span>
                 <span>결제예정금액</span>
             </div>
             <div id="payment_value">
-                <span class="empty"></span>
                 <span>250,000원</span>
-                <span class="empty"></span>
-                <img src="plus.png" alt="">
-                <span>0원</span>
-                <img src="img/equals.png" alt="">
-                <span class="empty"></span>
-                <span>250,000원</span>
-                <span class="empty"></span>
                 
             </div>
         </article>

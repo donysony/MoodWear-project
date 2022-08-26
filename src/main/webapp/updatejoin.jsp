@@ -13,7 +13,7 @@
 <body>
 
 <%
-	request.setCharacterEncoding("utf-8");//갑자기 든 의문 얘는 한글이 깨지지 않도록 해준다는데 의미가 뭘까?
+	request.setCharacterEncoding("utf-8");//갑자기 든 의문 얘는 한글이 깨지지 않도록 해준다는데 의미가 뭘까? --> 폼을 받아와 읽어들일때 한글이 깨지므로 utf-8방식으로 읽어라
 	
 	String userID = null;
 	if(session.getAttribute("userID") != null){

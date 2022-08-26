@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+
 public class BoardDAO {
 //데이터베이스 접근 객체
 
@@ -259,13 +260,14 @@ public class BoardDAO {
 		}
 		
 		//게시글 수정 메소드
-		public int update(int board_num, String board_title, String board_content) {
-			String SQL = "update board set board_title=?, board_content=? where board_num=?";
+		public int update(int board_num, String board_title, String board_content, String board_pw) {
+			String SQL = "update board set board_title=?, board_content=?, board_pw=?where board_num=?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setString(1, board_title);
 				pstmt.setString(2, board_content);
-				pstmt.setInt(3, board_num);
+				pstmt.setString(3, board_pw);
+				pstmt.setInt(4, board_num);
 				return pstmt.executeUpdate();
 				
 			}catch(Exception e) {
@@ -304,7 +306,7 @@ public class BoardDAO {
 			return pw;
 		}
 		
-		//다음 게시글 가져오기
+		//다음 게시글 가져오기 - 사용안함
 		public Board getBoardNext(int board_num){
 			String SQL = "select * from board where board_num > ? order by board_num limit 1";
 			try {
@@ -332,7 +334,7 @@ public class BoardDAO {
 			return null;
 			
 		}
-		//이전 게시글 가져오기
+		//이전 게시글 가져오기 - 사용안함
 		public Board getBoardPrev(int board_num){
 			String SQL = "select * from board where board_num < ? order by board_num desc limit 1";
 			try {
@@ -359,6 +361,38 @@ public class BoardDAO {
 			}
 			return null;
 			
+		}
+		
+		//로그인된 아이디로 문의글 불러오기
+		public ArrayList<Board> getMyInquiry(String member_id, int pageNumber){
+			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
+			PreparedStatement pstmt =null;
+			String SQL = null; 
+			try {
+				SQL = "select b.* from board b join member m on m.member_id=? and b.board_num < ? order by b.board_num desc limit 5 ";
+					pstmt = conn.prepareStatement(SQL);
+					pstmt.setString(1,member_id);
+					pstmt.setInt(2,pageNumber);
+					rs=pstmt.executeQuery();
+				while(rs.next()) {
+					Board board = new Board();
+					board.setBoard_num(rs.getInt(1));
+					board.setBoard_title(rs.getString(2));
+					board.setBoard_content(rs.getString(3));
+					board.setBoard_reply(rs.getString(4));
+					board.setBoard_regdate(rs.getString(5));
+					board.setBoard_views(rs.getInt(6)); 
+					board.setBoard_pw(rs.getString(7));
+					String str = rs.getString(8);
+					char reply_yn = str.charAt(0);
+					board.setBoard_reply_yn(reply_yn); 
+					board.setBoard_member_id(rs.getString(9));
+					list.add(board);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return list;
 		}
 		
 		
