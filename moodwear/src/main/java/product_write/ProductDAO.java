@@ -5,14 +5,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import product_write.ProductDAO;
-import product_write.Product;   
+import product_write.Product;
  
  
 public class ProductDAO {
@@ -21,7 +24,7 @@ public class ProductDAO {
     private PreparedStatement pstmt;    // 
     private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
     private static ProductDAO instance = null;
-    private static final String SAVEFOLDER = "C:/Users/지윤/Desktop/MoodWear-project/moodwear/src/main/webapp/fileupload";
+    private static final String SAVEFOLDER = "C:/Users/지윤/git/repository/moodwear/src/main/webapp/fileupload";
 	private static final String ENCTYPE = "UTF-8";
 	private static final int MAXSIZE = 5*1024*1024;
     
@@ -93,7 +96,7 @@ public int product_write(HttpServletRequest req) {
     return -1; // 데이터베이스 오류
 }
 
-public int product_write2(String product_name) {
+public int product_write2(String product_name) {  
 	  String SQL = "SELECT product_name FROM product";
 	  try {
 	   pstmt = conn.prepareStatement(SQL);
@@ -112,6 +115,100 @@ public int product_write2(String product_name) {
 	  return -2; // 데이터 베이스 오류
 
 	 }
+
+
+/*
+ * public Product getProduct() { PreparedStatement pstmt = null; ResultSet rs =
+ * null; String sql = null; Product bean = new Product(); try { sql =
+ * "select * from product"; rs = pstmt.executeQuery(); if(rs.next()) {
+ * bean.setProduct_num(rs.getInt("product_num"));
+ * bean.setProduct_name(rs.getString("product_name"));
+ * bean.setProduct_brand(rs.getString("product_brand"));
+ * bean.setProduct_price(rs.getString("product_price"));
+ * bean.setProduct_volume(rs.getInt("product_volume"));
+ * bean.setProduct_img(rs.getString("product_img"));
+ * bean.setProduct_info(rs.getString("product_info"));
+ * bean.setProduct_tag1(rs.getString("product_tag1"));
+ * bean.setProduct_tag2(rs.getString("product_tag2"));
+ * bean.setProduct_tag3(rs.getString("product_tag3"));
+ * bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
+ * bean.setProduct_tagImg2(rs.getString("product_tagImg2")); } } catch(Exception
+ * e) { e.printStackTrace(); } return bean; }
+ */
+
+/*
+public Vector<Product> getProductList() {
+	// 메소드이름 본인 마음대로
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			Vector<Product> vlist = new Vector<Product>();
+			try {
+				sql = "select * from product";
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					Product bean = new Product();
+					bean.setProduct_num(rs.getInt("product_num"));
+					bean.setProduct_name(rs.getString("product_name"));
+					bean.setProduct_brand(rs.getString("product_brand"));
+					bean.setProduct_price(rs.getString("product_price"));
+					bean.setProduct_volume(rs.getInt("product_volume"));
+					bean.setProduct_img(rs.getString("product_img"));
+					bean.setProduct_info(rs.getString("product_info"));
+					bean.setProduct_tag1(rs.getString("product_tag1"));
+					bean.setProduct_tag2(rs.getString("product_tag2"));
+					bean.setProduct_tag3(rs.getString("product_tag3"));
+					bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
+					bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
+				
+					vlist.add(bean);
+				}		
+			} catch(Exception e) {
+				e.printStackTrace();
+
+			}
+			return vlist;
+}
+ */
+
+public ArrayList<Product> getProductList(){
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	ArrayList<Product> vlist = new ArrayList<Product>();
+	try {
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select * from product");
+		while(rs.next()) {
+			Product bean = new Product();
+			bean.setProduct_num(rs.getInt("product_num"));
+			bean.setProduct_name(rs.getString("product_name"));
+			bean.setProduct_brand(rs.getString("product_brand"));
+			bean.setProduct_price(rs.getString("product_price"));
+			bean.setProduct_volume(rs.getInt("product_volume"));
+			bean.setProduct_img(rs.getString("product_img"));
+			bean.setProduct_info(rs.getString("product_info"));
+			bean.setProduct_tag1(rs.getString("product_tag1"));
+			bean.setProduct_tag2(rs.getString("product_tag2"));
+			bean.setProduct_tag3(rs.getString("product_tag3"));
+			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
+			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
+			vlist.add(bean);
+		}
+	} catch(Exception e) {
+		System.out.println("Exception :"+e);
+	} finally {
+		if(rs != null)
+			try{rs.close();} catch(SQLException e){}
+		if(stmt != null)
+			try{stmt.close();} catch(SQLException e){}
+		if(conn != null)
+			try{conn.close();} catch(SQLException e){}
+	
+		}
+	return vlist;
+	
 	}
-
-
+	
+	}
