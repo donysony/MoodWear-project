@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
     <title>review</title>
     <link rel="stylesheet" href="css/review.css" type="text/css">
+    <script src="javascript/review.js"></script>
 </head>
 <body>
   <header></header>

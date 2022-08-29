@@ -364,15 +364,14 @@ public class BoardDAO {
 		}
 		
 		//로그인된 아이디로 문의글 불러오기
-		public ArrayList<Board> getMyInquiry(String member_id, int pageNumber){
+		public ArrayList<Board> getMyInquiry(String member_id){
 			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
 			PreparedStatement pstmt =null;
 			String SQL = null; 
 			try {
-				SQL = "select b.* from board b join member m on m.member_id=? and b.board_num < ? order by b.board_num desc limit 5 ";
+				SQL = "select b.* from board b join member m on m.member_id=? order by b.board_num desc limit 5 ";
 					pstmt = conn.prepareStatement(SQL);
 					pstmt.setString(1,member_id);
-					pstmt.setInt(2,pageNumber);
 					rs=pstmt.executeQuery();
 				while(rs.next()) {
 					Board board = new Board();
@@ -394,6 +393,28 @@ public class BoardDAO {
 			}
 			return list;
 		}
+		
+		//로그인된 아이디의 총 문의글 개수
+		public int getMyInquiryTotalCount(String member_id) {
+			String SQL = null; 
+			PreparedStatement pstmt =null;
+			int totalCount =0;
+			try {
+					SQL = "select count(board_num) from board where board_member_id=?";
+					pstmt = conn.prepareStatement(SQL);
+					pstmt.setString(1, member_id);
+					rs = pstmt.executeQuery();
+					
+				if(rs.next()) {
+					totalCount = rs.getInt(1);
+					return totalCount;
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1;
+		}
+		
 		
 		
 }
