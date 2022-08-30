@@ -35,7 +35,7 @@
 	totalBlock = (int)Math.ceil((double)totalPage/pagePerBlock);//전체블록수
 	nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock); //현재 레코드가 해당하는 블록
 	
-	
+	//ex 전체레코드 45개, 전체페이지수 9개, 전체블록수 2개, nowblock 1/5 ->1
 	
 %>
 <!DOCTYPE html>
@@ -45,7 +45,6 @@
     <title>1:1문의내역</title>
     <script>
     	function blockPrev(value){
-
 		document.readFrm.nowPage.value=<%=pagePerBlock%> * (value-1)+1;
 		document.readFrm.submit();
 		}
@@ -82,7 +81,7 @@
                         <td colspan="6"></td>
                     </tr>
                     <%
-						ArrayList<Board> list = new BoardDAO().getMyInquiry(userID);
+						ArrayList<Board> list = new BoardDAO().getMyInquiry(userID, pageNumber);
                     	for(int i=0; i<list.size();i++){
                     		%>
                     <tr >

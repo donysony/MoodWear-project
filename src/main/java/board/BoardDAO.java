@@ -160,22 +160,6 @@ public class BoardDAO {
 		}
 		
 		
-		//페이징 처리 메소드 10단위로 끝날 경우 다음페이지가 없어야함 - 다른방식으로 해야함
-		public boolean nextPage(int pageNumber) {
-			String SQL = "select * from board where board_num<? and exists(select board_num from board)";
-			try {
-				PreparedStatement pstmt = conn.prepareStatement(SQL);
-				pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					return true;//다음페이지로 넘어갈 수 있도록
-				}
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-			return false;
-		}
-		
 		//게시물의 총 개수 
 		public int getTotalCount(String keyField, String keyWord) {
 			String SQL = null; 
@@ -364,14 +348,15 @@ public class BoardDAO {
 		}
 		
 		//로그인된 아이디로 문의글 불러오기
-		public ArrayList<Board> getMyInquiry(String member_id){
+		public ArrayList<Board> getMyInquiry(String member_id, int pageNumber){
 			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
 			PreparedStatement pstmt =null;
 			String SQL = null; 
 			try {
-				SQL = "select b.* from board b join member m on m.member_id=? order by b.board_num desc limit 5 ";
+				SQL = "select b.* from board b join member m on m.member_id=? and b.board_num < ? order by b.board_num desc limit 5 ";
 					pstmt = conn.prepareStatement(SQL);
 					pstmt.setString(1,member_id);
+					pstmt.setInt(2, getNextInquiry(member_id) - (pageNumber -1) *5);
 					rs=pstmt.executeQuery();
 				while(rs.next()) {
 					Board board = new Board();
@@ -393,6 +378,25 @@ public class BoardDAO {
 			}
 			return list;
 		}
+		
+		//게시글 번호 
+		public int getNextInquiry(String member_id) {
+			//현재 게시글을 내림차순으로 조회하여 가장 마지막 글의 번호를 구함
+			String SQL ="select board_num from board where board_member_id =? order by board_num desc";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, member_id);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1)+1;
+				}
+				return 1; //첫번째 게시물인 경우
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1; //DB오류
+		}	
+		
 		
 		//로그인된 아이디의 총 문의글 개수
 		public int getMyInquiryTotalCount(String member_id) {
