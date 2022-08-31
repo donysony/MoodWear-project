@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+
+body{margin:0 auto;}
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
+
+/*section*/
+section{display: flex; justify-content: center; }
+
+
+/*상품문의 폼*/
+.inquirytable{width:1000px; border-top:2px solid black; text-align: center; border-bottom:1px solid black; border-collapse: collapse;}
+td{border-top: 1px solid #757575;}
+tr{height:45px;}
+.headtitle{background-color: #bdbdbd; width:150px; margin-left:20px ;}
+.title input,.info input{width:800px; height:30px;}
+textarea{width: 790px; height: 300px; resize: none; padding:5px;margin:5px;}
+
+
+/*등록 & 목록 버튼*/
+.buttondiv{margin-top: 50px; display: flex; justify-content: center; }
+#registration{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
+#list{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd;border: #bdbdbd;  color:black; }

@@ -1,4 +1,4 @@
-<!-- 회원가입 처리 -->
+<!-- 회원가입 처리 --> 
  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -41,7 +41,7 @@
                 PrintWriter script = response.getWriter();
                 script.println("<script>");
                 script.println("alert('회원가입을 축하합니다')");
-                script.println("location.href= 'main.jsp'");
+                script.println("location.href= '../main/main.jsp'");
                 script.println("</script>");
                 }
         }
