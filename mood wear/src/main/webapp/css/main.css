@@ -16,7 +16,7 @@ body{position: relative;}
 .top{background-color: #EAEAEA;}
 .top ul{padding: 0; text-align: center; display: flex; justify-content: right;}
 .top ul li{display: inline-block; width: 60px; height: 33px; list-style:none; font-size: 14px; display: flex; align-items: center;}
-a{text-decoration: none; color: black; font-size: 15px;}
+a{text-decoration: none; color: black; font-size: 15px;} 
 
 /* 네비 */
 .nav{display: flex; justify-content: space-between; align-items: center;}
