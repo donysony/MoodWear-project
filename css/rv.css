@@ -32,24 +32,26 @@ textarea{resize: none; width: 520px; background-color: #f5f5f5; outline: 0; bord
   .attach_photo{border: 2px dashed #D5D5D5; margin-bottom: 10px; width: 100%; height: 70px; display: flex; justify-content: center; align-items: center; cursor:pointer}
   .attach_photo>img{width: 2rem; height: 2rem; }
   #upload_file{display: none;}
+  #imgcs{font-size: 22px;}
 
 /* 주의사항 */
   .worning{color:red; width: 100%; height: 50px;line-height: 50px; text-align: center;}
 
 /* 리뷰등록 버튼 */
-  #reviewbtn{width: 100%; height: 50px;line-height: 50px; text-align: center;outline: 0; border:0; background-color: #e0e0e0;  font-size: 22px; font-weight: bold;}
+  #reviewbtn{width: 100%; height: 50px;line-height: 50px; text-align: center;outline: 0; border:0; background-color: #e0e0e0;  font-size: 22px; font-weight: bold; cursor:pointer}
 
-  /* 업로드한 사진 */
+/* 업로드한 사진 */
   .wrap {display:flex; justify-content: space-between;}
-  .image{width: 165px; height: 90px; border: 1px solid #D5D5D5; display: grid; margin-bottom: 0;}
-
-#dbfile, #fbfile{display: none;}
-
-/* 사진 첨부하기 문구 */
-#img_cs{font-size: 22px;}
+  .image{width: 165px; height: 90px; border: 1px solid #D5D5D5; display: grid; margin-bottom: 0; background-size: cover;}
 
 /* 인풋 파일태그 */
-#cbfile{display: none;}
+#cbfile, #dbfile, #fbfile{display: none;}
 
-/* 닫기버튼 */
-  #closebtn{width: 100%; height: 50px;line-height: 50px; text-align: center; outline: 0; border:0; background-color: #a4a4a4;  font-size: 22px; font-weight: bold; margin-top: 10px;}
+/* 닫기 버튼 위치*/
+#oc{position:absolute; left:140px; bottom: 70px;}
+#tc{position: absolute; left: 315px; bottom: 70px;}
+#thc{position: absolute; left: 490px; bottom: 70px;}
+#mom{position: relative;}
+#oc, #tc, #thc{cursor: pointer; width: 30px;}
+
+#bimg{margin: 0 10px;}
