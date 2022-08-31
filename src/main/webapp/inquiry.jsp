@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" >
-                        <%=board.getBoard_content() %>
+                       <pre><%=board.getBoard_content() %></pre> 
                     </td>
                 </tr>
                 <tr>

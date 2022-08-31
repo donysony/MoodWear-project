@@ -17,6 +17,8 @@
 <meta charset="UTF-8">
     <title>배송주소록관리</title>
     <link rel="stylesheet" href="css/배송주소록관리.css">
+    <script src="javascript/배송지주소록관리.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <header>
@@ -30,7 +32,7 @@
         <article>
             <h2>배송지 주소록관리</h2>
             <hr>
-                <form action="" method="post" >
+                <form action="" method="post" name="userForm">
             <table class="shipping_address">
                     <tr>
                         <th>배송지 선택</th>
@@ -50,7 +52,7 @@
                     	int num = list.get(i).getAddress_num();
                     	%>
                     <tr >
-                        <td><input type="checkbox" name="" id=""></td>
+                        <td><input type="checkbox" name="RowCheck" value="<%=num%>"></td>
                         <td><%=list.get(i).getAddress_name() %></td>
                         <td><%=list.get(i).getAddress_reciever() %></td>
                         <td><%=list.get(i).getAddress1()+list.get(i).getAddress2() %></td>
@@ -64,7 +66,7 @@
                 </table> 
                    
                         <div class="address_btn">
-                            <input type="button" value="선택주소록 삭제" id="directory_delete">
+                            <input type="button" value="선택주소록 삭제" id="directory_delete" onclick="deleteAddress()">
                             <input type="button" value="배송지 등록" id="registration" onclick="location.href='배송지등록.jsp'">
                         </div>
                     
@@ -73,8 +75,6 @@
         
         </section>
     </div>
-    <footer>
     <jsp:include page="footer.jsp"/>
-    </footer>
 </body>
 </html>

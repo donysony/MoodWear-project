@@ -21,6 +21,7 @@
 		document.loginFrm.submit();
     	
     }
+
     </script>
 </head>
 <body>
@@ -40,6 +41,7 @@
                     </td>
                     <td rowspan="2">
                         <button id="loginbtn" onclick="javascript:check()" type="button">로그인</button>
+                        <button id="loginbtnAddmin" onclick="location.href='login_admin.jsp'" type="button">관리자 로그인</button>
                     </td>
                 </tr>
                 <tr>
