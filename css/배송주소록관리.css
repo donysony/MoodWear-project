@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+body{margin:0 auto; }
+h1{font-family: 'Gowun Batang', serif;font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
+/*aside & article정렬*/
+.aside_article{display: flex; justify-content: center; }
+
+
+/*사이드바*/
+.aside li{padding:5px;}
+.aside{width:300px;}
+article{width:1000px; margin-bottom: 50px;}
+
+/*section*/
+section{margin-top: 50px;}
+/*article*/
+article{width:1000px;}
+
+/*배송지 주소록관리*/
+.shipping_address{width:1000px; text-align: center; margin-top: 20px;}
+.shipping_address tr:nth-child(1){background-color: #e0e0e0; }
+.shipping_address tr:nth-child(2){height:2px;}
+.shipping_address tr{height:50px;}
+.shipping_address, td{border-collapse: collapse;}
+.shipping_address td{border-top:1px #dbdbdb solid; border-bottom:1px #dbdbdb solid;}
+/*수정*/
+.ship_update{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
+
+
+/*배송지 등록, 삭제 버튼*/
+.address_btn{display: flex; justify-content: space-between; margin-top: 10px; }
+#directory_delete{ padding:5px;border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
+#registration{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
+
+
+/*배송지 수정테이블*/
+.addressinfo_updatetbl{text-align: center; width:1000px; border:1px #dbdbdb solid;padding:10px;}
+.addressinfo_updatetbl td{text-align: left;}
+.addressinfo_updatetbl tr{height:40px;}
+.addressinfo_updatetbl tr:nth-child(4){height:150px;}
+.addressinfo_updatetbl th{width:300px;}
+
+/*주소*/
+.address_box{margin-top: 5px; width:450px; }
+#default_address{margin-top: 10px;}
+.zip_code{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
+
+
+
+/*수정하기/취소 버튼*/
+.buttondiv{display: flex; justify-content: center; margin-top: 50px;}
+#update{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #757575;border: #757575;  color:white; }
+#cancellation{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; }
+

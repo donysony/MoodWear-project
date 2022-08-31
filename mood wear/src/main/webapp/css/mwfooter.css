@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+*{margin: 0; padding: 0; font-family: Pretendard;}
+
+/* 수정&등록 버튼 */
+button{ width: 150px; height: 50px; font-size: 20px; 
+    background-color: #EAEAEA; border-color: #EAEAEA;}
+
+/* 문구 */
+#head{font-size: 30px; margin: 30px; margin-top: 60px;}
+header{margin-bottom: 80px;}
+p{font-size: 25px; }
+div{margin-bottom: 40px; margin-left: 30px;}
+
+/* 글제목 */
+input{width: 600px; height: 30px; font-size: 20px;}
+
+/* 본문 */
+#ta{width: 600px; height: 400px; font-size: 20px;}

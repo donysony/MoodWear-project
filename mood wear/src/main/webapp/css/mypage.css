@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+    point font : font-family: 'Gowun Batang', serif;
+    basic font : font-family: Pretendard;
+*/
+body{margin:0 auto; }
+*{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
+h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
+.aside_section{display: flex; justify-content: center; }
+
+
+/*사이드바*/
+.aside li{padding:5px;}
+.aside{width:300px;}
+article{width:1000px; margin-bottom: 50px;}
+h2, h4{display: inline-block;}
+
+/*주문조회&좋아요&문의내역 공통*/
+.title{display: flex; justify-content: space-between;}
+
+/*주문조회*/
+.ordertable{background-color: #dbdbdb;}
+.ordertable td{ width:1000px;padding:15px;}
+.ordertable td:nth-child(1){width:200px;}
+.ordertable td:nth-child(2){width:400px;}
+.ordertable td:nth-child(3){width:200px;}
+.ordertable td:nth-child(4){width:200px;}
+
+/*좋아요*/
+.article_like{text-align: center;}
+.like_cart p{font-family: 'Gowun Batang', serif; font-size: 20px; text-align: center; display: inline-block; margin:5px 0 0 0;}
+.likeimg{width:300px; height:400px;}
+.like_cart{ margin-right:20px;  width: 300px; height: 450px; border:solid 1px #EAEAEA;  position: relative; display: inline-block;}
+.wrapper{position: absolute; left: 200px; bottom: 50px; display:flex}
+
+.like_cart a{font-family: 'Gowun Batang', serif; }
+.like_cart a:hover{color:blue}
+
+
+/*장바구니icon*/
+.like_cart .cart{
+    background: url(../img/장바구니.png) no-repeat center #f1eeee;
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding:3px;
+}
+/*하트icon*/
+.like_cart .like {
+    background: url(../img/좋아요.png) no-repeat center #f1eeee;
+    border-radius: 20px; 
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-clip: content-box;
+    padding: 5px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/*1:1문의내역*/
+.inquirynotice{text-align: center; margin-top: 100px;}
+
+/*문의기록*/
+
+.tablehead{background-color: #dbdbdb; }
+.table_inquiry{border-collapse: collapse; text-align: center; width:1000px;  margin-top: 20px;}
+
+tr{height:50px;}
+.tabletr{border-bottom: 1px #757575 solid;}
+#answercount{color:#01579b}
+.inquiry_ans{text-align: left; display: flex; align-items: center;}
+.inquiry_ans a{text-align: left; display: flex; align-items: center;}
+.tabletr td:nth-child(4){padding-top: 13px;}
+

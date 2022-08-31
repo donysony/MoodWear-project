@@ -1,145 +1,125 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ÁÖ¹®Á¶È¸</title>
-<link rel="stylesheet" href="css/ÁÖ¹®Á¶È¸.css">
-   <script>
-      var new_window_width = 525;
-      var new_window_height = 790;
-      var positionX = ( window.screen.width / 2 ) - ( new_window_width / 2 );
-      var positionY = ( window.screen.height / 2 ) - ( new_window_height / 2 );
-      function new_window() {
-        window.open(
-          "¸®ºä.jsp",
-          "¸®ºä ÀÛ¼º",
-          "width=" + new_window_width + ", height=" + new_window_height + ", top=" + positionY + ", left=" + positionX
-        );
-      }
-    </script>
+<meta charset="UTF-8">
+    <title>ì£¼ë¬¸ì¡°íšŒ</title>
+    <link rel="stylesheet" href="css/ì£¼ë¬¸ì¡°íšŒ.css">
 </head>
 <body>
-<div class="aside_section">
+    <header>
+   		<jsp:include page="header.jsp"/>
+    </header>
+	<div class="aside_section">
     <aside>
-        <a href="mypage.html"><h1>¸¶ÀÌÆäÀÌÁö</h1></a>
-        <ul class="aside">
-            <li><a href="ÁÖ¹®Á¶È¸.jsp">ÁÖ¹® Á¶È¸</a></li>
-            <li><a href="Àå¹Ù±¸´Ï.jsp">Àå¹Ù±¸´Ï</a></li>
-            <li><a href="ÁÁ¾Æ¿ä.jsp">ÁÁ¾Æ¿ä</a></li>
-            <li><a href="ÀÏ´ëÀÏ¹®ÀÇ³»¿ª.jsp">1:1¹®ÀÇ³»¿ª</a></li>
-            <li><a href="È¸¿øÁ¤º¸ È®ÀÎ.jsp">È¸¿øÁ¤º¸ ¼öÁ¤</a></li>
-            <li><a href="¹è¼ÛÁÖ¼Ò·Ï°ü¸®.jsp">¹è¼ÛÁö °ü¸®</a></li>
-            <li><a href="È¸¿øÅ»Åð.jsp">È¸¿ø Å»Åð</a></li>
-        </ul>
-
+		<jsp:include page="aside.jsp"/>
     </aside>
-    <section>
+   	<section>
         <article >
-            <h2>ÁÖ¹®Á¶È¸</h2>
+            <h2>ì£¼ë¬¸ì¡°íšŒ</h2>
             <div class="inquiryselect">
                 <span>
-                    <img src="img/ÁÖ¹®Á¢¼ö.png" alt="ÁÖ¹®Á¢¼ö">
-                    <p>ÁÖ¹®Á¢¼ö</p>
+                    <img src="img/ì£¼ë¬¸ì ‘ìˆ˜.png" alt="ì£¼ë¬¸ì ‘ìˆ˜">
+                    <p>ì£¼ë¬¸ì ‘ìˆ˜</p>
                 </span>
                 
-                <span><img src="img/²©¼è.png" alt="²©¼è" class="angle_bracket"></span>
+                <span><img src="img/êº½ì‡ .png" alt="êº½ì‡ " class="angle_bracket"></span>
                 <span>
-                    <img src="img/°áÁ¦¿Ï·á.png" alt="°áÁ¦¿Ï·á">
-                    <p>°áÁ¦¿Ï·á</p>
+                    <img src="img/ê²°ì œì™„ë£Œ.png" alt="ê²°ì œì™„ë£Œ">
+                    <p>ê²°ì œì™„ë£Œ</p>
                 </span>
-                <span><img src="img/²©¼è.png" alt="²©¼è" class="angle_bracket"></span>
+                <span><img src="img/êº½ì‡ .png" alt="êº½ì‡ " class="angle_bracket"></span>
                 <span>
-                    <img src="img/»óÇ°ÁØºñÁß.png" alt="»óÇ°ÁØºñÁß">
-                    <p>»óÇ°ÁØºñÁß</p>
+                    <img src="img/ìƒí’ˆì¤€ë¹„ì¤‘.png" alt="ìƒí’ˆì¤€ë¹„ì¤‘">
+                    <p>ìƒí’ˆì¤€ë¹„ì¤‘</p>
                 </span>
             </div>
         </article>
         <article>
             <table class="ordertable">
                 <tr>
-                    <th>ÁÖ¹®ÀÏÀÚ</th>
-                    <th>»óÇ°</th>
-                    <th>¼ö·®</th>
-                    <th>ÁÖ¹®±Ý¾×</th>
-                    <th>»óÅÂ</th>
+                    <th>ì£¼ë¬¸ì¼ìž</th>
+                    <th>ìƒí’ˆ</th>
+                    <th>ìˆ˜ëŸ‰</th>
+                    <th>ì£¼ë¬¸ê¸ˆì•¡</th>
+                    <th>ìƒíƒœ</th>
                 </tr>
                 <tr class="iteminfo">
                     <td rowspan="2">2022.07.15<br>
                         A00153542</td>
                     <td class="itemimg">
-                        <img src="img/°¡ºê¸®¿¤.png" alt="°¡ºê¸®¿¤" class="orderitem">&emsp;
-                        <p>»þ³Ú<br>
-                            °¡ºê¸®¿¤<br>
-                            ¿À µå ÆÛÇ¾<br>
+                        <img src="img/ë””ì˜¬.png" alt="ë¸”ë£¨ë°ë¶€ì¼€" class="orderitem">&emsp;
+                        <p>Dior<br>
+                            ë¯¸ìŠ¤ ë””ì˜¬ ë¸”ë£¨ë° ë¶€ì¼€<br>
+                            ì˜¤ë“œ í¼í“¸<br>
                             100ml</p>
                     </td>
                     <td>1</td>
-                    <td>250,000¿ø</td>
-                    <td>»óÇ°ÁØºñÁß</td>
+                    <td>250,000ì›</td>
+                    <td>ìƒí’ˆì¤€ë¹„ì¤‘</td>
                 </tr>
                 <tr class="iteminfo">
 
                     <td class="itemimg">
-                        <img src="img/°¡ºê¸®¿¤.png" alt="°¡ºê¸®¿¤" class="orderitem">&emsp;
-                        <p>»þ³Ú<br>
-                            °¡ºê¸®¿¤<br>
-                            ¿À µå ÆÛÇ¾<br>
+                        <img src="img/ë””ì˜¬.png" alt="ë¸”ë£¨ë°ë¶€ì¼€" class="orderitem">&emsp;
+                        <p>Dior<br>
+                            ë¯¸ìŠ¤ ë””ì˜¬ ë¸”ë£¨ë° ë¶€ì¼€<br>
+                            ì˜¤ë“œ í¼í“¸<br>
                             100ml</p>
                     </td>
                     <td>1</td>
-                    <td>250,000¿ø</td>
-                    <td>»óÇ°ÁØºñÁß</td>
+                    <td>250,000ì›</td>
+                    <td>ìƒí’ˆì¤€ë¹„ì¤‘</td>
                 </tr>
                 <tr>
             </table>
         </article>
         <article>
-            <h3>Áö³­Á¢¼ö³»¿ª</h3>
+            <h3>ì§€ë‚œì ‘ìˆ˜ë‚´ì—­</h3>
             <table class="ordertable">
                 <tr>
-                    <th>ÁÖ¹®ÀÏÀÚ</th>
-                    <th>»óÇ°</th>
-                    <th>¼ö·®</th>
-                    <th>ÁÖ¹®±Ý¾×</th>
-                    <th>»óÅÂ</th>
+                    <th>ì£¼ë¬¸ì¼ìž</th>
+                    <th>ìƒí’ˆ</th>
+                    <th>ìˆ˜ëŸ‰</th>
+                    <th>ì£¼ë¬¸ê¸ˆì•¡</th>
+                    <th>ìƒíƒœ</th>
                 </tr>
                 <tr class="iteminfo">
                     <td rowspan="2">2022.07.15<br>
                         A00153542</td>
                     <td class="itemimg">
-                        <img src="img/°¡ºê¸®¿¤.png" alt="°¡ºê¸®¿¤" class="orderitem">&emsp;
-                        <p>»þ³Ú<br>
-                            °¡ºê¸®¿¤<br>
-                            ¿À µå ÆÛÇ¾<br>
+                        <img src="img/ë””ì˜¬.png" alt="ë¸”ë£¨ë°ë¶€ì¼€" class="orderitem">&emsp;
+                        <p>Dior<br>
+                            ë¯¸ìŠ¤ ë””ì˜¬ ë¸”ë£¨ë° ë¶€ì¼€<br>
+                            ì˜¤ë“œ í¼í“¸<br>
                             100ml</p>
                     </td>
                     <td>1</td>
-                    <td>250,000¿ø</td>
-                   <td>
-					<button class="toreview" onclick="new_window();">¸®ºäÀÛ¼º</button>
-					</td>
+                    <td>250,000ì›</td>
+                    <td><a href="review.html" class="toreview">ë¦¬ë·°ìž‘ì„±</a></td>
                 </tr>
                 <tr class="iteminfo">
 
                     <td class="itemimg">
-                        <img src="img/°¡ºê¸®¿¤.png" alt="°¡ºê¸®¿¤" class="orderitem">&emsp;
-                        <p>»þ³Ú<br>
-                            °¡ºê¸®¿¤<br>
-                            ¿À µå ÆÛÇ¾<br>
+                        <img src="img/ë””ì˜¬.png" alt="ë¸”ë£¨ë°ë¶€ì¼€" class="orderitem">&emsp;
+                        <p>Dior<br>
+                            ë¯¸ìŠ¤ ë””ì˜¬ ë¸”ë£¨ë° ë¶€ì¼€<br>
+                            ì˜¤ë“œ í¼í“¸<br>
                             100ml</p>
                     </td>
                     <td>1</td>
-                    <td>250,000¿ø</td>
-                    <td>
-					<button class="toreview" onclick="new_window();">¸®ºäÀÛ¼º</button>
-					</td>
+                    <td>250,000ì›</td>
+                    <td><a href="review.jsp" class="toreview">ë¦¬ë·°ìž‘ì„±</a></td>
                 </tr>
                 <tr>
             </table>
         </article>
     </section>
     </div>
+
+    <footer>
+    <jsp:include page="footer.jsp"/>
+    </footer>
 </body>
 </html>

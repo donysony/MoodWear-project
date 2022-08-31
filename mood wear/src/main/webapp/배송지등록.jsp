@@ -1,76 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<link rel="stylesheet" href="css/πËº€¡ˆµÓ∑œ.css">
-<script src="script.js" charset="utf-8" type="text/javascript"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript">
-	function findAddr() {
-		 new daum.Postcode({
-		        oncomplete: function(data) {
-		        	var road = data.roadAddress;
-		        	var jibun = data.jibunAddress;
-		        	var extra = '';
-		        	
-		        	document.getElementById('postcode').value = data.zonecode;
-		        	
-		        	// µµ∑Œ∏Ì¡÷º“ø¥¿ª∂ß
-		        	if(road != ''){
-		        		if(data.bname != ''){
-		        			extra += data.bname;
-		        		}
-		        		if(data.buildingName != ''){
-		        			extra += (extra != '' ? ', ' + data.buildingName : data.buildingName);
-		        		}
-		        		road += (extra != '' ? '(' + extra + ')' : '');
-		        		document.getElementById('addr').value = road;
-		        	} else if(jisbun != ''){
-		        		document.getElementById('addr').value = jibun;
-		        	}
-		        	document.getElementById('detailAddr').focus();
-		        }
-		    }).open();
-	}
-	function win_close() {
-		self.close();
-	}
-</script>
-<title>πËº€¡ˆ µÓ∑œ</title>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Î∞∞ÏÜ°ÏßÄÎì±Î°ù.css">
+    <title>Î∞∞ÏÜ°ÏßÄÎì±Î°ù</title>
 </head>
 <body>
-	    <div class="aside_article">
-        <aside>
-            <a href="mypage.jsp"><h1>∏∂¿Ã∆‰¿Ã¡ˆ</h1></a>
-            <ul class="aside">
-                <li><a href="¡÷πÆ¡∂»∏.jsp">¡÷πÆ ¡∂»∏</a></li>
-                <li><a href="¿ÂπŸ±∏¥œ.jsp">¿ÂπŸ±∏¥œ</a></li>
-                <li><a href="review.jsp">∏Æ∫‰</a></li>
-                <li><a href="¡¡æ∆ø‰.jsp">¡¡æ∆ø‰</a></li>
-                <li><a href="¿œ¥Î¿œπÆ¿«≥ªø™.jsp">1:1πÆ¿«≥ªø™</a></li>
-                <li><a href="»∏ø¯¡§∫∏ »Æ¿Œ.jsp">»∏ø¯¡§∫∏ ºˆ¡§</a></li>
-                <li><a href="πËº€¡÷º“∑œ∞¸∏Æ.jsp">πËº€¡ˆ ∞¸∏Æ</a></li>
-                <li><a href="»∏ø¯≈ª≈.jsp">»∏ø¯ ≈ª≈</a></li>
-            </ul>
-        </aside>
+    <header>
+   		<jsp:include page="header.jsp"/>
+    </header>
+	<div class="aside_article">
+    <aside>
+		<jsp:include page="aside.jsp"/>
+    </aside>
     <section>
         <article>
-            <h2>πËº€¡ˆ µÓ∑œ</h2>
+            <h2>Î∞∞ÏÜ°ÏßÄ Îì±Î°ù</h2>
             <hr>
             <form action="">
             <table class="addressinfo_updatetbl">
                     <tr>
-                        <th>πËº€¡ˆ∏Ì</th>
+                        <th>Î∞∞ÏÜ°ÏßÄÎ™Ö</th>
                         <td><input type="text"></td>
                     </tr>
                     <tr>
-                        <th>πﬁ¥¬ªÁ∂˜</th>
+                        <th>Î∞õÎäîÏÇ¨Îûå</th>
                         <td><input type="text" name="" id=""></td>
                     </tr>
                     <tr>
-                        <th>ø¨∂Ù√≥</th>
+                        <th>Ïó∞ÎùΩÏ≤ò</th>
                         <td>
                             <select name="mPhone1" id="select_phone">
                                 <option value="010">010</option>
@@ -84,22 +44,26 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>¡÷º“</th>
+                        <th>Ï£ºÏÜå</th>
                         <td class="address">
-                            <input type="address" id="postcode">&ensp;
-                            <input type="button" value="øÏ∆Ìπ¯»£" class="zip_code" onClick="findAddr()"><br>
-                            <input type="text" class="address_box" id="addr"><br>
-                            <input type="text" class="address_box" id="detailAddr" placeholder="ªÛºº¡÷º“∏¶ ≥÷æÓ¡÷ººø‰."><br>
-                            <span id="box"><input type="checkbox" name="" id="default_address"><span>&ensp;±‚∫ªπËº€¡ˆ∑Œ º±≈√</span></span>
+                            <input type="text">&ensp;
+                            <input type="button" value="Ïö∞Ìé∏Î≤àÌò∏" class="zip_code"><br>
+                            <input type="text" class="address_box"><br>
+                            <input type="text" class="address_box"><br>
+                            <span id="box"><input type="checkbox" name="" id="default_address"><span>&ensp;Í∏∞Î≥∏Î∞∞ÏÜ°ÏßÄÎ°ú ÏÑ†ÌÉù</span></span>
                         </td>
+
                 </table>
                 <div class="buttondiv">
-                    <button type="button" id="update">µÓ∑œ«œ±‚</button>&emsp;
-                    <button type="button" id="cancellation">√Îº“</button>
+                    <button type="button" id="update">Îì±Î°ùÌïòÍ∏∞</button> &emsp;
+                    <button type="button" id="cancellation">Ï∑®ÏÜå</button>
                 </div>
                 </form>
         </article>
     </section>
 </div>
+    <footer>
+    <jsp:include page="footer.jsp"/>
+    </footer>
 </body>
 </html>

@@ -5,19 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOODWEAR</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <style>
         .first_prod{display: flex; justify-content: space-between; margin-left: 0px;}
     </style>
-    <script src="JS/jquery-3.6.0.min.js"></script>
-    <script src="JS/jquery-ui.min.js"></script>
+    <script src="../JS/jquery-3.6.0.min.js"></script>
+    <script src="../JS/jquery-ui.min.js"></script>
     <script>
         $(function(){
             let sli = $(".first_prod")
             let i = 1;
             let z = -1428;
 
-            $(".arrow").click(function(){
+            $(".farrow").click(function(){
+
+                let x = i*z;
+  
+                sli.animate({"margin-left":x});
+                
+                i++;
+
+                if(i == 3){
+                    sli.removeAttr("style");
+                    i = 0;
+                }
+            })
+        })
+
+        $(function(){
+            let sli = $(".second_prod")
+            let i = 1;
+            let z = -1428;
+
+            $(".sarrow").click(function(){
 
                 let x = i*z;
   
@@ -46,7 +66,7 @@
                 <div class="nav">
                     <div>
                         <a href="">
-                            <img src="img/로고 누끼.png" id="logo"></a>
+                            <img src="../img/로고 누끼.png" id="logo"></a>
                     </div>
 
                         
@@ -65,11 +85,11 @@
                             <li>
                                 <div class="search">
                                     <span>&ensp;검색페이지로 이동&emsp;&ensp;</span> 
-                                    <img src="img/화살표.png" id="sc">
+                                    <img src="../img/화살표.png" id="sc">
                                 </div>
                             </li>
-                            <li><a href=""><img src="img/좋아요.png" ></a></li>
-                            <li><a href=""><img src="img/장바구니.png"></a></li>
+                            <li><a href=""><img src="../img/좋아요.png" ></a></li>
+                            <li><a href=""><img src="../img/장바구니.png"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +97,7 @@
 
             <section>
                 <div>
-                    <img src="img/메인3.jpg" id="main">
+                    <img src="../img/메인3.jpg" id="main">
                 </div>
             </section>
 
@@ -87,14 +107,14 @@
                 <article class="first_prod">
                     <div id="a">
                         <div class="ibox">
-                            <img src="img/가브리엘.png" class="product">
+                            <img src="../img/가브리엘.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -111,14 +131,14 @@
 
                     <div id="b">
                         <div class="ibox">
-                            <img src="img/톰포드.png" class="product">
+                            <img src="../img/톰포드.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -135,14 +155,14 @@
 
                     <div id="c">
                         <div class="ibox">
-                            <img src="img/세르주 루텐.png" class="product">
+                            <img src="../img/세르주 루텐.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -160,14 +180,14 @@
 
                     <div id="d">
                         <div class="ibox">
-                            <img src="img/테싯.png" class="product">
+                            <img src="../img/테싯.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -185,14 +205,14 @@
 
                     <div id="e">
                         <div class="ibox">
-                            <img src="img/딥디크 필로시코스.png" class="product">
+                            <img src="../img/딥디크 필로시코스.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -210,14 +230,14 @@
 
                     <div id="f">
                         <div class="ibox">
-                            <img src="img/안나수이 판타지아.png" class="product">
+                            <img src="../img/안나수이 판타지아.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -235,14 +255,14 @@
 
                     <div id="g">
                         <div class="ibox">
-                            <img src="img/세르주 루텐.png" class="product">
+                            <img src="../img/세르주 루텐.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -260,14 +280,14 @@
 
                     <div id="h">
                         <div class="ibox">
-                            <img src="img/테싯.png" class="product">
+                            <img src="../img/테싯.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -284,14 +304,14 @@
                     </div>
                     <div id="i">
                         <div class="ibox">
-                            <img src="img/가브리엘.png" class="product">
+                            <img src="../img/가브리엘.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -308,14 +328,14 @@
 
                     <div id="j">
                         <div class="ibox">
-                            <img src="img/톰포드.png" class="product">
+                            <img src="../img/톰포드.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -332,14 +352,14 @@
 
                     <div id="k">
                         <div class="ibox">
-                            <img src="img/세르주 루텐.png" class="product">
+                            <img src="../img/세르주 루텐.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -357,14 +377,14 @@
 
                     <div id="l">
                         <div class="ibox">
-                            <img src="img/테싯.png" class="product">
+                            <img src="../img/테싯.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -381,23 +401,23 @@
                     </div>
                 </article>
 
-                <img src="img/우화살.png" class="arrow">
+                <img src="../img/우화살.png" class="farrow">
             </section>
 
             <section id="first">
                 <p class="name">TREND NOW</p>
 
-                <article class="first_prod">
+                <article class="second_prod">
                     <div>
                         <div class="ibox">
-                            <img src="img/바니유 앙상세 코롱 압솔뤼.png" class="product">
+                            <img src="../img/바니유 앙상세 코롱 압솔뤼.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -415,14 +435,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/아쿠아 알레고리아.png" class="product">
+                            <img src="../img/아쿠아 알레고리아.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -439,14 +459,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/버버리 her.png" class="product">
+                            <img src="../img/버버리 her.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -464,14 +484,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/아무아쥬.jpg" class="product">
+                            <img src="../img/아무아쥬.jpg" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -489,14 +509,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/바니유 앙상세 코롱 압솔뤼.png" class="product">
+                            <img src="../img/바니유 앙상세 코롱 압솔뤼.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -514,14 +534,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/아쿠아 알레고리아.png" class="product">
+                            <img src="../img/아쿠아 알레고리아.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -538,14 +558,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/버버리 her.png" class="product">
+                            <img src="../img/버버리 her.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -563,14 +583,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/아무아쥬.jpg" class="product">
+                            <img src="../img/아무아쥬.jpg" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -588,14 +608,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/바니유 앙상세 코롱 압솔뤼.png" class="product">
+                            <img src="../img/바니유 앙상세 코롱 압솔뤼.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -613,14 +633,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/아쿠아 알레고리아.png" class="product">
+                            <img src="../img/아쿠아 알레고리아.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -637,14 +657,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/버버리 her.png" class="product">
+                            <img src="../img/버버리 her.png" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -662,14 +682,14 @@
 
                     <div>
                         <div class="ibox">
-                            <img src="img/아무아쥬.jpg" class="product">
+                            <img src="../img/아무아쥬.jpg" class="product">
                                 <div class="two">
                                     <div class="tbox">
-                                        <img src="img/좋아요.png">
+                                        <img src="../img/좋아요.png">
                                     </div> &ensp;
                 
                                     <div class="tbox">
-                                        <img src="img/장바구니.png">
+                                        <img src="../img/장바구니.png">
                                     </div>
                                 </div>
                         </div>
@@ -684,13 +704,13 @@
                             <div class="volume">100mlㅣ428,000</div>
                         </div>
                     </div>
-                    
                 </article>
-                <a href=""><img src="img/우화살.png" class="arrow"></a>
+                
+                <img src="../img/우화살.png" class="sarrow">
             </section>
 
             <section>
-                <a href=""><img src="img/가입배너.png" id="banner"></a>
+                <a href="회원가입.html"><img src="../img/가입배너.png" id="banner"></a>
             </section>
         </div>
             <footer>
