@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,20 @@
 <meta name="viewport" content="width=divice-width", initial-scale="1">
     <link rel="stylesheet" href="../css/join.css" type="text/css">
 <title>회원가입</title>
+<script type="text/javascript" src="memberScript.js" charset="utf-8"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+function idCheck(member_id) {
+	frm = document.regFrm;
+	if(member_id == "") {
+		alert("아이디를 입력해 주세요");
+		frm.member_id.focus();
+		return;
+	}
+	url = "idCheck.jsp?member_id=" + member_id;
+	window.open(url, "IDCheck", "width=300,height=150");
+}
+</script>
 </head>
 <body>
     <div class="form">

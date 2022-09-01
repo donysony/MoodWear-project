@@ -26,11 +26,12 @@
             <button onclick="location.href='product_write.jsp';">추가</button>
             <button onclick="location.href='관리자-상품(삭제후).html';">삭제</button>
         </div>
-    </section>
-    <%
+		    <%
 				for(int i=0; i<vlist.size(); i++){
 				Product regBean = vlist.get(i);
 		%>
+    </section>
+
 
     <section>
         <div class="product">

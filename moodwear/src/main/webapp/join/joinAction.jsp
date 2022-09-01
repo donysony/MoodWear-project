@@ -1,4 +1,4 @@
-<!-- 회원가입 처리 -->
+<!-- 회원가입 처리 --> 
  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP게시판 웹사이트</title>
+<title>회원가입</title>
 </head>
 <body>
     <%
