@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+    pageEncoding="UTF-8"%>
 <%@ page import="product_write.ProductDAO" %>
 <%@ page import="product_write.Product" %>
 <%@ page import="java.io.PrintWriter" %> <!-- 자바스크립트 문장사용 -->

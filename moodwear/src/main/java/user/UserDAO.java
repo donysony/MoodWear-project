@@ -25,44 +25,6 @@ public class UserDAO {
     		  }
     		 }
     
-	public boolean checkId(String member_id) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = null;
-		boolean flag = false;
-		try {
-			sql = "select member_id from member where member_id = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1,  member_id);
-			rs = pstmt.executeQuery();
-			flag = rs.next();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
-	public boolean loginMember (String member_id, String member_pw) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = null;
-		boolean flag = false;
-		try {
-			sql = "select member_id from member where member_id = ? and member_pw = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1,  member_id);
-			pstmt.setString(2,  member_pw);
-			rs = pstmt.executeQuery();
-			flag = rs.next();			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return flag;		
-	}
-	
-    
     public int join(User user) {
         String SQL = "INSERT INTO member VALUES (?, ?, ?, ?, ?, ?, '1', 2000)";
         try {
