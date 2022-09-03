@@ -1,5 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="product.*" %>
+<%@ page import="member.*" %>
+<%@ page import="java.util.*" %>
+<jsp:useBean id="memberDAO" class="member.MemberDAO"/>
+<jsp:useBean id="productDAO" class="product.ProductDAO"/>
+<%
+	String userID = null;
+	int product_num = 00001;
+	int cart_quantity = 1;
+	//상세페이지에서 장바구니 클릭하면 넘어오는 값
+	if(session.getAttribute("userID") != null){
+		userID = (String)session.getAttribute("userID");
+	}
+	if(request.getParameter("product_num") != null){
+		product_num = Integer.parseInt(request.getParameter("product_num"));
+	}
+	if(request.getParameter("cart_quantity") != null){
+		cart_quantity = Integer.parseInt(request.getParameter("cart_quantity"));
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,15 +50,30 @@
                             <th>합계</th>
                             <th>선택</th>
                         </tr>
+                        <%
+                        //사용자 아이디로 장바구니에 담긴 상품들을 전부 리스트로 가져옴
+                        ArrayList<Cart> list = memberDAO.getCartList(userID);
+                        
+                        	for(int i=0; i<list.size();i++){
+                        		int cart_product_num = list.get(i).getProduct_num();
+                        		//상품번호와 일치하는 정보 가져옴
+                        		ArrayList<Product> product = productDAO.getProductList(cart_product_num);
+                                String img = product.get(i).getProduct_img();
+                                String info = product.get(i).getProduct_info();
+                                int volume = product.get(i).getProduct_volume();
+                                String brand = product.get(i).getProduct_brand();
+                                String price = product.get(i).getProduct_price();
+                                String name = product.get(i).getProduct_name();	
+                                
+                        		%>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="product1" class="select_checkbox" checked></td>
+                            <td><input type="checkbox" name="product1" class="select_checkbox" checked value="<%=list.get(i).getCart_num() %>"></td>
                             <td class="itemimg"> 
                                 <img src="img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
-                                <p>Dior<br>
-                                    미스 디올 블루밍 부케<br>
-                                    오드 퍼퓸<br>
-                                    100ml</p></td>
-                                    <td><input type="text" value="250000" id="price" readonly checked>원</td>
+                                <p><%=brand %><br>
+                                    <%=name%><br>
+                                    <%=volume %></p></td>
+                                    <td><input type="text" value="<%=price %>" id="price" readonly checked>원</td>
                                     <td class="count_change">
 									<input type="text" value="1" id="quantity" readonly name="quantity">
 									<input type="button" value="" id="upbtn" onclick="up()">
@@ -53,6 +88,9 @@
                                         
                                     </td>
                                 </tr>
+                        <%
+                        	}
+                        %>
                         <tr class="orderinfo">
                             <td><input type="checkbox" name="product2" class="select_checkbox" checked></td>
                             <td class="itemimg"> 

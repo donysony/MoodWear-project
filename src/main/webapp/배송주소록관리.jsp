@@ -32,7 +32,7 @@
         <article>
             <h2>배송지 주소록관리</h2>
             <hr>
-                <form action="" method="post" name="userForm">
+                <form action="" method="get" name="userForm">
             <table class="shipping_address">
                     <tr>
                         <th>배송지 선택</th>
@@ -47,6 +47,8 @@
                     </tr>
                     <%
 					ArrayList<Address> list = memberDAO.getMyAddress(userID);
+                    if(!list.isEmpty()){
+                    	
                     for(int i=0; i<list.size(); i++){
                     	String phone = list.get(i).getAddress_phone();
                     	int num = list.get(i).getAddress_num();
@@ -61,6 +63,17 @@
                     </tr>
                     
                     <%
+	                    }
+                    }else{
+                   	%>
+                   	
+                    	<tr id="none_address">
+                    		<td colspan="6">
+                    		<img src="img/bi_exclamation-circle.png">
+                    		<p>입력하신 주소록이 없습니다</p>
+                    		</td>
+                    	</tr>
+                   	<%
                     }
                     %>
                 </table> 

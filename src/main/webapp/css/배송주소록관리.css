@@ -30,6 +30,8 @@ article{width:1200px;margin-bottom: 50px;}
 .shipping_address tr{height:50px;}
 .shipping_address, td{border-collapse: collapse;}
 .shipping_address td{border-top:1px #dbdbdb solid; border-bottom:1px #dbdbdb solid;}
+#none_address img{margin-top:30px; margin-bottom:20px}
+#none_address p{margin-bottom:50px;}
 /*수정*/
 .ship_update{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
 

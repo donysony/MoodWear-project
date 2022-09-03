@@ -60,7 +60,7 @@ public class BoardDAO {
 		
 		//글쓰기 메소드
 		public int write(String bbsTitle, String userID, String bbsContent, String bbsPw) {
-			String SQL = "insert into board values(?,?,?,0,?,0,?,1,?)";
+			String SQL = "insert into board values(?,?,?,null,?,0,?,1,?)";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, getNext());

@@ -327,5 +327,95 @@ public class MemberDAO {
 		}return flag;
 	}
 	
+	//선택주소록 삭제
+	public int pickDelete(String[] address_num) {
+		String sql = "delete from address where address_num =?";
+		int result=0;
+		try {
+			PreparedStatement pstmt;
+			for(int i=0; i<address_num.length; i++) {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, Integer.parseInt(address_num[i]));
+				result += pstmt.executeUpdate();
+			}
+			return result; //처리된 행의 개수를 반환
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return -1; // DB오류
+	}
+
+	//아이디와 상품번호를 가지고 장바구니에 넣음 -> 장바구니 번호 부여
+	public boolean getCart(String member_id, int product_num, int cart_quantity) {
+		String sql = "insert into cart values(null,?,?,?)";
+		boolean result = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cart_quantity);
+			pstmt.setString(2, member_id);
+			pstmt.setInt(3, product_num);
+			if(pstmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	
+	//로그인한 회원의 아이디로 장바구니 가져오기
+	public ArrayList<Cart> getCartList(String member_id) {
+		String sql = "select * from cart where member_id=? order by cart_num ";
+		ArrayList<Cart> list = new ArrayList<Cart>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Cart cart = new Cart();
+				cart.setCart_num(rs.getInt(1));
+				cart.setCart_quantity(rs.getInt(2));
+				cart.setMember_id(rs.getString(3));
+				cart.setProduct_num(rs.getInt(4));
+				list.add(cart);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
 
 }
