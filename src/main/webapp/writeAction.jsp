@@ -21,6 +21,7 @@ String pw = request.getParameter("board_pw");
 <body>
 <%
 	//현재 세션상태 체크
+	
 	String userID = null;
 	if(session.getAttribute("userID") != null){
 		userID = (String)session.getAttribute("userID");
@@ -30,7 +31,7 @@ String pw = request.getParameter("board_pw");
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('로그인이 필요합니다')");
-		script.println("location.href='login.jsp'");
+		script.println("location.href='login/login.jsp'");
 		script.println("</script>");
 		
 	}else{

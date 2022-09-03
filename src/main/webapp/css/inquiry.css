@@ -30,7 +30,10 @@ tr{height:50px; font-size: 18px;}
 .answer{height:150px;}
 
 /*목록보기*/
-#Tolist{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color: #bdbdbd; border: #bdbdbd;  color:black; margin-top: 20px;}
+#Tolist{width:200px; height:45px; font-size: 17px;  border-radius:5px; background-color:  #757575; border:  #757575;  color:black; margin-top: 20px;}
+
+/*수정 & 삭제*/
+#update_board,#delete_board {margin-left:10px; background-color: #bdbdbd;padding:10px;border-radius:5px; }
 
 /*이전글&다음글*/
 .nextcontent{background-color: #bdbdbd; text-align: center; width:20%; border-bottom: #757575 1px solid; }

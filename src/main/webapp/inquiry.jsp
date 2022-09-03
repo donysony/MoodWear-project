@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-	System.out.println("/inquiry/");
+
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID = (String)session.getAttribute("userID");
@@ -35,6 +35,9 @@
 		Board board = new BoardDAO().getBoard(board_num);
 		BoardDAO boardDAO = new BoardDAO();
 		boardDAO.upCount(board_num);
+		
+
+		
 	%>
 
 
@@ -57,20 +60,22 @@
                 </tr>
                 <tr>
                     <td colspan="2" >
-                        <%=board.getBoard_content() %>
+                       <pre><%=board.getBoard_content() %></pre> 
                     </td>
                 </tr>
                 <tr>
                     <td id="bottomtr" class="bordertd" colspan="2"></td>
                 </tr>
                 <tr class="bordertd"></tr>
+                <%if(board.getBoard_reply() !=null) {
+                
+                %>
                 <tr class="answer">
                     <th class="title" >답변글</th>
-                    <td >&emsp;안녕하세요 고객님 mood wear입니다<br>
-                        &emsp;저희가 보유한 재고는 없습니다 <br>
-                        &emsp;죄송합니다<br>
+                    <td >&emsp;<%=board.getBoard_reply() %>
                         </td>
                 </tr>
+                <%} %>
             </table>
             
             
@@ -78,22 +83,12 @@
             <%
             	if(userID != null && userID.equals(board.getBoard_member_id())){
             %>
-            <a href="update.jsp?board_num=<%=board_num%>">수정</a>
-            <a href="deleteAction.jsp?board_num=<%=board_num%>">삭제</a>
+            <a href="update.jsp?board_num=<%=board_num%>" id="update_board">수정</a>
+            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?board_num=<%=board_num%>" id="delete_board">삭제</a>
             <%
             }
             %>
         </div>
-            <table class="next">
-                <tr>
-                    <th class="nextcontent">&emsp;다음글</th>
-                    <td id="nextinquriy"> &emsp;문의합니다 </td>
-                </tr>
-                <tr>
-                    <th class="nextcontent">&emsp;이전글</th>
-                    <td id="preinquriy"> &emsp;문의합니다 </td>
-                </tr>
-            </table>
 
 
 

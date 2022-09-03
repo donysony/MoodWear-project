@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="css/상품문의.css">
 </head>
 <body>
-    <header>
-		<jsp:include page="header.jsp"/>    
-    </header>
+
  <section>
         <article class="inquiry_article">
                 <form action="writeAction.jsp" method="post">

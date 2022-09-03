@@ -34,6 +34,7 @@ article{width:800px;}
 
 /*결제수단*/
 input[type=radio]{accent-color: gray;}
+.easy_pay ul{margin-top:10px;}
 
 
 /*주문요약정보*/

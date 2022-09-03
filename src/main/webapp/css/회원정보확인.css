@@ -29,6 +29,8 @@ article{width:1000px;}
 .userinfotbl{border:solid 1px #bdbdbd; text-align: center; width:1000px; height:400px; padding:25px 0;}
 .userinfotbl th{width:300px;}
 .userinfotbl tr{height:50px;}
+#inputid{border:none; outline:none;}
+#inputid:focus{border:none; outline:none;}
 
 .inputbox{width:400px; height:30px;}
 .idpw{text-align: left;}

@@ -10,13 +10,13 @@ body{margin:0 auto; }
 *{text-decoration: none; list-style-type: none; color:black; font-family: Pretendard; font-size: 20px;}
 .article_board{min-width: 1200px; }
 .section_board{display: flex; justify-content: center;}
-.select_QA{display: flex; align-items: baseline; }
+.select_QA{display: flex; justify-content:center; align-items:center;}
 .table_btn{ width:1200px; }
 section{margin-top: 50px;}
 
 /* 문의 카테고리 */
 #selectbox{height:40px; }
-h1{font-family: 'Gowun Batang', serif; font-size: 40px; margin-left: 400px;}
+h1{font-family: 'Gowun Batang', serif; font-size: 40px; }
 
 /*게시판*/
 .tablehead{background-color: #dbdbdb; }
@@ -26,20 +26,22 @@ tr{height:50px;}
 #answercount{color:#01579b}
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
 .inquiry_ans a{text-align: left; display: flex; align-items: center;}
-.tabletr td:nth-child(4){padding-top: 13px;}
+.tabletr td:nth-child(3){padding-top: 13px;}
+#reply_yse{color:#01579b} 
 #reply{color:#01579b}
 #replytd{text-align: left;}
 
 /*목록 & 글쓰기*/
-#writebtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; }
+#writebtn{width:90px; height:30px; background-color: #757575; border:0; outline:0; border-radius: 5px; }
+#listbtn{width:90px; height:30px; background-color: #e0e0e0; border:0; outline:0; border-radius: 5px; }
 .buttondiv{display: flex; justify-content: end; margin-top: 30px;}
 
 /*페이징*/
-.paging{display: flex; justify-content: center; }
+.paging{display: flex; justify-content: center; align-items:center;}
 .paging ul{text-align:center; }
-.paging ul li{display: inline-block;background-color: #e0e0e0; width:25px; height:25px; border-radius: 5px; padding-top: 2px;}
-
-
+.paging ul li{display: inline-block;background-color: #e0e0e0; width:40px; height:40px; border-radius: 5px; padding-top: 2px;}
+.paging ul li:hover{background-color: #757575;}
+.paging a{display: block; margin-top: 7px; }
 
 /*검색*/
 .search_box{display: flex; justify-content: center; margin-top: 30px;}

@@ -9,9 +9,9 @@
 String title = request.getParameter("board_title");
 String content = request.getParameter("board_content");
 String pw = request.getParameter("board_pw");
+int board_num = Integer.parseInt(request.getParameter("board_num"));
 %>
-<jsp:setProperty name="board" property="board_title"/>
-<jsp:setProperty name="board" property="board_content"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,45 +20,23 @@ String pw = request.getParameter("board_pw");
 </head>
 <body>
 <%
-	//현재 세션상태 체크
-	String userID = null;
-	if(session.getAttribute("userID") != null){
-		userID = (String)session.getAttribute("userID");
-	}
-	//로그인한 사람만 글을 쓸 수 있도록함
-	if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인이 필요합니다')");
-		script.println("location.href='login.jsp'");
-		script.println("</script>");
-		
-	}else{
 		//입력안된 부분이 있는지 체크
-		if(title == null){
+		if(title == null || content == null){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('제목을 입력하세요')"); //write에서 입력한 값이 bean에 저장이안되는듯
+		script.println("alert('입력이 안 된 사항이 있습니다')");
 		script.println("history.back()");
 		script.println("</script>");
-		}else
-		if(content==null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('내용을 입력하세요')");
-		script.println("history.back()");
-		script.println("</script>");
-		
-			
-		}else{
+		}
+		else{
 			//정상적으로 입력되었다면 글쓰기 로직 수행
 			BoardDAO boardDAO = new BoardDAO();
-			int result = boardDAO.write(board.getBoard_title(), userID, board.getBoard_content(), pw);
+			int result = boardDAO.update(board_num, title, content, pw);
 			//데이터베이스 오류인 경우
 			if(result == -1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("alert('글 수정에 실패했습니다')");
 			script.println("history.back()");
 			script.println("</script>");
 			
@@ -72,7 +50,7 @@ String pw = request.getParameter("board_pw");
 				
 			}
 		}
-	}
+	
 %>
 </body>
 </html>
