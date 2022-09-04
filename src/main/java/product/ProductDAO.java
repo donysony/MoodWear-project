@@ -50,17 +50,14 @@ public class ProductDAO {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null)
-					conn.close();
-				if(rs != null)
-					rs.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+		
 		}return list;
 	}
 	
+	//상품번호 5자리 규격맞춤 Sting.format으로 표현할 숫자의 길이가 5이하인경우 앞에 0붙임
+	public int numberFormat(int cart_product_num) {
+		return Integer.parseInt(String.format("%05d", cart_product_num));
+		
+	}
 	
 }

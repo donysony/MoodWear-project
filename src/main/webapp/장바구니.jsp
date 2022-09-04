@@ -55,10 +55,16 @@
                         ArrayList<Cart> list = memberDAO.getCartList(userID);
                         
                         	for(int i=0; i<list.size();i++){
-                        		int cart_product_num = list.get(i).getProduct_num();
+                        		
+                        		
+                        		System.out.println(list.size());
+                        		//상품번호 5자리 규격맞춤 Sting.format으로 표현할 숫자의 길이가 5이하인경우 앞에 0붙임
+                        		int cart_product_num = productDAO.numberFormat(list.get(i).getProduct_num());
+                        		System.out.println("카트"+i+"번째의 상품번호 : "+Integer.parseInt(String.format("%05d", cart_product_num)));
+                        		
                         		//상품번호와 일치하는 정보 가져옴
                         		ArrayList<Product> product = productDAO.getProductList(cart_product_num);
-                                String img = product.get(i).getProduct_img();
+                        		String img = product.get(i).getProduct_img();
                                 String info = product.get(i).getProduct_info();
                                 int volume = product.get(i).getProduct_volume();
                                 String brand = product.get(i).getProduct_brand();
@@ -67,21 +73,21 @@
                                 
                         		%>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="product1" class="select_checkbox" checked value="<%=list.get(i).getCart_num() %>"></td>
+                            <td><input type="checkbox" name="product" class="select_checkbox" checked value="<%=list.get(i).getCart_num() %>" onclick="selectCheck()"></td>
                             <td class="itemimg"> 
                                 <img src="img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
                                 <p><%=brand %><br>
                                     <%=name%><br>
-                                    <%=volume %></p></td>
-                                    <td><input type="text" value="<%=price %>" id="price" readonly checked>원</td>
+                                    <%=volume +"ml"%></p></td>
+                                    <td><input type="text" value="<%=String.format("%,d",Integer.parseInt(price))%>" id="price" readonly checked>원</td>
                                     <td class="count_change">
-									<input type="text" value="1" id="quantity" readonly name="quantity">
+									<input type="text" value="<%=cart_quantity %>" id="quantity" readonly name="quantity">
 									<input type="button" value="" id="upbtn" onclick="up()">
 									<input type="button" value="" id="downbtn"onclick="down()">
 										<button type="button" onclick="totalPrice()">변경</button>
                                     </td>
                                     <td></td>
-                                    <td><span id="total">250000원</span></td>
+                                    <td><span id="total"><%= String.format("%,d",Integer.parseInt(price) * cart_quantity) +" 원"%></span></td>
                                     <td>
                                         <button class="order">주문하기</button>
                                         <button class="delete">삭제</button>

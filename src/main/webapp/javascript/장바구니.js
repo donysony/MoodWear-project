@@ -11,12 +11,19 @@ function down(){
     }
 }
 
+//정규식 사용 - 천단위 콤마찍기
+function priceToString(price){
+	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 //합계계산
 function totalPrice(){
     var price = document.getElementById("price").value;
+    //콤마 찍혀있는 숫자를 정수형으로 변환
+    price = parseInt(price.replace(/,/g, ''));
     var quantity = document.getElementById("quantity").value;
-    
-    document.getElementById("total").innerText = parseInt(price) * parseInt(quantity)+"원";
+    var total = price * quantity;
+    document.getElementById("total").innerText = priceToString(total) +" 원";
 }
 
 //전체선택 체크박스
@@ -29,24 +36,25 @@ function checkBox(n){
 
 //선택체크박스
 
-function deleteAddress(){
-	//Element에 접근시 name가지고 접근, name이 RowCheck인 애들 다 가져옴
-	let RowCheck = document.getElementsByName("RowCheck");
+function selectCheck(){
+	//Element에 접근시 name가지고 접근, name이 product인 애들 다 가져옴
+	let productCheck = document.getElementsByName("product");
 	//체크된 애들을 배열에 넣기위해 배열 생성
-	let RowCheck_items = [];
+	let productCheck_items = [];
 
-	let cnt = $("input[name='RowCheck']:checked").length; 
+	let cnt = $("input[name='product']:checked").length; 
 	if(cnt==0){
-		alert("선택된 주소록이 없습니다");
+		alert("선택된 상품이 없습니다");
 	}else{
-	//RowCheck의 길이만큼 반복
-	for(let i=0; i<RowCheck.length; i++){
-	//RowCheck가 checked되었는지 여부 파악
-		if(RowCheck[i].checked){
-			RowCheck_items.push(RowCheck[i].value);
+	//product의 길이만큼 반복
+	for(let i=0; i<productCheck.length; i++){
+	//product가 checked되었는지 여부 파악
+		if(productCheck[i].checked){
+			productCheck_items.push(productCheck[i].value);
 		}
 	}
-		location.href="/AddressServlet?address_num="+RowCheck_items;
+		//장바구니에서 선택된 상품들만 주문하도록 주문페이지로 이동
+		location.href="/OrderServlet?cart_num="+productCheck_items;
 	}
 	
 
