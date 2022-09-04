@@ -57,10 +57,12 @@
                         	for(int i=0; i<list.size();i++){
                         		
                         		
-                        		System.out.println(list.size());
+                        		System.out.println("ArrayList<cart>의 객체수 : "+list.size());
                         		//상품번호 5자리 규격맞춤 Sting.format으로 표현할 숫자의 길이가 5이하인경우 앞에 0붙임
-                        		int cart_product_num = productDAO.numberFormat(list.get(i).getProduct_num());
-                        		System.out.println("카트"+i+"번째의 상품번호 : "+Integer.parseInt(String.format("%05d", cart_product_num)));
+                        		//int cart_product_num = productDAO.numberFormat(list.get(i).getProduct_num());
+                        		int cart_product_num = list.get(i).getProduct_num();
+                        		System.out.println("카트"+i+"번째의 상품번호(int형변환) : "+Integer.parseInt(String.format("%05d", cart_product_num)));
+                        		System.out.println("카트"+i+"번째의 상품번호 : "+String.format("%05d", cart_product_num));
                         		
                         		//상품번호와 일치하는 정보 가져옴
                         		ArrayList<Product> product = productDAO.getProductList(cart_product_num);

@@ -39,7 +39,7 @@ public class ProductDAO {
 				product.setProduct_brand(rs.getString(3));
 				product.setProduct_price(rs.getString(4));
 				product.setProduct_volume(rs.getInt(5));
-				product.setProduct_img(rs.getString(6));
+				product.setProduct_img(rs.getString("product_img"));
 				product.setProduct_info(rs.getString(7));
 				product.setProduct_tag1(rs.getString(8));
 				product.setProduct_tag2(rs.getString(9));
