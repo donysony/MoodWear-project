@@ -419,13 +419,12 @@ public class MemberDAO {
 	
 	//회원 탈퇴
 	public boolean memberWithdrawal(String member_id) {
-		String sql = "delete * from member where=member_id";
+		String sql = "delete from member where member_id=?";
 		boolean result = false;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if(pstmt.executeUpdate()==1) {
 				result = true;
 			}
 		}catch(Exception e) {

@@ -34,7 +34,7 @@ h2, h4{display: inline-block;}
 .like_cart p{font-family: 'Gowun Batang', serif; font-size: 20px; text-align: center; display: inline-block; margin:5px 0 0 0;}
 .likeimg{width:300px; height:400px;}
 .like_cart{ margin-right:20px;  width: 300px; height: 450px; border:solid 1px #EAEAEA;  position: relative; display: inline-block;}
-.wrapper{position: absolute; left: 200px; bottom: 50px; display:flex}
+.wrapper{position: absolute; left: 220px; bottom: 50px; display:flex}
 
 .like_cart a{font-family: 'Gowun Batang', serif; }
 .like_cart a:hover{color:blue}
@@ -42,10 +42,10 @@ h2, h4{display: inline-block;}
 
 /*장바구니icon*/
 .like_cart .cart{
-    background: url(../img/장바구니.png) no-repeat center #f1eeee;
+    background: url(../img/장바구니20.png) no-repeat center #f1eeee;
     border-radius: 50%; 
-    width: 40px; 
-    height: 40px; 
+    width: 30px; 
+    height: 30px; 
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -53,10 +53,10 @@ h2, h4{display: inline-block;}
 }
 /*하트icon*/
 .like_cart .like {
-    background: url(../img/좋아요.png) no-repeat center #f1eeee;
+    background: url(../img/좋아요20.png) no-repeat center #f1eeee;
     border-radius: 20px; 
-    width: 40px; 
-    height: 40px; 
+    width: 30px; 
+    height: 30px; 
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -69,24 +69,18 @@ h2, h4{display: inline-block;}
 
 
 
-
-
-
-
-
-
 /*1:1문의내역*/
 .inquirynotice{text-align: center; margin-top: 100px;}
+.inquirynotice img{margin-top:50px; margin-bottom:30px;}
 
 /*문의기록*/
 
 .tablehead{background-color: #dbdbdb; }
 .table_inquiry{border-collapse: collapse; text-align: center; width:1000px;  margin-top: 20px;}
-
+.table_inquiry a{font-size:20px;}
 tr{height:50px;}
 .tabletr{border-bottom: 1px #757575 solid;}
-#answercount{color:#01579b}
+
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
 .inquiry_ans a{text-align: left; display: flex; align-items: center;}
-.tabletr td:nth-child(4){padding-top: 13px;}
 

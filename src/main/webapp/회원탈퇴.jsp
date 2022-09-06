@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/회원탈퇴.css">
     <script>
     function checkPw(member_pw){
-    	var form1 = $("#form").serialize(); //직렬화 : 객체를 데이터 스트림으로 만듬, 바이트 형태로 바꾸는것
+/*     	var form1 = $("#form").serialize(); //직렬화 : 객체를 데이터 스트림으로 만듬, 바이트 형태로 바꾸는것 #form폼의 id
     	console.log(form1);
     	$.ajax({
     		type:"post",
@@ -26,13 +26,10 @@
     			console.log("code:"+request.status+"\n message:"+request.responseText+"\n error:"+error)
     			
     		}
-    	})
-    	
-    	
-    	
-    	
-    	
-        /* var dw = document.withdrawalFrm;
+    	}) */
+
+         var dw = document.withdrawalFrm;
+    	 var userID = dw.member_id.value; //로그인한 회원 아이디
         if(dw.memberPw.value==""){
             alert("비밀번호를 입력하세요");
             dw.memberPw.focus();
@@ -40,14 +37,39 @@
         }
         if(dw.memberPw.value==member_pw){
             var result = confirm('정말 탈퇴하시겠습니까?');
-            location.href="/MemberWithdrawal?result="+result;
-            return dw.submit(result);
+            if(result){
+ 				dw.submit();           	
+            }else{
+            	return;
+            }
+            
         }else{
             alert("비밀번호가 일치하지 않습니다");
             history.back();
         }
-         */
+        
+         
     }
+    function sendPost(url, params){
+    	var form = document.createElement('form');
+    	form.setAttribute('method','post');//post방식 전송
+    	form.setAttribute('action', url) //데이터 전송할 url
+    	document.charset="utf-8";
+    	
+    }
+    
+    
+/*     $("#list").click(function(){ //id가 list인 버틀 클릭시 함수 실행
+    	var dropout_input = $("#dropout_input").val(); //input태그 (id="dropout_input")에 입력한 값을 dropout_input에 넣음
+    	
+    	var f = document.createelement("form"); //form 엘리먼트 생성
+    	f.setAttribute("method", "post"); //method속성을 post로 설정
+    	f.serAttribute("action", "MemberWithdrawal"); //submit했을 때 무슨 동작을 할것인지 설정
+    	document.body.appendChild(f);//현재페이지에 form 엘리먼트 추가
+    	
+    	var i = document.createElement("input"); //input요소 생성
+    	i.setAttribute("type","hidden") //type속성을 hidden으로 설정
+    }) */
     </script>
 </head>
 <body>

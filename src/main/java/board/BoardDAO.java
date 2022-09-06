@@ -121,18 +121,21 @@ public class BoardDAO {
 					pstmt.setInt(1, getNext() - (pageNumber -1) *10);
 				}else {
 					if(keyField.equals("제목")) {
-						SQL = "select * from board where board_title like ? and exists(select board_num from board) order by board_num desc limit 10" ;
+						SQL = "select * from board where board_title like ? and board_num < ? and exists(select board_num from board) order by board_num desc limit 10" ;
 						pstmt = conn.prepareStatement(SQL);
 						pstmt.setString(1, '%'+keyWord+'%');
+						pstmt.setInt(2, getNext() - (pageNumber -1) *10);
 					}else if(keyField.equals("작성자")) {
-						SQL = "select distinct * from board where board_member_id in (select member_id from member where member_name like ?	) order by board_num desc limit 10";
+						SQL = "select distinct * from board where board_num < ? and board_member_id in (select member_id from member where member_name like ?	) order by board_num desc limit 10";
 						pstmt = conn.prepareStatement(SQL);
-						pstmt.setString(1, '%'+keyWord+'%');
+						pstmt.setInt(1, getNext() - (pageNumber -1) *10);
+						pstmt.setString(2, '%'+keyWord+'%');
 					}else {
-						SQL = "select distinct * from board where board_title like ? or board_member_id in (select member_id from member where member_name like ?) order by board_num desc limit 10";
+						SQL = "select distinct * from board where board_title like ? or board_member_id in (select member_id from member where member_name like ?) and board_num < ? order by board_num desc limit 10";
 						pstmt = conn.prepareStatement(SQL);
 						pstmt.setString(1, '%'+keyWord+'%');
 						pstmt.setString(2, '%'+keyWord+'%');
+						pstmt.setInt(3, getNext() - (pageNumber -1) *10);
 						
 					}
 					
@@ -347,16 +350,16 @@ public class BoardDAO {
 			
 		}
 		
-		//로그인된 아이디로 문의글 불러오기
+		//로그인된 아이디로 문의글 불러오기 
 		public ArrayList<Board> getMyInquiry(String member_id, int pageNumber){
 			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
 			PreparedStatement pstmt =null;
 			String SQL = null; 
 			try {
-				SQL = "select b.* from board b join member m on m.member_id=? and b.board_num < ? order by b.board_num desc limit 5 ";
+				SQL = "select b.* from board b join member m on m.member_id=? and b.board_num < ? order by b.board_num desc limit 5";
 					pstmt = conn.prepareStatement(SQL);
 					pstmt.setString(1,member_id);
-					pstmt.setInt(2, getNextInquiry(member_id) - (pageNumber -1) *5);
+					pstmt.setInt(2, getNextInquiry(member_id) - (pageNumber -1) * 5);
 					rs=pstmt.executeQuery();
 				while(rs.next()) {
 					Board board = new Board();
@@ -379,9 +382,8 @@ public class BoardDAO {
 			return list;
 		}
 		
-		//게시글 번호 
+		//현재 게시글을 내림차순으로 조회하여 가장 마지막 글의 번호를 구함
 		public int getNextInquiry(String member_id) {
-			//현재 게시글을 내림차순으로 조회하여 가장 마지막 글의 번호를 구함
 			String SQL ="select board_num from board where board_member_id =? order by board_num desc";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -419,6 +421,36 @@ public class BoardDAO {
 			return -1;
 		}
 		
-		
+		//로그인된 아이디로만 작성한 문의글 불러오기 마이페이지 : 최신글 5개만 보임
+		public ArrayList<Board> getMyInquiryMypage(String member_id){
+			ArrayList<Board> list = new ArrayList<Board>(); //board클래스에서 나오는 인스턴스들을 보관할 수 있는 리스트 생성
+			PreparedStatement pstmt =null;
+			String SQL = null; 
+			try {
+				SQL = "select b.* from board b join member m on m.member_id=? and b.board_num < ? order by b.board_num desc limit 5 ";
+					pstmt = conn.prepareStatement(SQL);
+					pstmt.setString(1,member_id);
+					pstmt.setInt(2, getNextInquiry(member_id));
+					rs=pstmt.executeQuery();
+				while(rs.next()) {
+					Board board = new Board();
+					board.setBoard_num(rs.getInt(1));
+					board.setBoard_title(rs.getString(2));
+					board.setBoard_content(rs.getString(3));
+					board.setBoard_reply(rs.getString(4));
+					board.setBoard_regdate(rs.getString(5));
+					board.setBoard_views(rs.getInt(6)); 
+					board.setBoard_pw(rs.getString(7));
+					String str = rs.getString(8);
+					char reply_yn = str.charAt(0);
+					board.setBoard_reply_yn(reply_yn); 
+					board.setBoard_member_id(rs.getString(9));
+					list.add(board);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
 		
 }

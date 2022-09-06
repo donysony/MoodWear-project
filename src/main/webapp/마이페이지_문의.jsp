@@ -25,15 +25,23 @@
 	//파라미터는 기본적으로 데이터 형식이 object이므로 넘어오는 데이터를 모두 각각 데이터 형식에 맞게 형변환 해줘야함
 	if(request.getParameter("pageNumber") != null){
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+	System.out.println("==========================" );
+	System.out.println("페이지 번호:" + pageNumber);
 	}
 	if(request.getParameter("nowPage") != null){
 		nowPage = Integer.parseInt(request.getParameter("nowPage"));
 		pageNumber = nowPage;
+	System.out.println("현재 페이지:" + nowPage);
 	}
 	
 	totalPage = (int)Math.ceil((double)totalCount/numPerPage); //전체 페이지수
+	System.out.println("전체 페이지수 :" + totalPage);
 	totalBlock = (int)Math.ceil((double)totalPage/pagePerBlock);//전체블록수
-	nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock); //현재 레코드가 해당하는 블록
+	System.out.println("전체 블록수 :" +totalBlock);
+	//nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock); //현재 레코드가 해당하는 블록
+	nowBlock = (int)Math.ceil((double)pageNumber/pagePerBlock); //현재 레코드가 해당하는 블록
+	System.out.println("현재 레코드가 해당하는 블록위치:" + nowBlock );
+	System.out.println("==========================" );
 	
 	//ex 전체레코드 45개, 전체페이지수 9개, 전체블록수 2개, nowblock 1/5 ->1
 	
@@ -71,11 +79,11 @@
                 <form action="update.jsp" method="get" >
             <table class="shipping_address">
                     <tr>
-                        <th>글번호</th>
-                        <th>제목</th>
-                        <th>작성일</th>
-                        <th>답변여부</th>
-                        <th>수정</th>
+		                <th width="10%">글번호</th>
+		                <th width="50%">제목</th>
+		                <th width="15%">작성일</th>
+		                <th width="10%">답변여부</th>
+						<th width="15%">수정</th>
                     </tr>
                     <tr>
                         <td colspan="6"></td>
@@ -86,7 +94,7 @@
                     		%>
                     <tr >
                         <td><%=list.get(i).getBoard_num() %></td>
-                        <td><%=list.get(i).getBoard_title() %></td>
+                        <td><a href="my_inquiry.jsp?board_num=<%=list.get(i).getBoard_num()%>"><%=list.get(i).getBoard_title() %></a></td>
                         <td><%=list.get(i).getBoard_regdate() %></td>
                         <td><%if(list.get(i).getBoard_reply_yn() == '0'){%>
                         	Y
@@ -138,8 +146,7 @@
 			<input type="hidden" name="nowPage" value="1">
 		</form>
 		<form name="readFrm" method="get" action="마이페이지_문의.jsp">
-			<input type ="hidden" name="num">
-			<input type="hidden" name="nowPage" value="<%=nowPage %>">
+			<input type="hidden" name="nowPage" value="<%=pageNumber%>">
 		</form>
         
         

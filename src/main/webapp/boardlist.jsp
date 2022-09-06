@@ -46,7 +46,7 @@
 		nowPage = Integer.parseInt(request.getParameter("nowPage"));
 		pageNumber = nowPage;
 	}
-	
+	    
 
 	
 
@@ -56,7 +56,7 @@
 	
 	totalPage = (int)Math.ceil((double)listTotalCount/numPerPage); //전체 페이지 수
 	totalBlock = (int)Math.ceil((double)totalPage/pagePerBlock); //전체 블록 수
-	nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock); //현재 레코드가 해당하는 블록
+	nowBlock = (int)Math.ceil((double)pageNumber/pagePerBlock); //현재 레코드가 해당하는 블록
 	
 
 %>
