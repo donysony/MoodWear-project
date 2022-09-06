@@ -53,26 +53,20 @@
                         <%
                         //사용자 아이디로 장바구니에 담긴 상품들을 전부 리스트로 가져옴
                         ArrayList<Cart> list = memberDAO.getCartList(userID);
-                        
+ 
+                                if(!list.isEmpty()){
                         	for(int i=0; i<list.size();i++){
-                        		
-                        		
-                        		System.out.println("ArrayList<cart>의 객체수 : "+list.size());
-                        		//상품번호 5자리 규격맞춤 Sting.format으로 표현할 숫자의 길이가 5이하인경우 앞에 0붙임
-                        		//int cart_product_num = productDAO.numberFormat(list.get(i).getProduct_num());
                         		int cart_product_num = list.get(i).getProduct_num();
-                        		System.out.println("카트"+i+"번째의 상품번호(int형변환) : "+Integer.parseInt(String.format("%05d", cart_product_num)));
-                        		System.out.println("카트"+i+"번째의 상품번호 : "+String.format("%05d", cart_product_num));
                         		
                         		//상품번호와 일치하는 정보 가져옴
-                        		ArrayList<Product> product = productDAO.getProductList(cart_product_num);
-                        		String img = product.get(i).getProduct_img();
-                                String info = product.get(i).getProduct_info();
-                                int volume = product.get(i).getProduct_volume();
-                                String brand = product.get(i).getProduct_brand();
-                                String price = product.get(i).getProduct_price();
-                                String name = product.get(i).getProduct_name();	
-                                
+                        		Product product = productDAO.getProductList(cart_product_num);
+                        		String img = product.getProduct_img();
+                                String info = product.getProduct_info();
+                                int volume = product.getProduct_volume();
+                                String brand = product.getProduct_brand();
+                                String price = product.getProduct_price();
+                                String name = product.getProduct_name();	
+                                	
                         		%>
                         <tr class="orderinfo">
                             <td><input type="checkbox" name="product" class="select_checkbox" checked value="<%=list.get(i).getCart_num() %>" onclick="selectCheck()"></td>
@@ -98,8 +92,19 @@
                                 </tr>
                         <%
                         	}
+                                }else{
+                                	%>
+						<tr id="none_address">
+                    		<td colspan="7">
+                    		<img src="img/bi_exclamation-circle.png">
+                    		<p>담긴 상품이 없습니다</p>
+                    		</td>
+                    	</tr>
+						<%
+                                }
+
                         %>
-                        <tr class="orderinfo">
+                       <!-- <tr class="orderinfo">
                             <td><input type="checkbox" name="product2" class="select_checkbox" checked></td>
                             <td class="itemimg"> 
                                 <img src="img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
@@ -121,7 +126,8 @@
                                         <button class="delete">삭제</button>
                                         
                                     </td>
-                        </tr>
+                        </tr> 
+                        --> 
                         <tr>
                             <td colspan="7" id="shippingstate"> <p>[기본배송]</p></td>
                         </tr>
@@ -143,10 +149,11 @@
         </article>
         <article class="orderbutton">
         <p>
-            <button id="gobtn">쇼핑계속하기</button>
+            <button type="button" id="gobtn" onClick="location.href='main.jsp'">쇼핑계속하기</button>
+
         </p>
         <div class="wrapper">
-            <button id="all_orderbtn" type="button" onclick="location.href='주문정보확인.html'">전체상품주문</button> &ensp;
+            <button id="all_orderbtn" type="button" onClick="location.href='주문정보확인.jsp'">전체상품주문</button> &ensp;
             <button id="select_orderbtn">선택주문</button>
         </div>
         </article>

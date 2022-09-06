@@ -11,11 +11,16 @@ h1{font-family: 'Gowun Batang', serif; font-size: 40px;}
 section{display: flex; justify-content: center; align-items: center; flex-direction: column; }
 section article{width:1200px;}
 
+/*장바구니에 상품이 없을 경우*/
+#none_address{height:100px;}
+#none_address img{margin-top:30px; margin-bottom:20px}
+#none_address p{margin-bottom:50px; display:block;}
+
 /*장바구니 테이블*/
 .ordertable{width:1200px; border-collapse: collapse; text-align: center;}
 .ordertable tr:nth-child(1){height:50px; border-top:1px black solid; background-color: #dbdbdb; text-align: right; }
 .ordertable tr:nth-child(1) p{margin-right:20px; }
-.ordertable p{display: inline-block; }
+.ordertable p{display: inline-block; }  
 .ordertable tr:nth-child(2){height:50px;background-color: #efefef;}
 .ordertable tr:nth-last-child(2){height:50px; background-color: #efefef;}
 .ordertable tr:nth-last-child(1){height: 50px;}
@@ -52,7 +57,6 @@ grid-template-rows: repeat(3,1fr);justify-items: center; margin-top: 20px;}
 #quantity:focus{border:0;outline:0;}
 #price{border:0;outline:0; width:80px;}
 #price:focus{border:0;outline:0;}
-
 
 
 

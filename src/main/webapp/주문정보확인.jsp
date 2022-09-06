@@ -80,8 +80,8 @@
                 </table>
         </article>
             <div class="buttondiv">
-                <button type="button" id="cancellation" onclick="location.href='장바구니.html'">취소</button> &emsp;
-                <button type="button" id="payment" onclick="location.href='주문완료.html'">결제하기</button>
+                <button type="button" id="cancellation" onClick="location.href='장바구니.jsp'">취소</button> &emsp;
+                <button type="button" id="payment" onClick="location.href='주문완료.jsp'">결제하기</button>
             </div>
 
         
