@@ -52,7 +52,7 @@ public class ProductDAO {
         }
         return instance;
     }
- // 시퀀스 추가
+ // 상품등록
 public int product_write(HttpServletRequest req) {
     String SQL = "INSERT INTO product VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     MultipartRequest multi = null;
@@ -251,7 +251,53 @@ public ArrayList<Product> getProduct(int product_num){
 	return vlist;
 	
 	}
-public int product_modify(HttpServletRequest req, int product_num, String product_name, String product_brand, String product_price, String product_volume, String product_info, String product_tag1, String product_tag2, String product_tag3) {
+
+// 상품수정 
+public int product_modify(HttpServletRequest req) {
+	String SQL = "UPDATE product SET product_name = ?, product_brand = ?, product_price = ?, product_volume = ?, product_img = ?, product_info = ?, product_tag1 = ?,  product_tag2 = ?, product_tag3 = ?, product_tagImg1 =?, product_tagImg2 =? WHERE product_num =?";
+    MultipartRequest multi = null;
+	String product_img = null;
+	String product_tagImg1 = null;
+	String product_tagImg2 = null;
+	try {
+    	File file = new File(SAVEFOLDER);
+		if(!file.exists()) {
+			file.mkdirs();
+		}	
+		multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE,ENCTYPE,
+						new DefaultFileRenamePolicy());
+		if(multi.getFilesystemName("product_img") != null) {
+			product_img = multi.getFilesystemName("product_img");
+		}
+		if(multi.getFilesystemName("product_tagImg1") != null) {
+			product_tagImg1 = multi.getFilesystemName("product_tagImg1");
+		}
+		if(multi.getFilesystemName("product_tagImg2") != null) {
+			product_tagImg2 = multi.getFilesystemName("product_tagImg2");
+		}
+        pstmt = conn.prepareStatement(SQL);
+        pstmt.setString(1, multi.getParameter("product_name"));
+        pstmt.setString(2, multi.getParameter("product_brand"));
+        pstmt.setString(3, multi.getParameter("product_price"));
+        pstmt.setString(4, multi.getParameter("product_volume"));
+		pstmt.setString(5, product_img);
+        pstmt.setString(6, multi.getParameter("product_info"));
+        pstmt.setString(7, multi.getParameter("product_tag1"));
+        pstmt.setString(8, multi.getParameter("product_tag2"));
+        pstmt.setString(9, multi.getParameter("product_tag3"));
+		pstmt.setString(10, product_tagImg1);
+		pstmt.setString(11, product_tagImg2);
+		pstmt.setString(12, multi.getParameter("product_num"));
+	
+		return pstmt.executeUpdate();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return -1; // 데이터 베이스 오류
+}
+
+
+/*public int product_modify(HttpServletRequest req, int product_num, String product_name, String product_brand, String product_price, String product_volume, String product_info, String product_tag1, String product_tag2, String product_tag3) {
     String SQL = "UPDATE product  SET product_name = ?, product_brand = ?, product_price = ?, product_volume = ?, product_img = ?, product_info = ?, product_tag1 = ?,  product_tag2 = ?, product_tag3 = ?, product_tagImg1 =?, product_tagImg2 =? WHERE product_num =?";
     MultipartRequest multi = null;
 	String product_img = null;
@@ -292,6 +338,7 @@ public int product_modify(HttpServletRequest req, int product_num, String produc
     }
     return -1; // 데이터베이스 오류
 }
+*/
 
 // 전체 상품 중 하나만 가져오기(상품수정, 상세페이지에 활용)
 public Product get_Product(int product_num){

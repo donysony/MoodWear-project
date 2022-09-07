@@ -18,7 +18,6 @@
             <div class="left">
                 <img src="../img/미리보기.png" id="img">
             </div>
-
             <div class="right">
                 <p><input type="text" placeholder="브랜드명" id="pname" name="product_brand"></p>
                 <p><input type="text" placeholder="상품명" id="pname" name="product_name"></p>
