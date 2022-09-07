@@ -11,6 +11,12 @@ body{position: relative;}
 section{font-family:'Gowun Batang', serif; display: flex; width: 1300px; left: 350px; position: relative; top: 40px;}
 #side{width: 550px; margin-right: 60px;}
 
+/* 등록버튼 */
+#correct{width:200px; height:40px; font-size:22px; margin-left:100px;}
+
+/* 전체영역 */
+.box{padding:50px; margin-left:450px; margin-top:50px;}
+
 /* 로고 */
 #logo{width: 120px; height: 70px;}
 

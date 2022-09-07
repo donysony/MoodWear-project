@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOODWEAR</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-        <style>
+    <style>
         .first_prod{display: flex; justify-content: space-between; margin-left: 0px;}
     </style>
     <script src="JS/jquery-3.6.0.min.js"></script>
@@ -17,7 +19,27 @@
             let i = 1;
             let z = -1428;
 
-            $(".arrow").click(function(){
+            $(".farrow").click(function(){
+
+                let x = i*z;
+  
+                sli.animate({"margin-left":x});
+                
+                i++;
+
+                if(i == 3){
+                    sli.removeAttr("style");
+                    i = 0;
+                }
+            })
+        })
+
+        $(function(){
+            let sli = $(".second_prod")
+            let i = 1;
+            let z = -1428;
+
+            $(".sarrow").click(function(){
 
                 let x = i*z;
   
@@ -34,6 +56,7 @@
     </script>
 </head>
 <body>
+
 <header>
 <jsp:include page="header.jsp"/>
 </header>
@@ -344,19 +367,13 @@
                     </div>
                 </article>
 
-                <img src="img/우화살.png" class="arrow">
-
-                <div class="bar">
-                    <a href=""><img src="img/굵은바.png"></a>
-                    <a href=""><img src="img/연한바.png"></a>
-                    <a href=""><img src="img/연한바.png"></a>
-                </div>
+                <img src="img/우화살.png" class="farrow">
             </section>
 
             <section id="first">
                 <p class="name">TREND NOW</p>
 
-                <article class="first_prod">
+                <article class="second_prod">
                     <div>
                         <div class="ibox">
                             <img src="img/바니유 앙상세 코롱 압솔뤼.png" class="product">
@@ -653,23 +670,17 @@
                             <div class="volume">100mlㅣ428,000</div>
                         </div>
                     </div>
-                    
                 </article>
-                <a href=""><img src="img/우화살.png" class="arrow"></a>
-                <div class="bar">
-                    <a href=""><img src="img/굵은바.png"></a>
-                    <a href=""><img src="img/연한바.png"></a>
-                    <a href=""><img src="img/연한바.png"></a>
-                </div>
+                
+                <img src="img/우화살.png" class="sarrow">
             </section>
 
             <section>
-                <a href=""><img src="img/가입배너.png" id="banner"></a>
+                <a href="회원가입.html"><img src="img/가입배너.png" id="banner"></a>
             </section>
         </div>
-
-<footer>
+  <footer>
 <jsp:include page="footer.jsp"/>
 </footer>
-</body>
-</html>
+    </body>
+    </html>
