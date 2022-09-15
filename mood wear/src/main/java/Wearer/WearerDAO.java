@@ -1,15 +1,11 @@
 package Wearer;
  
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
  
 public class WearerDAO {
@@ -24,11 +20,11 @@ public class WearerDAO {
     
     public WearerDAO(){
     	  try { 
-    		   String dbURL = "jdbc:mysql://localhost:3306/moodwear?serverTimezone=UTC";
-    		   String dbID = "root";
-    		   String dbPassword = "MY!jazz92";
-    		   Class.forName("com.mysql.cj.jdbc.Driver");
-    		   conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+    		  	String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
+	  			String dbID = "system";
+	  			String dbPassword="1234";
+	  			Class.forName("oracle.jdbc.driver.OracleDriver");
+	  			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 
     		  } catch (Exception e) {
     		   e.printStackTrace(); 
@@ -49,18 +45,13 @@ public class WearerDAO {
 
     
     // 상품등록
-public int product_write(HttpServletRequest req) {
+    // 매개변수 수정
+public int product_write(MultipartRequest multi) {
     String SQL = "INSERT INTO wearer VALUES (?, ?, ?, ?)";
-    MultipartRequest multi = null;
 	String wearer_img = null;
+	int result = -1;
 	
     try { 
-    	File file = new File(SAVEFOLDER);
-		if(!file.exists()) {
-			file.mkdirs();
-		}	
-		multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE,ENCTYPE,
-						new DefaultFileRenamePolicy());
 		if(multi.getFilesystemName("wearer_img") != null) {
 			wearer_img = multi.getFilesystemName("wearer_img");
 		}
@@ -70,11 +61,12 @@ public int product_write(HttpServletRequest req) {
         pstmt.setString(3, multi.getParameter("wearer_content"));
 		pstmt.setString(4, wearer_img);
 		
-        return pstmt.executeUpdate();
+        result = pstmt.executeUpdate();
+        
     } catch(Exception e) {
         e.printStackTrace();
     }
-    return -1; // 데이터베이스 오류
+    return result; // 데이터베이스 오류
 }
 
 
@@ -109,23 +101,24 @@ public int product_write(HttpServletRequest req) {
 
 	public Wearer getShow(String Btitle) {
 		String sql ="select * from wearer where wearer_Btitle=?";
+		Wearer bean = new Wearer();
 		try {
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,Btitle);
 		rs = pstmt.executeQuery();
 		if(rs.next()) {
-			Wearer bean = new Wearer();
+			
 			 bean.setWearer_Btitle(rs.getString("Wearer_Btitle"));
 			 bean.setWearer_Stitle(rs.getString("Wearer_Stitle"));
 			 bean.setWearer_content(rs.getString("Wearer_content"));
 			 bean.setWearer_img(rs.getString("Wearer_img"));
-			return bean;
+			
 		}
 		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return bean;
 	}
 }
 

@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
     <title>회원탈퇴완료</title>
-
     <link rel="stylesheet" href="css/회원탈퇴완료.css">
 </head>
 <body>
@@ -33,7 +32,6 @@
                         </td>
                     </tr>
             </table>
-
             </form>
         </article>
     </section>

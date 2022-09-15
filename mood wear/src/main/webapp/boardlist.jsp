@@ -115,7 +115,7 @@
                 <tr class="tabletr">
                     <td><img src=" img/clarity_notification-line.png" alt="공지"></td>
                     <td>공지사항</td>
-                    <td class="inquiry_ans">[필독] 교환 및 환불 신청 전 확인해주세요!!!</td>
+                    <td class="inquiry_ans">[필독] 교환 및 환불 신청 전 확인해주세요!</td>
                     <td>관리자</td>
                     <td>2021.07.26</td>
                     <td>1988</td>

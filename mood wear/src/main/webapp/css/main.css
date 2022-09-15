@@ -76,7 +76,7 @@ section{margin-bottom: 50px;}
 p{margin-bottom: 22px;}
 
 /* 푸터 */
-footer{width: 100%; position: absolute; bottom: -80%; left: 0;}
+footer{width: 100%; position: absolute; bottom: -10%; left: 0;}
 #introduce{left: 35vw; font-size: 14px; top: 1.5vw; position: relative; color: #616060; font-family: 'Gowun Batang', serif;}
 footer>div>ul>li{display: inline-block; left: 38.5vw; position: relative; top: 12px; color: #6d6d6d; font-family: 'Gowun Batang', serif;}
 footer li>a{color: #6d6d6d;}

@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>리뷰 작성</title>
-    <link rel="stylesheet" href="../css/rv.css" type="text/css">
+    <link rel="stylesheet" href="css/rv.css" type="text/css">
     <script>
       let a1 = 0;
       let a2 = 0;
@@ -58,15 +60,15 @@
           reader.readAsDataURL(obj.files[0]);
         }
         function deleteimg(){
-              document.getElementById("aimg").src="../img/리뷰이미지.png";
+              document.getElementById("aimg").src="img/리뷰이미지.png";
               a1 = 0;
         }
         function deleteimg2(){
-              document.getElementById("bimg").src="../img/리뷰이미지.png";
+              document.getElementById("bimg").src="img/리뷰이미지.png";
               a2 = 0;
         }
         function deleteimg3(){
-              document.getElementById("cimg").src="../img/리뷰이미지.png";
+              document.getElementById("cimg").src="img/리뷰이미지.png";
               a3 = 0;
         }
     </script>
@@ -77,10 +79,10 @@
       <form action="">
         <div class="head">
           <b>리뷰쓰기</b>
-            <img src="../img/로고 누끼.png" alt="logo">
+            <img src="img/로고 누끼.png" alt="logo">
         </div>
         <div class="iteminfo">
-          <img src="../img/조말론 런던 우드세이지.png" alt="product" class="orderitem"> &emsp;
+          <img src="img/조말론 런던 우드세이지.png" alt="product" class="orderitem"> &emsp;
           <div class="orderiteminfo">
           <h3>조말론</h3>
           <p>
@@ -103,21 +105,21 @@
          <section id="mom">
             <article>
               <div class="wrap">
-                <img class="image" src="../img/리뷰이미지.png" id="aimg">
-                <img class="image" src="../img/리뷰이미지.png" id="bimg">
-                <img class="image" src="../img/리뷰이미지.png" id="cimg">
+                <img class="image" src="img/리뷰이미지.png" id="aimg">
+                <img class="image" src="img/리뷰이미지.png" id="bimg">
+                <img class="image" src="img/리뷰이미지.png" id="cimg">
               </div>
             </article>
 
              <article>
-              <img src="../img/닫기.png" alt="삭제" id="oc" onclick="deleteimg()">
-              <img src="../img/닫기.png" alt="삭제" id="tc" onclick="deleteimg2()">
-              <img src="../img/닫기.png" alt="삭제" id="thc" onclick="deleteimg3()">
+              <img src="img/닫기.png" alt="삭제" id="oc" onclick="deleteimg()">
+              <img src="img/닫기.png" alt="삭제" id="tc" onclick="deleteimg2()">
+              <img src="img/닫기.png" alt="삭제" id="thc" onclick="deleteimg3()">
             </article>
           </section>
 
         <div class="attach_photo" for="cbfile" onclick="goImg()">
-          <img src="../img/camera.png">&emsp;
+          <img src="img/camera.png">&emsp;
            <p id="imgcs">사진 첨부하기</p>
         </div>
           <div class="worning">
