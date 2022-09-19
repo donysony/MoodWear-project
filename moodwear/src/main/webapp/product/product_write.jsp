@@ -22,7 +22,7 @@
                 <p><input type="text" placeholder="브랜드명" id="pname" name="product_brand"></p>
                 <p><input type="text" placeholder="상품명" id="pname" name="product_name"></p>
                 <p><input type="text" placeholder="태그" name="product_tag1">&ensp;<input type="text" placeholder="태그" name="product_tag2">&ensp;<input type="text" placeholder="태그" name="product_tag3"></p>
-                <p><input type="text" placeholder="용량" name="product_volume">&ensp;<input type="text" placeholder="가격" name="product_price"></p>
+                <p><input type="text" placeholdr="용량" name="product_volume">&ensp;<input type="text" placeholder="가격" name="product_price"></p>
                 <p>상품 이미지</p>
                 <p><input type="file" id="pname" name="product_img"></p>
                 <p>상품 설명</p>

@@ -21,7 +21,7 @@
         <p>상품 리스트</p>
     </header>
     <section>
-        <form method="get" action="product_modify.jsp">
+        <form method="get" action="product_write.jsp">
         <div class="btn">
             <button onclick="location.href='product_write.jsp';">추가</button>
             <button onclick="location.href='관리자-상품(삭제후).html';">삭제</button>

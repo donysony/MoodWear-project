@@ -253,16 +253,20 @@ public ArrayList<Product> getProduct(int product_num){
 	}
 
 // 상품수정 
-public int product_modify(MultipartRequest multi) {
+public int product_modify(HttpServletRequest req) {
 	String SQL = "UPDATE product SET product_name = ?, product_brand = ?, product_price = ?, product_volume = ?, product_img = ?, product_info = ?, product_tag1 = ?,  product_tag2 = ?, product_tag3 = ?, product_tagImg1 =?, product_tagImg2 =? WHERE product_num =?";
+    MultipartRequest multi = null;
 	String product_img = null;
 	String product_tagImg1 = null;
 	String product_tagImg2 = null;
+
 	try {
     	File file = new File(SAVEFOLDER);
 		if(!file.exists()) {
 			file.mkdirs();
 		}	
+		multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE,ENCTYPE,
+				new DefaultFileRenamePolicy());
 		if(multi.getFilesystemName("product_img") != null) {
 			product_img = multi.getFilesystemName("product_img");
 		}
