@@ -9,7 +9,7 @@
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <!-- 실제로 파일 업로드 하기 위한 클래스 -->
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
-<!-- 위에것들 head 태그 위에 추가해줄 것 -->
+<!-- 위에것들 head 태그 위에 추가해줄 것 --> 
 <%
 request.setCharacterEncoding("UTF-8");
 	String product_name = request.getParameter("product_name");

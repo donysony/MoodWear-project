@@ -13,7 +13,7 @@
     </style>
     <script src="../JS/jquery-3.6.0.min.js"></script>
     <script src="../JS/jquery-ui.min.js"></script>
-    <script>
+    <script> 
         $(function(){
             let sli = $(".first_prod")
             let i = 1;

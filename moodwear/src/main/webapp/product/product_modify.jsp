@@ -8,7 +8,7 @@
 <jsp:useBean id="pMgr" class ="product.ProductDAO"/>
 <jsp:useBean id="upbean" class ="product.Product"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,11 +24,12 @@
         Product product = pMgr.get_Product(product_num);
 		%>
 
+
 <body>
     <header>
         <p>상품 수정</p> 
     </header>
-   <form method="post" action="productWriteServlet" enctype="multipart/form-data">
+   <form method="post" action="product_updateAction.jsp" enctype="multipart/form-data">
    <%-- <form method="post" action="productWriteServlet?product_num=<%=product_num %>" enctype="multipart/form-data"> --%>
     <section>
         <article class="product">
@@ -45,12 +46,11 @@
                 <p>상품 설명</p>
                 <p><textarea id="" cols="58" rows="5" name="product_info" value="<%=product.getProduct_info() %>"></textarea></p>
                 <p>태그 관련 이미지</p>
-                <p><input type="file" class="timg" name="product_tagImg1" value="<%=product.getProduct_tagImg1() %>"></p>
-                <p><input type="file" class="timg" name="product_tagImg2" value="<%=product.getProduct_tagImg2() %>"></p>
+                <p><input type="file" class="timg" name="product_tagImg1" ></p>
+                <p><input type="file" class="timg" name="product_tagImg2" ></p>
                 <!-- <button id="correct" onclick="location.href='관리자-상품.html';">등록</button> -->
                 <input type="submit" id="correct" value="수정">
                 <hr> 
-                System.out.println(<%=product.getProduct_name() %>);
 
             </div>
         </article>

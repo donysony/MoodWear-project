@@ -8,11 +8,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>전체 상품</title>
 <link rel="stylesheet" href="../css/best20.css" type="text/css">
 </head>
 <body>
-
+ 
 	<%
 	ArrayList<Product> vlist = pMgr.getProductList();
 	%>
@@ -37,7 +37,7 @@
             <div>
                 <ul>
                     <li><a href="" class="ct">브랜드 상품</a></li>
-                    <li><a href="" class="ct">베스트 상품</a></li>
+                    <li><a href="" class="ct">상품</a></li>
                     <li><a href="" class="ct">무드웨어 소개</a></li>
                     <li><a href="" class="ct">웨어러 추천</a></li>
                     <li><a href="" class="ct">문의</a></li>
@@ -70,7 +70,7 @@ Product regBean = vlist.get(i);
 %>
         <article class="first_prod">
             <div>
-                <div class="ibox">
+                <div class="ibox"  onclick="location.href='detail.jsp?product_num=<%=vlist.get(i).getProduct_num() %>'">
                     <img src="../fileupload/<%=regBean.getProduct_img()%>" class="product">
                         <div class="two">
                             <div class="tbox">

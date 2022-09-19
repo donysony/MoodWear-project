@@ -12,7 +12,7 @@
 <jsp:setProperty name="user" property="member_email" />
 <jsp:setProperty name="user" property="member_birth" />
 <jsp:setProperty name="user" property="member_phone" />
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

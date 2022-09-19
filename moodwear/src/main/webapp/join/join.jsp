@@ -12,7 +12,7 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 function idCheck(member_id) {
-	frm = document.regFrm;
+	frm = document.regFrm; 
 	if(member_id == "") {
 		alert("아이디를 입력해 주세요");
 		frm.member_id.focus();

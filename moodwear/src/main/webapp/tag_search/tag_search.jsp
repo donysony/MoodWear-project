@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
+<%@ page import = "product.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<jsp:useBean id="pMgr" class ="product.ProductDAO"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +29,11 @@
     </script>
 </head>
 <body>
+
+	<%
+	ArrayList<Product> vlist = pMgr.getProductTagList();
+	%>
+
     <div id="body-wrapper">
         <header>
             <div class="top">
@@ -69,50 +78,57 @@
     <!------------ 태그 검색창 시작 ------------>
     <h2>태그검색</h2>
     <hr>
+    	<%
+for(int i=0; i<vlist.size(); i++){
+Product regBean = vlist.get(i);
+%>
     <div class="tag_box">
         <div class="tag_boxes">
-            <a href="#" id="tag"># 사랑스러운</a><br><br>
-            <a href="#" id="tag"># 가벼운</a><br><br>
-            <a href="#" id="tag"># 묵직한</a><br><br>
-            <a href="#" id="tag"># 상큼한</a><br><br>
-            <a href="#" id="tag"># 비누향</a><br><br>
+            <a href="#" id="product_tag" value="사랑스러운"># 사랑스러운</a><br><br>
+            <a href="#" id="product_tag" value="가벼운"># 가벼운</a><br><br>
+            <a href="#" id="product_tag" value="묵직한"># 묵직한</a><br><br>
+            <a href="#" id="product_tag" value="상큼한"># 상큼한</a><br><br>
+            <a href="#" id="product_tag" value="비누향"># 비누향</a><br><br>
         </div>
         <div class="tag_boxes">
-            <a href="#" id="tag"># 포근한</a><br><br>
-            <a href="#" id="tag"># 풀숲</a><br><br>
-            <a href="#" id="tag"># 절향</a><br><br>
-            <a href="#" id="tag"># 아침</a><br><br>
-            <a href="#" id="tag"># 밤</a><br><br>
+            <a href="#" id="product_tag" value="포근한"># 포근한</a><br><br>
+            <a href="#" id="product_tag" value="풀숲"># 풀숲</a><br><br>
+            <a href="#" id="product_tag" value="절향"># 절향</a><br><br>
+            <a href="#" id="product_tag" value="아침"># 아침</a><br><br>
+            <a href="#" id="product_tag" value="밤"># 밤</a><br><br>
         </div>
         <div class="tag_boxes">
-            <a href="#" id="tag"># 커리어우먼</a><br><br>
-            <a href="#" id="tag"># 시원한</a><br><br>
-            <a href="#" id="tag"># 달달한</a><br><br>
-            <a href="#" id="tag"># 섹시한</a><br><br>
-            <a href="#" id="tag"># 우디향</a><br><br>
+            <a href="#" id="product_tag" value="커리어우먼"># 커리어우먼</a><br><br>
+            <a href="#" id="product_tag" value="시원한"># 시원한</a><br><br>
+            <a href="#" id="product_tag" value="달달한"># 달달한</a><br><br>
+            <a href="#" id="product_tag" value="섹시한"># 섹시한</a><br><br>
+            <a href="#" id="product_tag" value="우디향"># 우디향</a><br><br>
         </div>
         <div class="tag_boxes">
-            <a href="#" id="tag"># 바닐라</a><br><br>
-            <a href="#" id="tag"># 스파이시</a><br><br>
-            <a href="#" id="tag"># 머스크</a><br><br>
-            <a href="#" id="tag"># 파우더리</a><br><br>
-            <a href="#" id="tag"># 20대</a><br><br>
+            <a href="#" id="product_tag" value="바닐라"># 바닐라</a><br><br>
+            <a href="#" id="product_tag" value="스파이시"># 스파이시</a><br><br>
+            <a href="#" id="product_tag" value="머스크"># 머스크</a><br><br>
+            <a href="#" id="product_tag" value="머스크"># 파우더리</a><br><br>
+            <a href="#" id="product_tag" value="20"># 20대</a><br><br>
         </div>
         <div class="tag_boxes">
-            <a href="#" id="tag"># 30대</a><br><br>
-            <a href="#" id="tag"># 오렌지</a><br><br>
-            <a href="#" id="tag"># 무화과</a><br><br>
-            <a href="#" id="tag"># 자몽</a><br><br>
-            <a href="#" id="tag"># 레몬</a><br><br>
+            <a href="#" id="product_tag" value="30"># 30대</a><br><br>
+            <a href="#" id="product_tag" value="오렌지"># 오렌지</a><br><br>
+            <a href="#" id="product_tag" value="무화과"># 무화과</a><br><br>
+            <a href="#" id="product_tag" value="자몽"># 자몽</a><br><br>
+            <a href="#" id="product_tag" value="레몬"># 레몬</a><br><br>
         </div>
         <div class="tag_boxes">
-            <a href="#" id="tag"># 꽃</a><br><br>
-            <a href="#" id="tag"># 봄</a><br><br>
-            <a href="#" id="tag"># 여름</a><br><br>
-            <a href="#" id="tag"># 가을</a><br><br>
-            <a href="#" id="tag"># 겨울</a><br><br>
+            <a href="#" id="product_tag" value="꽃"># 꽃</a><br><br>
+            <a href="#" id="product_tag" value="봄"># 봄</a><br><br>
+            <a href="#" id="product_tag" value="여름"># 여름</a><br><br>
+            <a href="#" id="product_tag" value="가을"># 가을</a><br><br>
+            <a href="#" id="product_tag" value="겨울"># 겨울</a><br><br>
         </div>
     </div>
+    <%
+}
+%>
         <!------------ 태그 검색창 끝 ------------>
 
         <!------------ 검색 결과 시작 ------------>

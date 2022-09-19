@@ -16,7 +16,7 @@
     </header>
     	<form method="post" action="loginAction.jsp">
     <section class="one">
-       <article>
+       <article> 
             <p class="form-group">
                 <input type="text" class="form-control" placeholder="아이디" name="admin_id" maxlength="20">
             </p>

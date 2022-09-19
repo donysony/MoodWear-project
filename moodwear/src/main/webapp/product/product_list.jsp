@@ -5,7 +5,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <jsp:useBean id="pMgr" class ="product.ProductDAO"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
         <p>상품 리스트</p>
     </header>
     <section>
-        <form action="product_modify.jsp" method="get">
+        <form method="get" action="product_modify.jsp">
         <div class="btn">
             <button onclick="location.href='product_write.jsp';">추가</button>
             <button onclick="location.href='관리자-상품(삭제후).html';">삭제</button>
