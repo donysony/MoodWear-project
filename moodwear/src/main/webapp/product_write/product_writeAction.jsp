@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
-<%@ page import="product.ProductDAO" %>
-<%@ page import="product.Product" %>
+    pageEncoding="UTF-8"%>
+<%@ page import="product_write.ProductDAO" %>
+<%@ page import="product_write.Product" %>
 <%@ page import="java.io.PrintWriter" %> <!-- 자바스크립트 문장사용 -->
 <!-- 파일업로드 위한 라이브러리 임포트 -->
 <%@ page import="java.io.File" %>
@@ -37,7 +37,7 @@ request.setCharacterEncoding("UTF-8");
     }
     
  %> --%>
-<jsp:useBean id="product" class="product.Product" scope="page"/>
+<jsp:useBean id="product" class="product_write.Product" scope="page"/>
 <jsp:setProperty property="*" name="product"/>
 
 <!DOCTYPE html>
