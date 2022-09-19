@@ -10,8 +10,8 @@ import com.oreilly.servlet.MultipartRequest;
  
 public class WearerDAO {
     //
-    private Connection conn;            // DB에 접근하는 객체
-    private PreparedStatement pstmt;    // 
+    private Connection conn = null;      // DB에 접근하는 객체
+    private PreparedStatement pstmt;    
     private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
     private static WearerDAO instance = null;
     private static final String SAVEFOLDER = "C:/Users/user/git/MoodWear-project/mood wear/src/main/webapp/fileupload";
@@ -19,13 +19,11 @@ public class WearerDAO {
 	private static final int MAXSIZE = 5*1024*1024;
     
     public WearerDAO(){
-    	  try { 
-    		  	String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
-	  			String dbID = "system";
-	  			String dbPassword="1234";
-	  			Class.forName("oracle.jdbc.driver.OracleDriver");
-	  			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-
+    	
+    	try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/moodwear?serverTimezone=UTC", "root","MY!jazz92");
+			
     		  } catch (Exception e) {
     		   e.printStackTrace(); 
     		  }
