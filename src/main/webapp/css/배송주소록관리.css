@@ -16,12 +16,12 @@ h2{font-family: 'Gowun Batang', serif; font-size: 30px;}
 /*사이드바*/
 .aside li{padding:5px;}
 .aside{width:300px;}
-
+article{width:1000px; margin-bottom: 50px;}
 
 /*section*/
 section{margin-top: 50px;}
 /*article*/
-article{width:1200px;margin-bottom: 50px;}
+article{width:1000px;}
 
 /*배송지 주소록관리*/
 .shipping_address{width:1000px; text-align: center; margin-top: 20px;}
@@ -30,8 +30,6 @@ article{width:1200px;margin-bottom: 50px;}
 .shipping_address tr{height:50px;}
 .shipping_address, td{border-collapse: collapse;}
 .shipping_address td{border-top:1px #dbdbdb solid; border-bottom:1px #dbdbdb solid;}
-#none_address img{margin-top:30px; margin-bottom:20px}
-#none_address p{margin-bottom:50px;}
 /*수정*/
 .ship_update{padding:5px; border-radius:5px; background-color: #e0e0e0; border: #e0e0e0;  color:black;}
 

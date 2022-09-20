@@ -1,6 +1,7 @@
 package product;
 
 public class Product {
+
 	private int product_num;
 	private String product_name;
 	private String product_brand;
@@ -86,4 +87,6 @@ public class Product {
 	public void setProduct_tagImg2(String product_tagImg2) {
 		this.product_tagImg2 = product_tagImg2;
 	}
+	
+	
 }

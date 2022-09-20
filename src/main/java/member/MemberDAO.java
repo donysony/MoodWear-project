@@ -12,7 +12,7 @@ public class MemberDAO {
 	
 	public MemberDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/shop_db";
+			String dbURL = "jdbc:mysql://localhost:3306/moodwear";
 			String dbID = "root";
 			String dbPassword="moodwear2022";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -417,5 +417,30 @@ public class MemberDAO {
 		return list;
 	}
 	
+	//회원 탈퇴
+	public boolean memberWithdrawal(String member_id) {
+		String sql = "delete from member where member_id=?";
+		boolean result = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member_id);
+			if(pstmt.executeUpdate()==1) {
+				result = true;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null)
+					conn.close();
+				if(rs != null)
+					rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+				
+	}
 
 }

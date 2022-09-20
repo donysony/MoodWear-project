@@ -11,8 +11,8 @@
     <style>
         .first_prod{display: flex; justify-content: space-between; margin-left: 0px;}
     </style>
-    <script src="javascript/jquery-3.6.0.min.js"></script>
-    <script src="javascript//jquery-ui.min.js"></script>
+    <script src="JS/jquery-3.6.0.min.js"></script>
+    <script src="JS/jquery-ui.min.js"></script>
     <script>
         $(function(){
             let sli = $(".first_prod")
@@ -61,8 +61,6 @@
 <jsp:include page="header.jsp"/>
 </header>
     <div id="body-wrapper">
-
-
             <section>
                 <div>
                     <img src="img/메인3.jpg" id="main">
