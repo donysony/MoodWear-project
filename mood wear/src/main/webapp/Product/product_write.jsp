@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../css/mwbrand.css" type="text/css">
 </head>
 <body>
-    <header>
-        <p>상품</p> 
+    <header> 
+        <p>상품 등록</p> 
     </header>
     <form method="post" action="productWriteServlet" enctype="multipart/form-data">
     <section>
