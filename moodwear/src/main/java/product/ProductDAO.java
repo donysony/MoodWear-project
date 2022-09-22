@@ -18,13 +18,13 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import product.Product;
  
  
-public class ProductDAO {
+public clas ProductDAO {
     //
     private Connection conn;            // DB에 접근하는 객체
     private PreparedStatement pstmt;    // 
     private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
     private static ProductDAO instance = null;
-    private static final String SAVEFOLDER = "C:/Users/지윤/git/repository/moodwear/src/main/webapp/fileupload";
+    private static final String SAVEFOLDER = "C:/Users/jiyoon/git/repository/moodwear/src/main/webapp/fileupload";
 	private static final String ENCTYPE = "UTF-8";
 	private static final int MAXSIZE = 5*1024*1024;
     
@@ -253,20 +253,16 @@ public ArrayList<Product> getProduct(int product_num){
 	}
 
 // 상품수정 
-public int product_modify(HttpServletRequest req) {
+public int product_modify(MultipartRequest multi) {
 	String SQL = "UPDATE product SET product_name = ?, product_brand = ?, product_price = ?, product_volume = ?, product_img = ?, product_info = ?, product_tag1 = ?,  product_tag2 = ?, product_tag3 = ?, product_tagImg1 =?, product_tagImg2 =? WHERE product_num =?";
-    MultipartRequest multi = null;
 	String product_img = null;
 	String product_tagImg1 = null;
 	String product_tagImg2 = null;
-
 	try {
     	File file = new File(SAVEFOLDER);
 		if(!file.exists()) {
 			file.mkdirs();
 		}	
-		multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE,ENCTYPE,
-				new DefaultFileRenamePolicy());
 		if(multi.getFilesystemName("product_img") != null) {
 			product_img = multi.getFilesystemName("product_img");
 		}

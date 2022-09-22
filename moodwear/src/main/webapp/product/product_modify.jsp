@@ -42,14 +42,13 @@
                 <p><input type="text" placeholder="#태그1" name="product_tag1" value="<%=product.getProduct_tag1() %>">&ensp;<input type="text" placeholder="#태그2" name="product_tag2" value="<%=product.getProduct_tag2() %>">&ensp;<input type="text" placeholder="#태그3" name="product_tag3" value="<%=product.getProduct_tag3() %>"></p>
                 <p><input type="text" placeholder="용량(숫자만 입력)" name="product_volume" value="<%=product.getProduct_volume() %>">&ensp;<input type="text" placeholder="가격(숫자만 입력)" name="product_price" value="<%=product.getProduct_price() %>"></p>
                 <p>상품 이미지</p>
-                <p><input type="file" id="pname" name="product_img" value="<%=product.getProduct_img() %>"></p>
+                <%-- <p><input type="file" id="pname" name="product_img" value="<%=product.getProduct_img() %>"></p> --%>
                 <p>상품 설명</p>
                 <p><textarea id="" cols="58" rows="5" name="product_info" value="<%=product.getProduct_info() %>"></textarea></p>
                 <p>태그 관련 이미지</p>
                 <p><input type="file" class="timg" name="product_tagImg1" ></p>
                 <p><input type="file" class="timg" name="product_tagImg2" ></p>
                 <!-- <button id="correct" onclick="location.href='관리자-상품.html';">등록</button> -->
-                <input type="hidden" name="product_num" value="<%=product_num %>"> 
                 <input type="submit" id="correct" value="수정">
                 <hr> 
 
