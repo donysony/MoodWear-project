@@ -18,7 +18,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import product.Product;
  
  
-public clas ProductDAO {
+public class ProductDAO {
     //
     private Connection conn;            // DB에 접근하는 객체
     private PreparedStatement pstmt;    // 
@@ -156,6 +156,129 @@ public ArrayList<Product> getProductList(){
 	return vlist;
 	
 	}
+
+// 전체 상품 낮은가격순 정렬
+public ArrayList<Product> getProductListAsc(){
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	ArrayList<Product> vlist = new ArrayList<Product>();
+	try {
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT * FROM product order by product_price asc");
+		while(rs.next()) {
+			Product bean = new Product();
+			bean.setProduct_num(rs.getInt("product_num"));
+			bean.setProduct_name(rs.getString("product_name"));
+			bean.setProduct_brand(rs.getString("product_brand"));
+			bean.setProduct_price(rs.getString("product_price"));
+			bean.setProduct_volume(rs.getInt("product_volume"));
+			bean.setProduct_img(rs.getString("product_img"));
+			bean.setProduct_info(rs.getString("product_info"));
+			bean.setProduct_tag1(rs.getString("product_tag1"));
+			bean.setProduct_tag2(rs.getString("product_tag2"));
+			bean.setProduct_tag3(rs.getString("product_tag3"));
+			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
+			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
+			vlist.add(bean);
+		}
+	} catch(Exception e) {
+		System.out.println("Exception :"+e);
+	}
+//	} finally {
+//		if(rs != null)
+//			try{rs.close();} catch(SQLException e){}
+//		if(stmt != null)
+//			try{stmt.close();} catch(SQLException e){}
+//		if(conn != null)
+//			try{conn.close();} catch(SQLException e){}
+//	
+//		}
+	return vlist;
+	
+}
+
+// 전체 상품 높은가격순 정렬
+public ArrayList<Product> getProductListDesc(){
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	ArrayList<Product> vlist = new ArrayList<Product>();
+	try {
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT * FROM product order by product_price desc");
+		while(rs.next()) {
+			Product bean = new Product();
+			bean.setProduct_num(rs.getInt("product_num"));
+			bean.setProduct_name(rs.getString("product_name"));
+			bean.setProduct_brand(rs.getString("product_brand"));
+			bean.setProduct_price(rs.getString("product_price"));
+			bean.setProduct_volume(rs.getInt("product_volume"));
+			bean.setProduct_img(rs.getString("product_img"));
+			bean.setProduct_info(rs.getString("product_info"));
+			bean.setProduct_tag1(rs.getString("product_tag1"));
+			bean.setProduct_tag2(rs.getString("product_tag2"));
+			bean.setProduct_tag3(rs.getString("product_tag3"));
+			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
+			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
+			vlist.add(bean);
+		}
+	} catch(Exception e) {
+		System.out.println("Exception :"+e);
+	}
+//	} finally {
+//		if(rs != null)
+//			try{rs.close();} catch(SQLException e){}
+//		if(stmt != null)
+//			try{stmt.close();} catch(SQLException e){}
+//		if(conn != null)
+//			try{conn.close();} catch(SQLException e){}
+//	
+//		}
+	return vlist;
+	
+}
+
+// 전체 상품 가나다순 정렬
+public ArrayList<Product> getProductListABC(){
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	ArrayList<Product> vlist = new ArrayList<Product>();
+	try {
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT * FROM product order by product_name asc");
+		while(rs.next()) {
+			Product bean = new Product();
+			bean.setProduct_num(rs.getInt("product_num"));
+			bean.setProduct_name(rs.getString("product_name"));
+			bean.setProduct_brand(rs.getString("product_brand"));
+			bean.setProduct_price(rs.getString("product_price"));
+			bean.setProduct_volume(rs.getInt("product_volume"));
+			bean.setProduct_img(rs.getString("product_img"));
+			bean.setProduct_info(rs.getString("product_info"));
+			bean.setProduct_tag1(rs.getString("product_tag1"));
+			bean.setProduct_tag2(rs.getString("product_tag2"));
+			bean.setProduct_tag3(rs.getString("product_tag3"));
+			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
+			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
+			vlist.add(bean);
+		}
+	} catch(Exception e) {
+		System.out.println("Exception :"+e);
+	}
+//	} finally {
+//		if(rs != null)
+//			try{rs.close();} catch(SQLException e){}
+//		if(stmt != null)
+//			try{stmt.close();} catch(SQLException e){}
+//		if(conn != null)
+//			try{conn.close();} catch(SQLException e){}
+//	
+//		}
+	return vlist;
+	
+}
 
 
 /*

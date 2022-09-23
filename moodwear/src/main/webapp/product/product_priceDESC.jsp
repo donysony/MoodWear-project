@@ -14,7 +14,7 @@
 <body>
  
 	<%
-	ArrayList<Product> vlist = pMgr.getProductList();
+	ArrayList<Product> vlist = pMgr.getProductListDesc();
 	%>
 	
     <div id="body-wrapper">
@@ -68,6 +68,7 @@
         <button onclick="location='product_priceASC.jsp'">낮은가격순</button>
         <button onclick="location='product_priceDESC.jsp'">높은가격순</button>
         </p>
+        
 <%
 for(int i=0; i<vlist.size(); i++){
 Product regBean = vlist.get(i);
