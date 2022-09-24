@@ -9,7 +9,7 @@ import com.oreilly.servlet.MultipartRequest;
 
  
 public class WearerDAO {
-    //
+    
     private Connection conn = null;      // DB에 접근하는 객체
     private PreparedStatement pstmt;    
     private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
@@ -22,7 +22,7 @@ public class WearerDAO {
     	
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/moodwear?serverTimezone=UTC", "root","MY!jazz92");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/moodwear?serverTimezone=UTC", "root", "1234");
 			
     		  } catch (Exception e) {
     		   e.printStackTrace(); 
@@ -97,12 +97,11 @@ public int product_write(MultipartRequest multi) {
 
 
 
-	public Wearer getShow(String Btitle) {
-		String sql ="select * from wearer where wearer_Btitle=?";
+	public Wearer getShow() {
+		String sql ="select * from wearer";
 		Wearer bean = new Wearer();
 		try {
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1,Btitle);
 		rs = pstmt.executeQuery();
 		if(rs.next()) {
 			

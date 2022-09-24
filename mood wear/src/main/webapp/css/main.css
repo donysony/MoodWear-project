@@ -29,7 +29,7 @@ a{text-decoration: none; color: black; font-size: 15px;}
 .ct{margin:10px; font-weight:500; font-size: 18px;}
 a{text-decoration: none; color: black; font-size: 15px;}
 
-/*검색창*/
+/* 검색창 */
 .search{display: flex; justify-content: center; align-items: center; }
 #search_form{display:inline; }
 form{position:relative;}
