@@ -2,7 +2,7 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 
-p{text-align: center; font-family: 'Gowun Batang', serif; font-size: 100px; font-weight: 700; position: relative;}  
+p{text-align: center; font-family: 'Gowun Batang', serif; font-weight: 700; position: relative;}  
 li{font-family: Pretendard;}
 input{background-color: #eceaea77;}
 span{vertical-align:middle}
@@ -11,6 +11,10 @@ span{vertical-align:middle}
 body{position: relative;}
 #body-wrapper{min-height: 969px; height: auto;}
 footer{width: 100%; position: absolute; bottom: -7%; left: 0;}
+
+/* 정렬 */
+.order{margin-left: 1090px;}
+button{background-color: rgba(0, 0, 255, 0); border-color: rgba(0, 0, 255, 0);}
 
 /* 로고 */
 #logo{width: 120px; height: 70px;}
@@ -38,7 +42,7 @@ a{text-decoration: none; color: black; font-size: 15px;}
 #main{width: 1900px; height: 600px; }
 
 /* 문구 */
-.name{font-size: 40px; font-weight: bold; font-family: 'Gowun Batang', serif; list-style: none; margin-bottom: 80px;}
+.name{font-size: 40px; margin-bottom:50px; font-weight: bold; font-family: 'Gowun Batang', serif; list-style: none;}
 .volume{font-family: 'Gowun Batang', serif;}
 
 /* 상품명 */

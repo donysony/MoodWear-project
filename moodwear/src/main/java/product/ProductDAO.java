@@ -239,7 +239,7 @@ public ArrayList<Product> getProductListDesc(){
 	
 }
 
-// 전체 상품 가나다순 정렬
+// 전체 상품 상품명순 정렬
 public ArrayList<Product> getProductListABC(){
 	Statement stmt = null;
 	ResultSet rs = null;

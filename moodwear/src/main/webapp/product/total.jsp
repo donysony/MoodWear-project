@@ -64,10 +64,11 @@
 <div class="total">
     <section id="first">
         <p class="name">전체 상품</p>
-        <p class="order"><button onclick="location='product_ABC.jsp'">상품명 가나다순</button>
+        <div class="order">
+        <p><button onclick="location='product_ABC.jsp'">상품명순</button>
         <button onclick="location='product_priceASC.jsp'">낮은가격순</button>
         <button onclick="location='product_priceDESC.jsp'">높은가격순</button>
-        </p>
+        </p></div>
 <%
 for(int i=0; i<vlist.size(); i++){
 Product regBean = vlist.get(i);

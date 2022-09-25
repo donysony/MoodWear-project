@@ -64,7 +64,7 @@
 <div class="total">
     <section id="first">
         <p class="name">전체 상품</p>
-        <p class="order"><button onclick="location='product_ABC.jsp'">상품명 가나다순</button>
+        <p class="order"><button class="button" onclick="location='product_ABC.jsp'">상품명 가나다순</button>
         <button onclick="location='product_priceASC.jsp'">낮은가격순</button>
         <button onclick="location='product_priceDESC.jsp'">높은가격순</button>
         </p>
@@ -619,5 +619,6 @@ Product regBean = vlist.get(i);
             <span id="copy">Copyright 2022 MOODWEAR Inc. all rights reserved.</span>
         </div>
     </footer>
+
 </body>
 </html>
