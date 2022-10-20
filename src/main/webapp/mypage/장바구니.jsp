@@ -3,6 +3,7 @@
 <%@ page import="product.*" %>
 <%@ page import="member.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="java.text.*" %>
 <jsp:useBean id="memberDAO" class="member.MemberDAO"/>
 <jsp:useBean id="productDAO" class="product.ProductDAO"/>
 <%
@@ -35,7 +36,7 @@
     </header>
 
     <section>
-        <form action="" method="post" >
+        <form action="주문정보확인.jsp" method="post" >
             <article>
                 <h1>장바구니</h1>
                 <table class="ordertable">
@@ -43,7 +44,7 @@
                             <td colspan="7"></td>
                         </tr>
                         <tr>
-                            <th><input type="checkbox" name="select" onclick="checkBox(this)"></th>
+                            <th><input type="checkbox" name="select" onclick="checkBox(this)" checked></th>
                             <th>상품정보</th>
                             <th>판매가</th>
                             <th>수량</th>
@@ -54,7 +55,8 @@
                         <%
                         //사용자 아이디로 장바구니에 담긴 상품들을 전부 리스트로 가져옴
                         ArrayList<Cart> list = memberDAO.getCartList(userID);
- 
+ 						DecimalFormat df = new DecimalFormat("#,###");//화폐기호 형식 지정
+ 						
                                 if(!list.isEmpty()){
                         	for(int i=0; i<list.size();i++){
                         		int cart_product_num = list.get(i).getProduct_num();
@@ -65,34 +67,38 @@
                                 String info = product.getProduct_info();
                                 int volume = product.getProduct_volume();
                                 String brand = product.getProduct_brand();
-                                String price = product.getProduct_price();
+                                int price = Integer.parseInt(product.getProduct_price());
                                 String name = product.getProduct_name();	
                                 	
                         		%>
                         <tr class="orderinfo">
-                            <td><input type="checkbox" name="product" class="select_checkbox" checked value="<%=list.get(i).getCart_num() %>" onclick="selectCheck()"></td>
+                            <td><input type="checkbox" name="product" class="select_checkbox" checked value="<%=list.get(i).getCart_num() %>" onclick="totalPrice() "></td>
                             <td class="itemimg"> 
                                 <img src="../img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
                                 <p><%=brand %><br>
                                     <%=name%><br>
-                                    <%=volume +"ml"%></p></td>
-                                    <td><input type="text" value="<%=String.format("%,d",Integer.parseInt(price))%>" id="price" readonly checked>원</td>
-                                    <td class="count_change">
-									<input type="text" value="<%=cart_quantity %>" id="quantity" readonly name="quantity">
-									<input type="button" value="" id="upbtn" onclick="up()">
-									<input type="button" value="" id="downbtn"onclick="down()">
-										<button type="button" onclick="totalPrice()">변경</button>
-                                    </td>
-                                    <td></td>
-                                    <td><span id="total"><%= String.format("%,d",Integer.parseInt(price) * cart_quantity) +" 원"%></span></td>
-                                    <td>
+                                    <%=volume +"ml"%></p>
+                           	</td>
+							<td>
+                                    <input type="text" value="<%=df.format(price)%>" class="price" readonly checked>원
+                            </td>
+                            <td class="count_change">
+									<input type="text" value="<%=cart_quantity %>" class="quantity" readonly name="quantity">
+									<input type="button" value="" class="upbtn" onclick="up()">
+									<input type="button" value="" class="downbtn"onclick="down()">
+                             </td>
+                             <td></td>
+                             <td><span class="total"><%= df.format(price * cart_quantity) +" 원"%></span></td>
+                             <td>
                                         <button class="order">주문하기</button>
                                         <button class="delete">삭제</button>
-                                        
-                                    </td>
+                        		<input type="hidden" value="<%=list.get(i).getCart_num()%>" name="cart_num">
+                        		<input type="hidden" value="<%=list.get(i).getCart_quantity()%>" name="quantity">
+                             </td>
                                 </tr>
-                        <%
+                        	<%
                         	}
+                        	
                                 }else{
                                 	%>
 						<tr id="none_address">
@@ -105,30 +111,6 @@
                                 }
 
                         %>
-                       <!-- <tr class="orderinfo">
-                            <td><input type="checkbox" name="product2" class="select_checkbox" checked></td>
-                            <td class="itemimg"> 
-                                <img src="img/디올.png" alt="블루밍부케" class="orderitem">&emsp;
-                                <p>Dior<br>
-                                    미스 디올 블루밍 부케<br>
-                                    오드 퍼퓸<br>
-                                    100ml</p></td>
-                                    <td>250,000원</td>
-                                    <td class="count_change">
-                                        <span>1</span>
-                                        <input type="button" value="" class="upbtn">
-                                        <input type="button" value="" class="downbtn">
-                                        <button>변경</button>
-                                    </td>
-                                    <td></td>
-                                    <td>250,000원</td>
-                                    <td>
-                                        <button class="order">주문하기</button>
-                                        <button class="delete">삭제</button>
-                                        
-                                    </td>
-                        </tr> 
-                        --> 
                         <tr>
                             <td colspan="7" id="shippingstate"> <p>[기본배송]</p></td>
                         </tr>
@@ -144,7 +126,7 @@
                 <span>결제예정금액</span>
             </div>
             <div id="payment_value">
-                <span>250,000원</span>
+                <span></span>
                 
             </div>
         </article>
@@ -154,8 +136,8 @@
 
         </p>
         <div class="wrapper">
-            <button id="all_orderbtn" type="button" onClick="location.href='주문정보확인.jsp'">전체상품주문</button> &ensp;
-            <button id="select_orderbtn">선택주문</button>
+            <button id="all_orderbtn" >전체상품주문</button> &ensp;
+            <button id="select_orderbtn" type="button" onclick="selectOrder()">선택주문</button>
         </div>
         </article>
     </form>
@@ -170,6 +152,9 @@
     파일첨부 옵션은 동일상품을 장바구니에 추가할 경우 마지막에 업로드 한 파일로 교체됩니다.<br>
         </div>
     </article>
+	<script>
+		totalPrice();
+	</script>
     
 
     

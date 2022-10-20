@@ -417,6 +417,44 @@ public class MemberDAO {
 		return list;
 	}
 	
+	//로그인한 회원의 장바구니 번호로 장바구니 리스트 가져오기
+	public ArrayList<Cart> getOrderList(String member_id, int cart_num) {
+		String sql = "select * from cart where member_id=? and cart_num=? order by cart_num ";
+		ArrayList<Cart> list = new ArrayList<Cart>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member_id);
+			pstmt.setInt(2, cart_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Cart cart = new Cart();
+				cart.setCart_num(rs.getInt(1));
+				cart.setCart_quantity(rs.getInt(2));
+				cart.setMember_id(rs.getString(3));
+				cart.setProduct_num(rs.getInt(4));
+				list.add(cart);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}if(rs != null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	
+	
+	
+	
+	
 	//회원 탈퇴
 	public boolean memberWithdrawal(String member_id) {
 		String sql = "delete from member where member_id=?";

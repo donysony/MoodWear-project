@@ -1,5 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="product.*" %>
+<%@ page import="member.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.*" %>
+<jsp:useBean id="memberDAO" class="member.MemberDAO"/>
+<jsp:useBean id="productDAO" class="product.ProductDAO"/>
+<%
+	String userID = null;
+	int cart_num = 1;
+	int cart_quantity = 1;
+	//장바구니에서 전체상품주문 클릭하면 넘어오는 값
+	if(session.getAttribute("userID") != null){
+		userID = (String)session.getAttribute("userID");
+	}
+	if(request.getParameter("cart_num") != null){
+		cart_num = Integer.parseInt(request.getParameter("cart_num"));
+	}
+	if(request.getParameter("cart_quantity") != null){
+		cart_quantity = Integer.parseInt(request.getParameter("cart_quantity"));
+	}
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,16 +48,31 @@
                         <th width="10%">수량</th>
                         <th width="15%">소계금액</th>
                     </tr>
+                    <%
+                    ArrayList<Cart> list = memberDAO.getOrderList(userID, cart_num);
+                    DecimalFormat df = new DecimalFormat("#,###");//화폐기호 형식 지정
+                    	if(!list.isEmpty()){
+                    		for(int i=0; i<list.size();i++){
+								int cart_product_num = list.get(i).getProduct_num();
+                        		
+                        		//상품번호와 일치하는 정보 가져옴
+                        		Product product = productDAO.getProductList(cart_product_num);
+                                int volume = product.getProduct_volume();
+                                String brand = product.getProduct_brand();
+                                int price = Integer.parseInt(product.getProduct_price());
+                                String name = product.getProduct_name();	
+                    			
+                    			%>
                     <tr>
-                        <td>미스 디올 블루밍 부케 모드 퍼퓸 100mL</td>
-                        <td>1</td>
-                        <td>250,000원</td>
+                        <td><%=brand +" "+ name +" "+ volume +"ml"%></td>
+                        <td>수량</td>
+                        <td><%=df.format(price)+"원" %></td>
                     </tr>
-                    <tr>
-                        <td>미스 디올 블루밍 부케 모드 퍼퓸 100mL</td>
-                        <td>1</td>
-                        <td>250,000원</td>
-                    </tr>
+                    			
+           			<%
+                    		}
+                    	}
+                    %>
                     <tr>
                         <td colspan="3"></td>
                     </tr>
