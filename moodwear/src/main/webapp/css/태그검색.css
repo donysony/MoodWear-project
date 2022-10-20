@@ -26,13 +26,15 @@ h2{text-align: center; font-family: 'Inter', sans-serif;}
 hr{width: 1310px; margin-bottom: 0;} 
 
  /* 태그전체박스 */
-.tag_box{width: 1312px; height: 200px; background-color: rgb(233, 233, 233); margin:0 auto; border-radius: 0 0 10px 10px; overflow: auto}
+.tag_box{width: 1312px; height: 310px; background-color: rgb(233, 233, 233); margin:0 auto; border-radius: 0 0 10px 10px; overflow: auto}
 
 /* 태그들 */
-.tag_boxes{float: left;  margin-top: 30px;} /* 태그박스 가로로 쌓음 */
+.tag_boxes{float: left;  margin-top: 30px; margin-left: 70px; margin-right: 50px;} /* 태그박스 가로로 쌓음 */
 #tag{margin-left: 75px; padding: 30px; font-family: 'Gowun Dodum', sans-serif;}
 a:active { color:rgb(22, 22, 22); font-weight: bold;}  /* 태그 선택시 색상 바뀜 */
 a{text-decoration-line: none; color: rgb(56, 56, 56);}
+.tagSearch{clear:both; margin-top: 10px; margin-left: 655px; width: 50px;}
+button{border: 10px solid black;}
 
 /************ 태그 검색창 끝 ************/
 

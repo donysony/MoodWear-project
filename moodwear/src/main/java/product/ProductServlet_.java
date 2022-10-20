@@ -16,7 +16,7 @@ public class ProductServlet_ extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		ProductDAO pDAO = new ProductDAO();
 		pDAO.product_write(request);
-		response.sendRedirect("product_modify.jsp");
+		response.sendRedirect("product_list.jsp");
 	}
 
 }
