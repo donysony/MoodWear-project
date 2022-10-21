@@ -8,13 +8,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>전체 상품</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="../css/best20.css" type="text/css">
 </head>
 <body>
- 
+
 	<%
 	ArrayList<Product> vlist = pMgr.getProductList();
+	System.out.print(vlist.size());
 	%>
 	
     <div id="body-wrapper">
@@ -37,7 +38,7 @@
             <div>
                 <ul>
                     <li><a href="" class="ct">브랜드 상품</a></li>
-                    <li><a href="" class="ct">상품</a></li>
+                    <li><a href="" class="ct">베스트 상품</a></li>
                     <li><a href="" class="ct">무드웨어 소개</a></li>
                     <li><a href="" class="ct">웨어러 추천</a></li>
                     <li><a href="" class="ct">문의</a></li>
@@ -64,18 +65,13 @@
 <div class="total">
     <section id="first">
         <p class="name">전체 상품</p>
-        <div class="order">
-        <p><button onclick="location='product_ABC.jsp'">상품명순</button>
-        <button onclick="location='product_priceASC.jsp'">낮은가격순</button>
-        <button onclick="location='product_priceDESC.jsp'">높은가격순</button>
-        </p></div>
 <%
 for(int i=0; i<vlist.size(); i++){
 Product regBean = vlist.get(i);
 %>
         <article class="first_prod">
             <div>
-                <div class="ibox"  onclick="location.href='detail.jsp?product_num=<%=vlist.get(i).getProduct_num() %>'">
+                <div class="ibox">
                     <img src="../fileupload/<%=regBean.getProduct_img()%>" class="product">
                         <div class="two">
                             <div class="tbox">
@@ -602,22 +598,7 @@ Product regBean = vlist.get(i);
     </section> -->
     </div>
     <footer>
-        <span id="introduce">
-            mood wearㅣ인천시 남동구 인주대로 518, 엔타스 12층 (01234)ㅣ대표자 : 장지윤 박경선 정이랑<br>
-            사업자 등록번호 : 214-22-07141ㅣ통신판매업신고 : 2022-인천남동, 10392ㅣ개인정보관리책임자 : <br>
-            장지윤ㅣ호스팅서비스사업자 : moodwearㅣ고객센터 : 1234-1234ㅣ이메일 : mwmw@mw.co.kr
-        </span>
-
-        <div id="ft">
-            <ul>
-                <li><a href="">개인정보 처리방침 |</a></li>
-                <li><a href="">이용약관 |</a></li>
-                <li><a href="">사이트맵 |</a></li>
-                <li><a href="">환불 정책 | </a></li>
-                <li><a href="">회사 세부정보</a></li>
-            </ul>
-            <span id="copy">Copyright 2022 MOODWEAR Inc. all rights reserved.</span>
-        </div>
+   		<jsp:include page="../footer.jsp"/>
     </footer>
 </body>
 </html>

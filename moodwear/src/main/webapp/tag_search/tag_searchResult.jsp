@@ -85,7 +85,7 @@
     <!------------ 태그 검색창 시작 ------------>
     <h2>태그검색</h2>
     <hr>
-<form method="get" action="tag_searchResult.jsp" name="product_tag" class="formBox">
+<form method="get" action="tag_searchResult2.jsp" name="product_tag" class="formBox">
     <div class="tag_box">
         <div class="tag_boxes">
             <input type="button" class="product_tag" value="사랑스러운" onclick="tagform()"><br><br>

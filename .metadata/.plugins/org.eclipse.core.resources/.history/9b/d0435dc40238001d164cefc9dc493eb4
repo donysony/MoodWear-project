@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="product.Product"%>
+<%@ page import="java.io.PrintWriter"%>
+<%@ page import="product.ProductDAO"%>
+<%@ page import="java.util.*, java.sql.*, java.io.File" %>
+<%@ page import= "com.oreilly.servlet.MultipartRequest, com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String SAVEFOLDER = "C:/Users/지윤/git/repository/moodwear/src/main/webapp/fileupload";
+	String ENCTYPE = "UTF-8";
+	int MAXSIZE = 5*1024*1024;
+%>
+    
+    
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상품 수정</title>
+</head>
+<body>
+	<%
+			ProductDAO bMgr = new ProductDAO();
+			Product bean = (Product)session.getAttribute("bean");
+			
+		    MultipartRequest multi = null;
+			String product_img = null;
+			String product_tagImg1 = null;
+			String product_tagImg2 = null;
+			
+		    try { 
+		    	File file = new File(SAVEFOLDER);
+				if(!file.exists()) {
+					file.mkdirs();
+				}	
+				multi = new MultipartRequest(request, SAVEFOLDER,MAXSIZE,ENCTYPE,
+								new DefaultFileRenamePolicy());
+				if(multi.getFilesystemName("product_img") != null) {
+					product_img = multi.getFilesystemName("product_img");
+				}
+				if(multi.getFilesystemName("product_tagImg1") != null) {
+					product_tagImg1 = multi.getFilesystemName("product_tagImg1");
+				}
+				if(multi.getFilesystemName("product_tagImg2") != null) {
+					product_tagImg2 = multi.getFilesystemName("product_tagImg2");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+
+			Product upBean = new Product();
+			System.out.print(multi.getParameter("product_num"));
+			upBean.setProduct_num(Integer.parseInt(request.getParameter("product_num")));
+			upBean.setProduct_name(request.getParameter("product_name"));
+			upBean.setProduct_brand(request.getParameter("product_brand"));
+			upBean.setProduct_price(request.getParameter("product_price"));
+			upBean.setProduct_volume(Integer.parseInt(request.getParameter("product_volume")));
+			upBean.setProduct_img(request.getParameter("product_img"));
+			upBean.setProduct_info(request.getParameter("product_info"));
+			upBean.setProduct_tag1(request.getParameter("product_tag1"));
+			upBean.setProduct_tag2(request.getParameter("product_tag2"));
+			upBean.setProduct_tag3(request.getParameter("product_tag3"));
+			upBean.setProduct_tagImg1(request.getParameter("product_tagImg1"));
+			upBean.setProduct_tagImg2(request.getParameter("product_tagImg2"));
+		
+
+
+			
+
+					
+		
+	%>
+	
+
+</body>
+</html>

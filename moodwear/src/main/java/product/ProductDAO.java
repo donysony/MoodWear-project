@@ -24,7 +24,7 @@ public class ProductDAO {
     private PreparedStatement pstmt;    // 
     private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
     private static ProductDAO instance = null;
-    private static final String SAVEFOLDER = "C:/Users/jiyoon/git/repository/moodwear/src/main/webapp/fileupload";
+    private static final String SAVEFOLDER = "C:/Users/jiyoon/Desktop/무드웨어/moodwear/src/main/webapp/fileupload";
 	private static final String ENCTYPE = "UTF-8";
 	private static final int MAXSIZE = 5*1024*1024;
     
@@ -172,9 +172,12 @@ public ArrayList<Product> getProductList(){
 			bean.setProduct_volume(rs.getInt("product_volume"));
 			bean.setProduct_img(rs.getString("product_img"));
 			bean.setProduct_info(rs.getString("product_info"));
-			bean.setProduct_tag1(rs.getString("product_tag1"));
-			bean.setProduct_tag2(rs.getString("product_tag2"));
-			bean.setProduct_tag3(rs.getString("product_tag3"));
+
+			/*
+			 * bean.setProduct_tag1(rs.getString("product_tag1"));
+			 * bean.setProduct_tag2(rs.getString("product_tag2"));
+			 * bean.setProduct_tag3(rs.getString("product_tag3"));
+			 */
 			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
 			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
 			vlist.add(bean);
@@ -213,9 +216,6 @@ public ArrayList<Product> getProductListAsc(){
 			bean.setProduct_volume(rs.getInt("product_volume"));
 			bean.setProduct_img(rs.getString("product_img"));
 			bean.setProduct_info(rs.getString("product_info"));
-			bean.setProduct_tag1(rs.getString("product_tag1"));
-			bean.setProduct_tag2(rs.getString("product_tag2"));
-			bean.setProduct_tag3(rs.getString("product_tag3"));
 			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
 			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
 			vlist.add(bean);
@@ -254,9 +254,6 @@ public ArrayList<Product> getProductListDesc(){
 			bean.setProduct_volume(rs.getInt("product_volume"));
 			bean.setProduct_img(rs.getString("product_img"));
 			bean.setProduct_info(rs.getString("product_info"));
-			bean.setProduct_tag1(rs.getString("product_tag1"));
-			bean.setProduct_tag2(rs.getString("product_tag2"));
-			bean.setProduct_tag3(rs.getString("product_tag3"));
 			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
 			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
 			vlist.add(bean);
@@ -295,9 +292,6 @@ public ArrayList<Product> getProductListABC(){
 			bean.setProduct_volume(rs.getInt("product_volume"));
 			bean.setProduct_img(rs.getString("product_img"));
 			bean.setProduct_info(rs.getString("product_info"));
-			bean.setProduct_tag1(rs.getString("product_tag1"));
-			bean.setProduct_tag2(rs.getString("product_tag2"));
-			bean.setProduct_tag3(rs.getString("product_tag3"));
 			bean.setProduct_tagImg1(rs.getString("product_tagImg1"));
 			bean.setProduct_tagImg2(rs.getString("product_tagImg2"));
 			vlist.add(bean);
@@ -520,9 +514,6 @@ public Product get_Product(int product_num){
 			upBean.setProduct_volume(rs.getInt("product_volume"));
 			upBean.setProduct_img(rs.getString("product_img"));
 			upBean.setProduct_info(rs.getString("product_info"));
-			upBean.setProduct_tag1(rs.getString("product_tag1"));
-			upBean.setProduct_tag2(rs.getString("product_tag2"));
-			upBean.setProduct_tag3(rs.getString("product_tag3"));
 			upBean.setProduct_tagImg1(rs.getString("product_tagImg1"));
 			upBean.setProduct_tagImg2(rs.getString("product_tagImg2"));
 			return upBean;
@@ -570,15 +561,17 @@ public ArrayList<Product> getProductTagList(String product_tag){
 				pstmt3.setInt(1,rs2.getInt("product_num"));	
 				rs3 = pstmt3.executeQuery();
 				while(rs3.next()) {
+					System.out.println(i);
+					
 					switch(i) {
 						case 1: 
 							bean.setProduct_tag1(rs3.getString("tag_id"));
 							break;
 						case 2: 
-							bean.setProduct_tag1(rs3.getString("tag_id"));
+							bean.setProduct_tag2(rs3.getString("tag_id"));
 							break;
 						case 3: 
-							bean.setProduct_tag1(rs3.getString("tag_id"));
+							bean.setProduct_tag3(rs3.getString("tag_id"));
 							break;
 					}
 					i++;
