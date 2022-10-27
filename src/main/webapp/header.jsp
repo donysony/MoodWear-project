@@ -21,8 +21,8 @@
  %>
                 <div class="top">
                     <ul>
-                        <li><a href="../join.jsp">회원가입</a></li>
-                        <li><a href="../login/login.jsp">로그인</a></li>
+                        <li><a href="/login_member/join.jsp">회원가입</a></li>
+                        <li><a href="/login_member/login.jsp">로그인</a></li>
                     </ul>
                 </div>
 <%
@@ -32,7 +32,7 @@
  			 <div class="top_login">
                     <ul>
                         <li><a href="../mypage/mypage.jsp">마이페이지</a></li>
-                        <li><a href="../login/logoutAction.jsp">로그아웃</a></li>
+                        <li><a href="../login_member/logoutAction.jsp">로그아웃</a></li>
                     </ul>
                 </div>
  			

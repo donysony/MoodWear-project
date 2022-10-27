@@ -18,10 +18,17 @@
 			document.loginFrm.member_pw.focus();
 			return;
 		}
-		document.loginFrm.submit();
+		document.loginFrm.submit();    		
     	
     }
-
+	
+function enterkey(){
+	if(window.event.keyCode == 13){
+		//엔터키가 눌렸을 때
+		check();
+	}
+}
+	
     </script>
 </head>
 <body>
@@ -46,7 +53,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" placeholder="비밀번호" class="idpw" name="member_pw"><br>
+                        <input type="password" placeholder="비밀번호" class="idpw" name="member_pw" onkeyup="enterkey()"><br>
+                        
                     </td>
                 </tr>
                 <tr>

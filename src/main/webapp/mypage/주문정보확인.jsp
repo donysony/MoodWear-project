@@ -8,7 +8,7 @@
 <jsp:useBean id="productDAO" class="product.ProductDAO"/>
 <%
 	String userID = null;
-	int cart_num = 1;
+	int cart_num = 0;
 	int cart_quantity = 1;
 	//장바구니에서 전체상품주문 클릭하면 넘어오는 값
 	if(session.getAttribute("userID") != null){
@@ -54,7 +54,7 @@
                     	if(!list.isEmpty()){
                     		for(int i=0; i<list.size();i++){
 								int cart_product_num = list.get(i).getProduct_num();
-                        		
+                        		int quantity = list.get(i).getCart_quantity();
                         		//상품번호와 일치하는 정보 가져옴
                         		Product product = productDAO.getProductList(cart_product_num);
                                 int volume = product.getProduct_volume();
@@ -65,8 +65,8 @@
                     			%>
                     <tr>
                         <td><%=brand +" "+ name +" "+ volume +"ml"%></td>
-                        <td>수량</td>
-                        <td><%=df.format(price)+"원" %></td>
+                        <td><%=quantity %></td>
+                        <td><%=df.format(price * quantity)+"원" %></td>
                     </tr>
                     			
            			<%
@@ -93,6 +93,11 @@
 
         </article>
         <article>
+        <%
+        	String member_name = memberDAO.getMemberName(userID);
+			Date today = new Date();
+            SimpleDateFormat df2 = new SimpleDateFormat("yyyy.MM.dd");
+        %>
                 <h3>주문요약정보</h3>
                 <table  class="order_summary">
                 <tr>
@@ -101,11 +106,11 @@
                 </tr>
                 <tr>
                 <th>주문자명</th>
-                <td>박경선</td>
+                <td><%=member_name %></td>
                 </tr>
                 <tr>
                 <th>주문일자</th>
-                <td>2022.08.08</td>
+                <td><%=df2.format(today) %></td>
                 </tr>
                 <tr>
                 <th>결제수단</th>

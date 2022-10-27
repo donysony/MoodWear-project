@@ -1,22 +1,26 @@
 package member;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 public class MemberDAO {
 	private Connection conn;
 	private ResultSet rs;
+	private DataSource dataFactory;
 	
 	public MemberDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/moodwear";
-			String dbID = "root";
-			String dbPassword="moodwear2022";
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
+			//현재환경의 naming context획득하기
+			Context ctx = new InitialContext(); //웹 애플리케이션이 처음 배치될때 설정, 모든 설정된 엔트리와 자원 JNDI namespace의 java:comp/env부분에 놓임
+			Context envContext = (Context) ctx.lookup("java:/comp/env");
+			//DataSource 찾기
+			dataFactory = (DataSource)envContext.lookup("jdbc/moodwear"); //lookup("DataSource 이름")
 
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -26,6 +30,7 @@ public class MemberDAO {
 	public int login(String member_id, String member_pw) {
 		String sql = "select member_pw from member where member_id = ?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement  pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			rs = pstmt.executeQuery();
@@ -38,16 +43,13 @@ public class MemberDAO {
 			return -1; // 아이디가 없음
 		}catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			try { //DB연결 닫아주기
-				if(conn != null)
-					conn.close();
-				if(rs != null)
-					rs.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+		} 
+			  finally { 
+				  try { //DB연결 닫아주기 메모리 낭비를 줄이기 위해 
+					  if(conn != null) conn.close();
+					  if(rs != null) rs.close(); 
+				}catch(Exception e) { e.printStackTrace(); } }
+			 
 		return -2; //DB오류
 	}
 	
@@ -55,6 +57,7 @@ public class MemberDAO {
 	public String getMemberName(String board_member_id) {
 		String sql = "select member_name from member where member_id =?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board_member_id);
 			rs=pstmt.executeQuery();
@@ -72,6 +75,7 @@ public class MemberDAO {
 	public String getMemberId(String name, String phone) {
 		String sql = "select member_id from member where member_name =? and member_phone=?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,name);
 			pstmt.setString(2,phone);
@@ -90,6 +94,7 @@ public class MemberDAO {
 	public String getMemberPw(String member_id, String phone) {
 		String sql = "select member_pw from member where member_id =? and member_phone=?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,member_id);
 			pstmt.setString(2,phone);
@@ -109,6 +114,7 @@ public class MemberDAO {
 	public Member getMember(String userID){
 		String sql ="select * from member where member_id=?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,userID);
 			rs = pstmt.executeQuery();
@@ -129,22 +135,19 @@ public class MemberDAO {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null)
-					conn.close();
-				if(rs != null)
-					rs.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-				
-			}return null;
+		}
+		
+		  finally { try { if(conn != null) conn.close(); if(rs != null) rs.close();
+		  }catch(Exception e) { e.printStackTrace(); }
+		  
+		  }
+		 return null;
 	}
 	//회원 정보 수정하기
 	public int getMemberUpdate(String userID, String pw, String email, String phone) {
 		String sql = "update member set member_pw=?, member_email=?, member_phone=? where member_id=?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pw);
 			pstmt.setString(2, email);
@@ -172,6 +175,7 @@ public class MemberDAO {
 		//현재 게시글을 내림차순으로 조회하여 가장 마지막 글의 번호를 구함
 		String SQL ="select address_num from address order by address_num desc";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
@@ -191,6 +195,7 @@ public class MemberDAO {
 		String sql = "insert into address values(?,?,?,?,?,?,?,?)";
 		boolean flag = false;
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, address.getAddress_name());
@@ -226,6 +231,7 @@ public class MemberDAO {
 		String sql = "select address_name, address_reciever, address1, address2, address_phone, address_num from address where address_member_id=? order by address_num";
 		ArrayList<Address> list = new ArrayList<Address>();
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			rs = pstmt.executeQuery();
@@ -259,6 +265,7 @@ public class MemberDAO {
 	public Address getAddress(String member_id, int address_num) {
 		String sql = "select * from address where address_member_id=? and address_num=?";
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			pstmt.setInt(2, address_num);
@@ -298,6 +305,7 @@ public class MemberDAO {
 		String sql = "update address set address_name=?, address_reciever=?, address1=?, address2=?, address_zipcode=?, address_phone=? where address_member_id=? and address_num=?";
 		boolean flag = false;
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, address.getAddress_name());
 			pstmt.setString(2, address.getAddress_reciever());
@@ -332,6 +340,7 @@ public class MemberDAO {
 		String sql = "delete from address where address_num =?";
 		int result=0;
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt;
 			for(int i=0; i<address_num.length; i++) {
 				pstmt = conn.prepareStatement(sql);
@@ -361,6 +370,7 @@ public class MemberDAO {
 		String sql = "insert into cart values(null,?,?,?)";
 		boolean result = false;
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cart_quantity);
 			pstmt.setString(2, member_id);
@@ -390,6 +400,7 @@ public class MemberDAO {
 		String sql = "select * from cart where member_id=? order by cart_num ";
 		ArrayList<Cart> list = new ArrayList<Cart>();
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			rs = pstmt.executeQuery();
@@ -403,17 +414,10 @@ public class MemberDAO {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null) {
-					conn.close();
-				}if(rs != null) {
-					rs.close();
-				}
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+		} 
+			  finally { try { if(conn != null) { conn.close(); }if(rs != null) {
+			  rs.close(); } }catch(Exception e) { e.printStackTrace(); } }
+			 
 		return list;
 	}
 	
@@ -422,6 +426,7 @@ public class MemberDAO {
 		String sql = "select * from cart where member_id=? and cart_num=? order by cart_num ";
 		ArrayList<Cart> list = new ArrayList<Cart>();
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			pstmt.setInt(2, cart_num);
@@ -450,7 +455,34 @@ public class MemberDAO {
 		return list;
 	}
 	
+	//회원의 장바구니 수량 변경하기
+	public int getCartQuantityChange(int cart_num, int cart_quantity){
+		String sql ="update cart set cart_quantity=? where cart_num=?";
+		try {
+			conn = dataFactory.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,cart_quantity);
+			pstmt.setInt(2,cart_num);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}return -1;
+		
+	}
 	
+	//회원의 장바구니 상품 삭제하기
+	public int getCartDelete(int cart_num){
+		String sql ="delete from cart where cart_num=?";
+		try {
+			conn = dataFactory.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,cart_num);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}return -1;
+		
+	}
 	
 	
 	
@@ -460,6 +492,7 @@ public class MemberDAO {
 		String sql = "delete from member where member_id=?";
 		boolean result = false;
 		try {
+			conn = dataFactory.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			if(pstmt.executeUpdate()==1) {

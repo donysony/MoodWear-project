@@ -8,9 +8,9 @@ function checkBox(n){
     
 }
 
-
 //수량 증감
 function up(){
+	
     event.target.previousElementSibling.value = parseInt(event.target.previousElementSibling.value) + 1 //선택 이전요소 , 유동적
  	let count = event.target.previousElementSibling.value; //수량
  	let price = event.target.parentElement.previousElementSibling.children[0].value; //정가-문자열
@@ -18,8 +18,30 @@ function up(){
  	let total = parseInt(count) * parseInt(price);//정가 * 수량
  	total = total.toLocaleString('ko-KR'); //나라마다 화폐단위 맞춰줌
  	event.target.parentElement.nextElementSibling.nextElementSibling.children[0].innerText = total+"원"; //=앞에있으면 = 뒤에 있는것을 적어주라, = 뒤에있으면 적혀있는것을 가져와라
+	
+	
+	let index = [].indexOf.call(document.querySelectorAll(".orderinfo"), event.target.parentElement.parentElement);//첫번째 매개변수: 리스트 받아옴, 두번째 매개변수 : 리스트중 몇번째 위치하는지 값을 반환
+	console.log(index);
+	console.log(document.querySelectorAll(".CartFrm")[index]);
+	
+	document.querySelectorAll('.CartFrm')[index].children[1].value = count;
+	document.querySelectorAll('.CartFrm')[index].submit();
+	
+	
  	totalPrice();
+ 	
 }//event.target : 사용자가 함수를 발동시킨 위치 
+ 	
+ 	
+ 	function order(){
+	let cart_num = event.target.parentElement.parentElement.children[0].children[0].value;
+	location.href="주문정보확인.jsp?cart_num="+cart_num;	
+}
+
+function Delete(){
+	let cart_num = event.target.parentElement.parentElement.children[0].children[0].value;
+	location.href="장바구니상품삭제Action.jsp?cart_num="+cart_num;
+}
 
 function down(){
 	if(event.target.previousElementSibling.previousElementSibling.value <=1){// 기본이 1이기 때문에 1이하
@@ -34,12 +56,12 @@ function down(){
  	total = total.toLocaleString('ko-KR'); //나라마다 화폐단위 맞춰줌
  	event.target.parentElement.nextElementSibling.nextElementSibling.children[0].innerText = total+"원"; //=앞에있으면 = 뒤에 있는것을 적어주라, = 뒤에있으면 적혀있는것을 가져와라
  	totalPrice();
-	
-    
+ 	let index = [].indexOf.call(document.querySelectorAll(".orderinfo"), event.target.parentElement.parentElement);
+ 	console.log(index);
+    console.log(document.querySelectorAll(".CartFrm")[index]);
+    document.querySelectorAll(".CartFrm")[index].children[1].value = count;
+	document.querySelectorAll('.CartFrm')[index].submit();
 }
-
-
-
 
 
 //document.querySelector() //딱하나만 가져와 - 무조건 하나로 가져올 수 있는 것을 가져옴 ()안엔 css선택자
@@ -71,7 +93,7 @@ function totalPrice(){
 		//check[i].parentElement.parentElement //orderinfo를 가리킴
 		
 		let hi = [].indexOf.call(document.querySelectorAll(".orderinfo"), check[i].parentElement.parentElement); //두번째 매개변수: 첫번째 매개변수에 몇번째 있는것인지 가져온다		
-		let totalprice = document.querySelectorAll(".total")[hi].innerText;  
+		let totalprice = document.querySelectorAll(".total")[hi].innerText;
 		totalprice = totalprice.replace(/,/g, "");
 		totalprice = totalprice.replace("원","");
 		allPrice = allPrice + parseInt(totalprice); 
@@ -86,26 +108,38 @@ function priceToString(price){
 }
 
 
-//체크된 상품들만 가져와 수량과 장바구니번호를
-//근데 up, down함수로 수량이 변경되었는데 이걸 어떻게 가져오지? 똑같이 하면 변경된 값을 가져올 수 있는가?
-//글고 얘도 event.target해?
-//1. 선택주문 클릭 -> db에 변경수량 저장 : 재접속시 변경수량이 유지됨
-//2. 선택주문 클릭 -> 주문페이지에 변경수량 보여짐 : 재접속시 변경수량 초기화
+//선택주문
 function selectOrder(){
+	//check박스 선택 후 선택주문 버튼 클릭시 이벤트
+	var checkBoxArr = [];
+	$("input:checkbox[name='product']:checked").each(function(){
+		checkBoxArr.push($(this).val());// 체크된 것만 값을 뽑아 배열에 push
+	})
+	console.log(checkBoxArr);
+
 	
-	let checkedItem = document.querySelectorAll(".select_checkbox:checked");
-	//let quantity = event.target.parentElement.parentElement.previousElementSibling.previousElementSibling.children[1].children[2].children[3].children[0];
+	//up, down이 클릭된 인덱스 번호 - 히든폼 인덱스 번호 비교
+	//클릭된 up의 인덱스번호 가져오기
+//up, down이 클릭된 인덱스번호와 히든폼 인덱스번호비교
+//잂치하는 인덱스번호input에 수량입력 후 submit
+/*		let arraycheck = Array.from(check); //유사배열을 배열로 변환
+		console.log("배열 = "+arraycheck); //배열출력
+		console.log('길이='+arraycheck.length); //
+		console.log(arraycheck.indexOf(check[0]));
+		console.log(arraycheck.indexOf(check[1]));*/
+
+	//let checkBox = "";
 	
+	//for(let i=0; check.length;i++){
+	//	checkBox = checkBox + check[i].checked+" ";		
+		//console.log(i+'checkBox = '+ checkBox) //여기선 제대로 값이 들어간 듯 보이나
+	//}
+	//checkBox.trim().split(" ");
+		//console.log('checkBox = '+ checkBox) //출력안됨
 	
-	for(let i=0; i<checkedItem.length; i++){
-		let index = [].indexOf.call(document.querySelectorAll(".orderinfo"), checkedItem[i].parentElement.parentElement);
-		let quantity = document.querySelectorAll(".quantity")[index].innerText;
-		let cart_num = document.querySelectorAll(".select_checkbox")[index].innerText;
-		console.log(quantity);
-		console.log(cart_num);
-		
-		
+
 	}
-}
+	
+
 
 

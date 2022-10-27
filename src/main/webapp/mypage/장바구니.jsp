@@ -20,6 +20,8 @@
 	if(request.getParameter("cart_quantity") != null){
 		cart_quantity = Integer.parseInt(request.getParameter("cart_quantity"));
 	}
+	
+
 %>
 <!DOCTYPE html>
 <html>
@@ -29,6 +31,8 @@
     <link rel="stylesheet" href="../css/장바구니.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script src="../javascript/장바구니.js"></script>
+    <script src="../javascript/jquery-3.6.0.min.js"></script>
+    <script src="../javascript/jquery-ui.min.js"></script>
 </head>
 <body>
     <header>
@@ -36,7 +40,7 @@
     </header>
 
     <section>
-        <form action="주문정보확인.jsp" method="post" >
+        <form action="주문정보확인.jsp" method="post" name="cartListFrm" >
             <article>
                 <h1>장바구니</h1>
                 <table class="ordertable">
@@ -53,14 +57,14 @@
                             <th>선택</th>
                         </tr>
                         <%
-                        //사용자 아이디로 장바구니에 담긴 상품들을 전부 리스트로 가져옴
-                        ArrayList<Cart> list = memberDAO.getCartList(userID);
- 						DecimalFormat df = new DecimalFormat("#,###");//화폐기호 형식 지정
+						       //사용자 아이디로 장바구니에 담긴 상품들을 전부 리스트로 가져옴
+						       ArrayList<Cart> list = memberDAO.getCartList(userID);
+							DecimalFormat df = new DecimalFormat("#,###");//화폐기호 형식 지정
  						
                                 if(!list.isEmpty()){
                         	for(int i=0; i<list.size();i++){
                         		int cart_product_num = list.get(i).getProduct_num();
-                        		
+                        		int cart_product_quantity = list.get(i).getCart_quantity();
                         		//상품번호와 일치하는 정보 가져옴
                         		Product product = productDAO.getProductList(cart_product_num);
                         		String img = product.getProduct_img();
@@ -83,17 +87,15 @@
                                     <input type="text" value="<%=df.format(price)%>" class="price" readonly checked>원
                             </td>
                             <td class="count_change">
-									<input type="text" value="<%=cart_quantity %>" class="quantity" readonly name="quantity">
+									<input type="text" value="<%=cart_product_quantity%>" class="quantity" readonly name="quantity">
 									<input type="button" value="" class="upbtn" onclick="up()">
 									<input type="button" value="" class="downbtn"onclick="down()">
                              </td>
                              <td></td>
-                             <td><span class="total"><%= df.format(price * cart_quantity) +" 원"%></span></td>
+                             <td><span class="total"><%= df.format(price * cart_product_quantity) +" 원"%></span></td>
                              <td>
-                                        <button class="order">주문하기</button>
-                                        <button class="delete">삭제</button>
-                        		<input type="hidden" value="<%=list.get(i).getCart_num()%>" name="cart_num">
-                        		<input type="hidden" value="<%=list.get(i).getCart_quantity()%>" name="quantity">
+                                        <button type="button" class="order" onclick="order()">주문하기</button>
+                                        <button type="button" class="delete" onclick="Delete()">삭제</button>
                              </td>
                                 </tr>
                         	<%
@@ -141,6 +143,19 @@
         </div>
         </article>
     </form>
+    	<%
+    		for(int i=0; i<list.size();i++){
+    	%>
+    <form method="post" action="cartCountAction.jsp" target="Frame" class="CartFrm" name="hiddenFrm"> <!-- 폼실행될때마다 Frame로 실행-->
+            <input type="hidden" value="<%=list.get(i).getCart_num()%>" name="cart_num">
+			<input type="hidden" value="<%=list.get(i).getCart_quantity()%>" name="quantity">
+    </form>
+	    <%
+	   
+	    
+    		} 
+	    %>
+	    <iframe name="Frame" style="display:none;"></iframe>
     <article class="useinfo">
         <div>
             장바구니 이용안내<br>
