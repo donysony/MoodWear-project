@@ -25,7 +25,7 @@ tr{height:50px;}
 .tabletr{border-bottom: 1px #757575 solid;}
 #answercount{color:#01579b}
 .inquiry_ans{text-align: left; display: flex; align-items: center;}
-.inquiry_ans a{text-align: left; display: flex; align-items: center;}
+.inquiry_ans a{text-align: left; display: flex; align-items: center; font-size:20px;}
 .tabletr td:nth-child(3){padding-top: 13px;}
 #reply_yse{color:#01579b} 
 #reply{color:#01579b}

@@ -14,7 +14,7 @@ public class AdminDAO {
 
  public AdminDAO() {
   try { 
-		String dbURL = "jdbc:mysql://localhost:3306/shop_db";
+		String dbURL = "jdbc:mysql://localhost:3306/moodwear";
 		String dbID = "root";
 		String dbPassword="moodwear2022";
 		Class.forName("com.mysql.jdbc.Driver");
